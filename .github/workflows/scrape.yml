@@ -36,5 +36,3 @@ jobs:
         git add .
         git commit -m "Add scrape results [skip ci]"
         git push origin HEAD:${{ github.ref }}
-        with:
-          token: ${{ secrets.GH_PAT }}
