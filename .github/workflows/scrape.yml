@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        persist-credentials: false  # Désactiver les informations d'identification persistantes pour utiliser le jeton GitHub Actions
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -23,11 +25,14 @@ jobs:
 
     - name: Run scrape script
       run: |
-        pipenv run python scrape.py
+        pipenv run python scrape.py "https://loupuberto.fr/2650-2/" --output-dir=./docs/
 
-    - name: Upload results
-      uses: actions/upload-artifact@v3
-      with:
-        name: scrape-results
-        path: |
-          var/scrape/*
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Add scrape results [skip ci]"
+        git push origin HEAD:${{ github.ref }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,13 +3,22 @@ from bs4 import BeautifulSoup
 import os
 import json
 from datetime import datetime
+import argparse
+
+# Configurer les arguments de ligne de commande
+parser = argparse.ArgumentParser(description='Scraper pour extraire les textes, images et audio d\'une page web.')
+parser.add_argument('url', type=str, help='URL de la page à scraper')
+parser.add_argument('--output-dir', type=str, help='Répertoire de sortie pour les résultats', default=None)
+args = parser.parse_args()
 
 # URL de la page à scraper
-url = "https://loupuberto.fr/2650-2/"
+url = args.url
 
-# Créer un dossier unique basé sur la date et l'heure actuelles
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-output_folder = f"var/scrape/{timestamp}"
+# Timestamp pour identifier les résultats
+timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
+# Créer un dossier de sortie pour les résultats
+output_folder = args.output_dir
 os.makedirs(output_folder, exist_ok=True)
 
 # Envoyer une requête GET à la page
@@ -25,7 +34,7 @@ paragraphs = soup.find_all('p')
 for paragraph in paragraphs:
     text = paragraph.get_text()
     if text and text != '*':
-        texts.append(text.strip ())
+        texts.append(text.strip())
 
 # Extraire les URLs des images
 images = []
@@ -55,6 +64,7 @@ for audio in audios:
 
 # Exporter les résultats en JSON
 results = {
+    "timestamp": timestamp,
     "texts": texts,
     "images": images,
     "audios": audios
@@ -65,3 +75,32 @@ with open(json_path, 'w', encoding='utf-8') as f:
     json.dump(results, f, ensure_ascii=False, indent=4)
 
 print(f"\nLes résultats ont été exportés dans le fichier {json_path}")
+
+# Télécharger les images et audios
+def download_file(url, folder):
+    try:
+        local_filename = os.path.join(folder, url.split('/')[-1])
+        with requests.get(url, stream=True) as r:
+            r.raise_for_status()
+            with open(local_filename, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+        return local_filename
+    except requests.exceptions.RequestException as e:
+        print(f"Erreur lors du téléchargement du fichier {url}: {e}")
+    except Exception as e:
+        print(f"Erreur lors de l'enregistrement du fichier {url}: {e}")
+
+# Créer des sous-dossiers pour les images et les audios
+images_folder = os.path.join(output_folder, 'images')
+audios_folder = os.path.join(output_folder, 'audios')
+os.makedirs(images_folder, exist_ok=True)
+os.makedirs(audios_folder, exist_ok=True)
+
+# Télécharger les images
+for img_url in images:
+    download_file(img_url, images_folder)
+
+# Télécharger les audios
+for audio_url in audios:
+    download_file(audio_url, audios_folder)
