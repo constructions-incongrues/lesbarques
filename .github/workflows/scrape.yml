@@ -30,4 +30,4 @@ jobs:
       with:
         name: scrape-results
         path: |
-          scrape_output_*
+          var/scrape/*
