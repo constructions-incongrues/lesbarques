@@ -6,6 +6,7 @@ on:
 permissions:
   contents: write
 
+
 jobs:
   run-scrape:
     runs-on: ubuntu-latest
@@ -28,7 +29,7 @@ jobs:
 
     - name: Run scrape script
       run: |
-        pipenv run python scrape.py "https://loupuberto.fr/2650-2/" --output-dir=./docs/
+        pipenv run python scrape.py "$SCRAPED_URLS" --output-dir=./docs/
 
     - name: Commit and push changes
       run: |
@@ -37,3 +38,6 @@ jobs:
         git add .
         git commit -m "Add scrape results [skip ci]"
         git push origin HEAD:${{ github.ref }}
+      env:
+        SCRAPED_URLS: ${{ secrets.SCRAPED_URLS }}
+        GITHUB_TOKEN: ${{ secrets.LOUPUBERTO_TOKEN }}
