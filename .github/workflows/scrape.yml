@@ -27,7 +27,7 @@ jobs:
 
     - name: Run scrape script
       run: |
-        pipenv run python src/scrape.py "${{ secrets.SCRAPED_URLS }}" --output-dir=./docs/
+        pipenv run python src/scrape.py "${{ secrets.SCRAPED_URLS }}" --output-dir=../docs/
 
     - name: Run build script
       run: |
