@@ -23,7 +23,7 @@ jobs:
 
     - name: Run scrape script
       run: |
-        pipenv run scrape.py
+        pipenv run python scrape.py
 
     - name: Upload results
       uses: actions/upload-artifact@v3
