@@ -2,10 +2,11 @@ name: Build
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: 0 6 * * *
 
 permissions:
   contents: write
-
 
 jobs:
   run-build:
@@ -34,5 +35,5 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git commit -m "Add scrape results [skip ci]"
+        git commit -m "Add build results [skip ci]"
         git push --force origin HEAD:${{ github.ref }}
