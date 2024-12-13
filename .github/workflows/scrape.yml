@@ -38,5 +38,5 @@ jobs:
         git add .
         git commit -m "Add scrape results [skip ci]"
         git push origin HEAD:${{ github.ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.LOUPUBERTO_TOKEN }}
+        with:
+          token: ${{ secrets.LOUPUBERTO_TOKEN }}
