@@ -1,10 +1,11 @@
-name: Scrape
+name: Build
 
 on:
   workflow_dispatch:
 
 permissions:
   contents: write
+
 
 jobs:
   run-scrape:
@@ -24,9 +25,9 @@ jobs:
         python -m pip install --upgrade pip pipenv
         pipenv install
 
-    - name: Run scrape script
+    - name: Run build script
       run: |
-        pipenv run python scripts/scrape.py "${{ secrets.SCRAPED_URLS }}"
+        pipenv run python scripts/build.py
 
     - name: Commit and push changes
       run: |

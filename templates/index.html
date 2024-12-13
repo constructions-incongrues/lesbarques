@@ -7,7 +7,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-image: url("images/2023-06-03-10.57.24.jpeg");
+            background-image: url("{{ image }}");
         }
         main {
             padding: 5em;
@@ -28,15 +28,16 @@
         }
     </style>
 </head>
+
 <body>
     <main>
         <blockquote>
-            Le sujet orphéen, par l’épreuve d’un abîme entre lui et le monde, permet à l’enfer d’apparaitre comme existant. Ainsi l’existence de la poésie conditionne t’elle l’existence de l’enfer, comme l’existence de la pensée conditionne l’existence du monde, quand le sujet philosophique, via les sens, permet au monde d’apparaitre comme existant.
+            {{ text }}
         </blockquote>
 
         <p>
             <audio controls>
-                <source src="audios/32-sidi-abid.mp3" type="audio/mpeg">
+                <source src="{{ audio }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </p>

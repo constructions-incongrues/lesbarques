@@ -4,7 +4,7 @@ import random
 from jinja2 import Environment, FileSystemLoader
 
 # Charger les données JSON
-with open("./docs/results.json", "r", encoding="utf-8") as f:
+with open("./docs/manifest.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # Sélectionner un texte, une image et un audio au hasard
@@ -13,8 +13,8 @@ image = random.choice(data["images"])
 audio = random.choice(data["audios"])
 
 # Configurer Jinja2 pour charger le modèle HTML
-env = Environment(loader=FileSystemLoader("./src"), autoescape=True)
-template = env.get_template("template.html")
+env = Environment(loader=FileSystemLoader("./templates"), autoescape=True)
+template = env.get_template("index.html")
 
 # Rendre le modèle avec les données aléatoires
 html_content = template.render(text=text, image=image, audio=audio)
