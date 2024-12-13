@@ -3,18 +3,21 @@ name: Run Scrape Script
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   run-scrape:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         persist-credentials: false  # Désactiver les informations d'identification persistantes pour utiliser le jeton GitHub Actions
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -35,4 +38,4 @@ jobs:
         git commit -m "Add scrape results [skip ci]"
         git push origin HEAD:${{ github.ref }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
