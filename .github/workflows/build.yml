@@ -8,7 +8,7 @@ permissions:
 
 
 jobs:
-  run-scrape:
+  run-build:
     runs-on: ubuntu-latest
 
     steps:
