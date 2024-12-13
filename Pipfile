@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "2.32.3"
 beautifulsoup4 = "4.12.3"
+jinja2 = "3.0.3"
+requests = "2.32.3"
 
 [dev-packages]
 
