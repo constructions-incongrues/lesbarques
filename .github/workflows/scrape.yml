@@ -29,7 +29,7 @@ jobs:
 
     - name: Run scrape script
       run: |
-        pipenv run python scrape.py "$SCRAPED_URLS" --output-dir=./docs/
+        pipenv run python scrape.py "${{ secrets.SCRAPED_URLS }}" --output-dir=./docs/
 
     - name: Commit and push changes
       run: |
@@ -39,5 +39,4 @@ jobs:
         git commit -m "Add scrape results [skip ci]"
         git push origin HEAD:${{ github.ref }}
       env:
-        SCRAPED_URLS: ${{ secrets.SCRAPED_URLS }}
         GITHUB_TOKEN: ${{ secrets.LOUPUBERTO_TOKEN }}
