@@ -6,21 +6,29 @@
     <title>Les Barques</title>
     <style>
         body {
-            background-image: url('images/whatsapp-image-2023-11-05-a-12.55.29_fc021bce.jpg');
+            background-image: url('images/whatsapp-image-2023-11-05-a-12.55.30_d5d36e06.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 100vh; /* Ensures full viewport height */
             margin: 0;     /* Removes default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Default text color */
         }
         main {
-            padding: 5em;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 2em;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: center;
         }
         p, blockquote {
             margin: 0;
             padding: 10px;
         }
-        blockquote {
+        blockquote, .audio-filename {
             font-size: 1.5em;
         }
         img {
@@ -28,7 +36,18 @@
             height: auto;
         }
         audio {
-            width: 100%;
+            width: 80%; /* Reduce the width of the audio player */
+            margin: 10px auto; /* Center the audio player */
+            display: block; /* Ensure the audio player is displayed as a block element */
+            background-color: rgba(0, 0, 0, 0.5); /* Match the background color of the text */
+            color: white; /* Match the text color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Add rounded corners */
+        }
+        .audio-filename {
+            text-align: center;
+            margin-top: 10px;
+            color: white;
         }
     </style>
 </head>
@@ -36,14 +55,17 @@
 <body>
     <main>
         <blockquote>
-            Le chanté est l’outil dont use la matière pour mener son propre procès, un procès pour autophagie. Le chanté condamne la réalité et la matière. Dans la plainte, il accuse la matière d’avoir, en accouchant de l’espèce humaine, accouché d’une vie consciente d’elle-même. Mais le crime n’est pas encore cela : La véritable atrocité, continuellement commise par la matière, est d’user d’une variation incessante de souffrance et de menace sur toute chair issue d’elle pour se répliquer. La matière enfante, comme ultime farce, des portions de chair capables de comprendre leur vie sans autre perspective que de répliquer la matière en une variation continue des mêmes principes.
+            La décomposition est bascule, où le visage de l’autre demeurant Autre, la voix, face d’infini, vient s’écrasant avec le monde entier contre mon visage et, pressant les tissus, fait de mille poires très mûres un agglomérat, poires qui, abâtardies, donnent une purée épaisse. Il y a un devenir purée du chanté immonde, un devenir poisse, il y a une béatitude de la bouillie. Le chanté immonde mène l’Histoire non pas à son terme mais à sa décomposition, il sature l’Histoire d’elle-même.
         </blockquote>
 
         <p>
             <audio controls controlsList="nodownload">
-                <source src="audios/55-chansons-redeyef-doumar2.mp3" type="audio/mpeg">
+                <source src="audios/turco-russo-gabola-uberto-a-napoli-il-cunigliu.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+        </p>
+        <p class="audio-filename">
+            Turco Russo Gabola Uberto A Napoli Il Cunigliu
         </p>
     </main>
 </body>
