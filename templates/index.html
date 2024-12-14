@@ -30,6 +30,11 @@
         audio {
             width: 100%;
         }
+        .audio-filename {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -44,6 +49,9 @@
                 <source src="{{ audio }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+        </p>
+        <p class="audio-filename">
+            {{ audio.split('/')[-1].split('.')[0].replace('-', ' ').title() }}
         </p>
     </main>
 </body>
