@@ -1,14 +1,27 @@
 import json
 import random
-
+import argparse
 from jinja2 import Environment, FileSystemLoader
+
+# Configurer les arguments de ligne de commande
+parser = argparse.ArgumentParser(description='Générer un fichier HTML à partir d\'un modèle et de données JSON.')
+parser.add_argument('--min-text-length', type=int, help='Longueur minimale du texte choisi', default=0)
+args = parser.parse_args()
 
 # Charger les données JSON
 with open("./docs/manifest.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
+# Filtrer les textes en fonction de la longueur minimale
+filtered_texts = [text for text in data["texts"] if len(text) >= args.min_text_length]
+
 # Sélectionner un texte, une image et un audio au hasard
-text = random.choice(data["texts"])
+if filtered_texts:
+    text = random.choice(filtered_texts)
+else:
+    print(f"Aucun texte ne correspond à la longueur minimale de {args.min_text_length} caractères.")
+    exit(1)
+
 image = random.choice(data["images"])
 audio = random.choice(data["audios"])
 
