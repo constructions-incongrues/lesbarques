@@ -6,9 +6,12 @@
     <title>Les Barques</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-image: url("{{ image }}");
+            background-image: url('{{ image }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensures full viewport height */
+            margin: 0;     /* Removes default margin */
         }
         main {
             padding: 5em;
