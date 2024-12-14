@@ -28,7 +28,7 @@ jobs:
 
     - name: Run build script
       run: |
-        pipenv run python scripts/build.py --min-text-length=${{ vars.MIN_TEXT_LENGTH }}
+        pipenv run python scripts/build.py --min-text-length=${{ vars.MIN_TEXT_LENGTH }} --max-text-length=${{ vars.MAX_TEXT_LENGTH }}
 
     - name: Commit and push changes
       run: |
