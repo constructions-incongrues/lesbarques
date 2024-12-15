@@ -65,7 +65,7 @@
             </audio>
         </p>
         <p class="audio-filename">
-            {{ audio.split('/')[-1].split('.')[0].replace('-', ' ').title() }}
+            {{ audio.split('/')[-1].split('.')[0].replace('-', ' ').replace('_', ' ').title() | regex_replace('^\d+|\d+$', '').strip() }}
         </p>
     </main>
 </body>
