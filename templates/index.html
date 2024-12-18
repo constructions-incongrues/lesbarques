@@ -18,7 +18,7 @@
             color: white; /* Default text color */
         }
         main {
-            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+            background-color: rgba(0, 0, 0, 1); /* Semi-transparent background */
             padding: 1em;
             border-radius: 4px;
             max-width: 600px;
@@ -26,8 +26,8 @@
         }
         p, blockquote {
             margin: 0;
-            font-size: 10px;
-            padding: 5px;
+            font-size: 0px;
+            padding: 0px;
         }
         blockquote, .audio-filename {
             font-size: 1.0em;
@@ -64,9 +64,9 @@
             </audio>
         </p>
        
-                <blockquote>
+                <-blockquote>
             {{ text }}
-        </blockquote>
+        <-/blockquote>
         
     </main>
 </body>
