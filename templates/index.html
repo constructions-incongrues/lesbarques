@@ -56,9 +56,6 @@
 
 <body>
     <main>
-        <blockquote>
-            {{ text }}
-        </blockquote>
         
         <p>
             <audio controls controlsList="nodownload">
@@ -66,9 +63,11 @@
                 Your browser does not support the audio element.
             </audio>
         </p>
-        <p class="audio-filename">
-            {{ audio.split('/')[-1].split('.')[0].replace('-', ' ').replace('_', ' ').title() }}
-        </p>
+       
+                <blockquote>
+            {{ text }}
+        </blockquote>
+        
     </main>
 </body>
 </html>
