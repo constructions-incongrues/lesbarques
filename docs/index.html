@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les Barques</title>
     <style>
-        body {
-            background-image: url('images/img_1996.jpg');
+         body {
+            background-image: url('images/img_1985.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 100vh; /* Ensures full viewport height */
             margin: 0;     /* Removes default margin */
             display: flex;
+            justify-content: center;
+            align-items: center;
             color: white; /* Default text color */
         }
         main {
@@ -50,6 +52,13 @@
             margin-top: 2px;
             color: white;
         }
+       
+        .bottomright {
+          position: absolute;
+          bottom: 8px;
+          right: 16px;
+          font-size: 18px;
+            }
         
     </style>
 </head>
@@ -58,12 +67,13 @@
         
         <p>
             <audio controls controlsList="nodownload">
-                <source src="audios/rita-piga-chants-sardes.mp3" type="audio/mpeg">
+                <source src="audios/aydin-ciracioglu-improvisation.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </p>
-             <div class="bottomright">Les Barques</div>         
+        
     </main>
+       <div class="bottomright">Les Barques</div>         
 </body>
     
 </html>
