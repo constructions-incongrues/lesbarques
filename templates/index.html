@@ -41,7 +41,10 @@
             height: auto;
         }
         audio {
-            width: 50%; /* Reduce the width of the audio player */
+            position: absolute;
+            bottom:60px;
+            right:32px;
+            width: 40%; /* Reduce the width of the audio player */
             margin: 10px auto; /* Center the audio player */
             display: block; /* Ensure the audio player is displayed as a block element */
             background-color: rgba(0, 0, 0, 0.5); /* Match the background color of the text */
@@ -70,12 +73,7 @@
 <body>
     <main>
         
-        <p>
-            <audio controls controlsList="nodownload">
-                <source src="{{ audio }}" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </p>
+        <p>        </p>
         
     </main>
      
