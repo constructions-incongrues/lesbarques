@@ -65,7 +65,20 @@
           right: 32px;
           font-size: 25px;
             }
-      }
+        input{display:none;}
+
+div{
+  border:5px ridge grey;
+  width:250px;
+  height:3rem;
+  transition:1s;
+  overflow:hidden;
+}
+
+input:checked ~ div {height:200px;}
+              }
+        
+
 
         
     </style>
@@ -82,7 +95,24 @@
                 Your browser does not support the audio element.
             </audio>
     
-           <div class="bottomright"> <a href="https://loupuberto.fr/3478-2/" target="_blank"> Les Barques ||| </a> </div>          
+           <div class="bottomright"> <a href="https://loupuberto.fr/3478-2/" target="_blank"> Les Barques ||| </a> </div>
+
+    <label for="chk1">
+<input type="checkbox" name="menu" id="chk1">
+<div class="partie-1">
+	<h3>Titre A</h3>
+  <p>Qu'est-ce que le Lorem Ipsum?
+Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  </p>
+</div>
+</label>
+<label for="chk2">
+<input type="checkbox" name="menu" id="chk2">
+<div class="partie-2">
+  <h3>Titre B</h3>
+	<p>Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+</div>
+</label>
+    
 </body>
     
 </html>
