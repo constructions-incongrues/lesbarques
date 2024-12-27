@@ -34,8 +34,8 @@
             padding: 9px;
 		line-eight:1px;
 		justify-content: center;
-		align-items: center;
 	background-color: rgba(0, 0, 0, 0.2);
+		height: auto;
         }
         blockquote, .audio-filename {
             font-size: 0em;
@@ -46,9 +46,9 @@
         }
         audio {
             position: absolute;
-            bottom:75px;
+            top:15px;
             right:15px;
-            width: 40%; /* Reduce the width of the audio player */
+            width: 100%; /* Reduce the width of the audio player */
             margin: 10px auto; /* Center the audio player */
             display: block; /* Ensure the audio player is displayed as a block element */
             background-color: rgba(0, 0, 0, 0); /* Match the background color of the text */
@@ -58,7 +58,7 @@
         }
         .audio-filename {
             text-align: right;
-            font-size: 10px;
+            font-size: 0px;
             margin-top: 2px;
             color: white;
         }
@@ -105,7 +105,7 @@ input:checked ~ div {height:510px;}
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomright">
-	<h3>  ||| Les Barques ||| </h3>
+	<h4>  ||| Les Barques ||| </h4>
   <p>
 Un enregistrement et une photographie argentique sélectionnés au hasard, quotidiennement, dans une vaste archive, fluide comme la mémoire.
 
