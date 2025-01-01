@@ -24,8 +24,8 @@
             background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
             padding: 5em;
             border-radius: 4px;
-            width: 80vw;
-            eight: 100vh;
+            max-width: 300px;
+            max-eight: 300px;
             text-align: center;
         }
         p, blockquote {
@@ -60,43 +60,42 @@
             margin-top: 2px;
             color: white;
         }
-       
+
         .bottomright {
           position: absolute;
           bottom: 30px;
           right: 32px;
           font-size: 18px;
-		width: 80vw;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.4);
             }
-	    
+
         input{display:none;}
 
 div{
-  border:0px ridge grey; 
-font-size: 90vw;
-  width:80vw;
+  border:0px ridge grey;
+  width:430px;
+  height:3rem;
   transition:1s;
   overflow:scroll;
 }
 
 input:checked ~ div {height:480px;}
               }
-        
 
 
-        
+
+
     </style>
 </head>
 <body>
 
-     
+
     <audio controls controlsList="nodownload">
                 <source src="{{ audio }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-    
-           
+
+
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
@@ -123,7 +122,11 @@ L'arca lascia il diluvio portare via i margini, le barche li custodiscano. Cosa 
 (διαβάλλω - che divide - di-videre- vedere/conoscere separando) le barche o l'arca del diavolo? Il diavolo: colui che non ammette altro mondo che questo, che non ammette la fantasia di un'unità totalizzante di questo mondo: Pan (Πάν - tutto & πάειν - pascolare) per pascolare insieme cose uniche di questo mondo. 
 </p>
 </div>
-
+	
+	        <blockquote>
+            {{ text }}
+        </blockquote>
+	
 	     <label for="chk3">
 <input type="checkbox" name="menu" id="chk3">
 <div class="partie-3">
@@ -139,7 +142,7 @@ The ark lets the flood carry away the margins, the barques preserve them. What i
 </div>
 </label>
 
-    
+
 </body>
-    
+
 </html>
