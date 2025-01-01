@@ -74,7 +74,7 @@
 div{
   border:0px ridge grey;
   font-size: 12px;
-  width:50vw;
+  width:95vw;
   transition:1s;
   overflow:scroll;
 }
@@ -99,7 +99,7 @@ input:checked ~ div {height:80vh;}
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="partie-1">
+<div class="bottomright">
 	<h4>  ||| Les Barques ||| </h4>
   <p>
 Un enregistrement et une photographie argentique sélectionnés au hasard, quotidiennement, dans une vaste archive, fluide comme la mémoire. <br>
@@ -113,7 +113,7 @@ les barques ou l’arche du diable (διαβάλλω – qui divise – di-vider
 
    <label for="chk2">
 <input type="checkbox" name="menu" id="chk2">
-<div class="partie-2">
+<div class="partie-1">
 	<h4> > IT </h4>
   <p>
 Una registrazione e una fotografia selezionati casualmente, quotidianamente, da un archivio vasto, fluido come la memoria.
@@ -122,14 +122,10 @@ L'arca lascia il diluvio portare via i margini, le barche li custodiscano. Cosa 
 (διαβάλλω - che divide - di-videre- vedere/conoscere separando) le barche o l'arca del diavolo? Il diavolo: colui che non ammette altro mondo che questo, che non ammette la fantasia di un'unità totalizzante di questo mondo: Pan (Πάν - tutto & πάειν - pascolare) per pascolare insieme cose uniche di questo mondo. 
 </p>
 </div>
-	
-	        <blockquote>
-            {{ text }}
-        </blockquote>
-	
+		
 	     <label for="chk3">
 <input type="checkbox" name="menu" id="chk3">
-<div class="partie-3">
+<div class="partie-2">
 	<h4> > EN </h4>
   <p>
 A recording and a photograph selected randomly, daily, from a vast archive, fluid like memory.
@@ -138,7 +134,12 @@ The ark lets the flood carry away the margins, the barques preserve them. What i
 (διαβάλλω - which divides - di-videre- see/know by separating) the boats or the devil's ark? The devil: he who does not admit any other world than this one, who does not admit the fantasy of a totalizing unity of this world: Pan (Πάν - everything & πάειν - to graze) to graze things together unique to this world.
   </p>
 </div>
-		
+
+		     
+	        <blockquote>
+          url('{{ text }}')
+        </blockquote>
+		     
 </div>
 </label>
 
