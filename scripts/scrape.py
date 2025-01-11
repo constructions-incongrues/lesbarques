@@ -32,7 +32,6 @@ parser.add_argument('urls', type=str, help='URLs des pages à scraper, séparée
 parser.add_argument('--output-dir', type=str, help='Répertoire de sortie pour les résultats', default="docs")
 parser.add_argument('--insecure', help='Requêtes HTTP sécurisées', action='store_false')
 args = parser.parse_args()
-print(args.insecure)
 
 # Liste des URLs à scraper
 urls = args.urls.split(',')
@@ -77,14 +76,14 @@ for url in urls:
             audios_urls.append(href)
 
     # Afficher les résultats
-    print(f"Textes extraits de {url}:")
+    print(f"Textes extraits de {url} :")
     print(texts)
 
-    print(f"\nImages extraites de {url}:")
+    print(f"\nImages extraites de {url} :")
     for img in images_urls:
         print(img)
 
-    print(f"\nAudios extraits de {url}:")
+    print(f"\nAudios extraits de {url} :")
     for audio in audios_urls:
         print(audio)
 
