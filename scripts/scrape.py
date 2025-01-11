@@ -102,12 +102,16 @@ os.makedirs(audios_folder, exist_ok=True)
 # Télécharger les images
 images = []
 for img_url in final_images:
-    images.append(download_file(img_url, images_folder).replace('docs/', ''))
+    file_img = download_file(img_url, images_folder)
+    if file_img:
+        images.append(file_img.replace('docs/', ''))
 
 # Télécharger les audios
 audios = []
 for audio_url in final_audios:
-    audios.append(download_file(audio_url, audios_folder).replace('docs/', ''))
+    file_audio = download_file(audio_url, audios_folder)
+    if file_audio:
+        audios.append(file_audio.replace('docs/', ''))
 
 # Exporter les résultats en JSON
 results = {
