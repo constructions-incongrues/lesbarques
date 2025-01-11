@@ -56,10 +56,10 @@ for url in urls:
 
     # Extraire les textes
     texts = []
-    paragraphs = soup.find_all('p')
-    for paragraph in paragraphs:
-        text = paragraph.get_text()
-        if text and text != '*':
+    spans = soup.find_all('span', attrs={'class':'c0'})
+    for span in spans:
+        text = span.get_text()
+        if text and len(text) > 3:
             texts.append(text.strip())
 
     # Extraire les URLs des images
