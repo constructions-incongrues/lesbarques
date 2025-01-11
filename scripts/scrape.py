@@ -55,7 +55,8 @@ for url in urls:
 
     # Extraire les textes
     texts = []
-    spans = soup.find_all('span', attrs={'class':'c0'})
+    div = soup.find('div', {"id": "contents"})
+    spans = div.findChildren('span')
     for span in spans:
         text = span.get_text()
         if text and len(text) > 3:
