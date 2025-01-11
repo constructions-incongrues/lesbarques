@@ -56,11 +56,12 @@ for url in urls:
     # Extraire les textes
     texts = []
     div = soup.find('div', {"id": "contents"})
-    spans = div.findChildren('span')
-    for span in spans:
-        text = span.get_text()
-        if text and len(text) > 3:
-            texts.append(text.strip())
+    if div:
+        spans = div.findChildren('span')
+        for span in spans:
+            text = span.get_text()
+            if text and len(text) > 3:
+                texts.append(text.strip())
 
     # Extraire les URLs des images
     images_urls = []
