@@ -28,59 +28,70 @@ timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
 # Configurer les arguments de ligne de commande
 parser = argparse.ArgumentParser(description='Scraper pour extraire les textes, images et audio d\'une page web.')
-parser.add_argument('url', type=str, help='URL de la page à scraper')
+parser.add_argument('urls', type=str, help='URLs des pages à scraper, séparées par des virgules')
 parser.add_argument('--output-dir', type=str, help='Répertoire de sortie pour les résultats', default="docs")
 parser.add_argument('--insecure', help='Requêtes HTTP sécurisées', action='store_false')
 args = parser.parse_args()
 print(args.insecure)
 
-# URL de la page à scraper
-url = args.url
+# Liste des URLs à scraper
+urls = args.urls.split(',')
 
 # Créer un dossier de sortie pour les résultats
 output_folder = args.output_dir
 os.makedirs(output_folder, exist_ok=True)
 
-# Envoyer une requête GET à la page
-response = requests.get(url, verify=args.insecure   , timeout=10)
-response.raise_for_status()  # Vérifier que la requête a réussi
+# Initialiser les résultats finaux
+final_texts = []
+final_images = []
+final_audios = []
 
-# Parser le contenu HTML de la page
-soup = BeautifulSoup(response.content, 'html.parser')
+for url in urls:
+    # Envoyer une requête GET à la page
+    response = requests.get(url.strip(), verify=args.insecure, timeout=10)
+    response.raise_for_status()  # Vérifier que la requête a réussi
 
-# Extraire les textes
-texts = []
-paragraphs = soup.find_all('p')
-for paragraph in paragraphs:
-    text = paragraph.get_text()
-    if text and text != '*':
-        texts.append(text.strip())
+    # Parser le contenu HTML de la page
+    soup = BeautifulSoup(response.content, 'html.parser')
 
-# Extraire les URLs des images
-images_urls = []
-for img in soup.find_all('img'):
-    img_url = img.get('src').split('?')[0] if img.get('src') else None
-    if img_url:
-        images_urls.append(img_url)
+    # Extraire les textes
+    texts = []
+    paragraphs = soup.find_all('p')
+    for paragraph in paragraphs:
+        text = paragraph.get_text()
+        if text and text != '*':
+            texts.append(text.strip())
 
-# Extraire les URLs des fichiers audio
-audios_urls = []
-for link in soup.find_all('a'):
-    href = link.get('href')
-    if href and href.endswith('.mp3'):
-        audios_urls.append(href)
+    # Extraire les URLs des images
+    images_urls = []
+    for img in soup.find_all('img'):
+        img_url = img.get('src').split('?')[0] if img.get('src') else None
+        if img_url:
+            images_urls.append(img_url)
 
-# Afficher les résultats
-print("Textes extraits:")
-print(texts)
+    # Extraire les URLs des fichiers audio
+    audios_urls = []
+    for link in soup.find_all('a'):
+        href = link.get('href')
+        if href and href.endswith('.mp3'):
+            audios_urls.append(href)
 
-print("\nImages extraites:")
-for img in images_urls:
-    print(img)
+    # Afficher les résultats
+    print(f"Textes extraits de {url}:")
+    print(texts)
 
-print("\nAudios extraits:")
-for audio in audios_urls:
-    print(audio)
+    print(f"\nImages extraites de {url}:")
+    for img in images_urls:
+        print(img)
+
+    print(f"\nAudios extraits de {url}:")
+    for audio in audios_urls:
+        print(audio)
+
+    # Ajouter les résultats à la liste finale
+    final_texts.extend(texts)
+    final_images.extend(images_urls)
+    final_audios.extend(audios_urls)
 
 # Créer des sous-dossiers pour les images et les audios
 images_folder = os.path.join(output_folder, 'images')
@@ -90,18 +101,18 @@ os.makedirs(audios_folder, exist_ok=True)
 
 # Télécharger les images
 images = []
-for img_url in images_urls:
+for img_url in final_images:
     images.append(download_file(img_url, images_folder).replace('docs/', ''))
 
 # Télécharger les audios
 audios = []
-for audio_url in audios_urls:
+for audio_url in final_audios:
     audios.append(download_file(audio_url, audios_folder).replace('docs/', ''))
 
 # Exporter les résultats en JSON
 results = {
     "timestamp": timestamp,
-    "texts": texts,
+    "texts": final_texts,
     "images": images,
     "audios": audios
 }
