@@ -65,10 +65,12 @@ for url in urls:
 
     # Extraire les URLs des images
     images_urls = []
-    for img in soup.find_all('img'):
-        img_url = img.get('src').split('?')[0] if img.get('src') else None
-        if img_url:
-            images_urls.append(img_url)
+    div = soup.find('div', {"id": "content"})
+    if div:
+        for img in div.findChildren('img'):
+            img_url = img.get('src').split('?')[0] if img.get('src') else None
+            if img_url:
+                images_urls.append(img_url)
 
     # Extraire les URLs des fichiers audio
     audios_urls = []
