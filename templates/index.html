@@ -92,9 +92,22 @@
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomdiv">
 	<h3>  &nbsp; &nbsp; &nbsp; &nbsp;▼ Les Barques </h3>
-	   <blockquote>
-      <i>  {{ text }}   </i>
+	
+  <p id="datetime"></p>
+
+<script>
+  // Get current date and time
+  var now = new Date();
+  var datetime = now.toLocaleString();
+
+  // Insert date and time into HTML
+  document.getElementById("datetime").innerHTML = datetime;
+</script>
+	
+	  <blockquote>
+		Journal :  <i>  {{ text }}   </i>
     </blockquote> <br>
+	
 	  <h4> &gt; FR </h4>
 Un enregistrement et une photographie argentique sélectionnés au hasard, quotidiennement, dans une vaste archive fluide comme la mémoire. <br>
 Une arche des étrangetés. L’arche divisée en une multitude d’embarcations chancelantes. <br>
