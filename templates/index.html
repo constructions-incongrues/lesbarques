@@ -80,6 +80,19 @@
         height:95vh;
         overflow:scroll;
     }
+	    @keyframes fadeInUp {
+  0% {
+     opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeInUp-animation {
+  animation: 2.5s fadeInUp;
+}
+	    
     </style>
 </head>
 
@@ -93,7 +106,7 @@
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv w3-animate-fading">
+<div class="bottomdiv fadeInUp-animation">
 	<p style="font-family:garamond" size="25">  ▼ Les Barques </p>
 	
 	<br>
