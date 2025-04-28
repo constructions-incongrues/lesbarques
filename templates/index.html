@@ -54,6 +54,15 @@
             margin-top: 0px;
             color: white;
         }
+	.circle  {
+	font-size: 80px;
+        text-align: right;
+        padding-right: 8vw;
+        height:3.5rem;
+        width:96vw;
+        transition:1s;
+        background-color: rgba(0, 0, 0, 0);
+	}
 
         .bottomdiv {
             position: fixed;
@@ -88,15 +97,27 @@
   100% {
     opacity: 1;
   }
+	    }
+	    @keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
+	  
+		    
 .fadeInUp-animation {
   animation: 7s fadeInUp;
 }
-.fadeInAndOut-animation {
-  animation: 2s fadeInUp
+.fadeInOut-animation {
+  animation: fadeInOut 4s linear 1 forwards;
 }
-	    
+	  	    
     </style>
 </head>
 
@@ -108,13 +129,12 @@
         Your browser does not support the audio element.
     </audio>
 
-	<div class="absolute right-0 bottom-0 fadeInAndOut-animation">
-	<p style="font-family:garamond" size="40"> • </p>
+	<div class="circle fadeInOut-animation"> • </div>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomdiv fadeInUp-animation">
-	<p style="font-family:garamond" size="25">  <span class="fadeInAndOut-animation" ▼ </span> Les Barques </p>
+	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▼ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
 
