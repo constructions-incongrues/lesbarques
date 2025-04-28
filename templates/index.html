@@ -59,6 +59,7 @@
             position: fixed;
             left: 0;
             bottom: 0vh;
+	    z-index: 3;
         }
 
         input {
@@ -75,18 +76,20 @@
         transition:1s;
         overflow:hidden;
         background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
     }
 	    
 .buttontriangle  {
-	font-size: 20px;
+	font-size: 25px;
 	position: absolute;
         text-align: right;
- 	bottom: 20px;
+ 	bottom: 50px;
         padding-right: 3vw;
         height:3.5rem;
         width:96vw;
         transition:1s;
         background-color: rgba(0, 0, 0, 0);
+	z-index: 5;
 	}
 	    
     input:checked ~ div {
