@@ -54,14 +54,17 @@
             margin-top: 0px;
             color: white;
         }
-	.circle  {
+	.buttontriangle  {
 	font-size: 80px;
+	position: absolute;
         text-align: right;
-        padding-right: 8vw;
+ 	bottom: 30px;
+        padding-right: 3vw;
         height:3.5rem;
         width:96vw;
         transition:1s;
         background-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
 	}
 
         .bottomdiv {
@@ -115,7 +118,7 @@
   animation: 7s fadeInUp;
 }
 .fadeInOut-animation {
-  animation: fadeInOut 2s infinite;
+  animation: fadeInOut 4s infinite;
 }
 	  	    
     </style>
@@ -129,12 +132,12 @@
         Your browser does not support the audio element.
     </audio>
 
-	<div class="circle fadeInOut-animation"> • </div>
+	<button type="buttontriangle fadeInOut-animation"> ▼ </button>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomdiv fadeInUp-animation">
-	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▼ </span> Les Barques </p>
+	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
 
