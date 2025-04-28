@@ -54,18 +54,7 @@
             margin-top: 0px;
             color: white;
         }
-	.buttontriangle  {
-	font-size: 15px;
-	position: absolute;
-        text-align: right;
- 	bottom: 50px;
-        padding-right: 3vw;
-        height:3.5rem;
-        width:96vw;
-        transition:1s;
-        background-color: rgba(0, 0, 0, 0);
-	}
-
+	
         .bottomdiv {
             position: fixed;
             left: 0;
@@ -75,7 +64,7 @@
         input {
             display:none;
         }
-
+	    
     div {
         font-size: 15px;
         text-align: center;
@@ -87,10 +76,23 @@
         overflow:hidden;
         background-color: rgba(0, 0, 0, 0.7);
     }
-
+	    
+.buttontriangle  {
+	font-size: 20px;
+	position: absolute;
+        text-align: right;
+ 	bottom: 20px;
+        padding-right: 3vw;
+        height:3.5rem;
+        width:96vw;
+        transition:1s;
+        background-color: rgba(0, 0, 0, 0);
+	}
+	    
     input:checked ~ div {
         height:95vh;
         overflow:scroll;
+		      
     }
 	    @keyframes fadeInUp {
   0% {
@@ -143,8 +145,6 @@
         Your browser does not support the audio element.
     </audio>
 
-	<div class="buttontriangle fadeInOut-animation" onclick="Hide bottomdiv" onclick="Show bottomdiv" onclick="Hide audio" onclick="Show audio"> ▼ </div>
-
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomdiv fadeInUp-animation">
@@ -192,6 +192,9 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br> <br>
 	Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi,Mohamed Znaidi,Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef
 	</div>
+	
+<div class="buttontriangle fadeInOut-animation" onclick="removeElement(bottomdiv)" onclick="resetElement(bottomdiv)" onclick="removeElement(audio)" onclick="resetElement(audio)"> ▼ </div>
+
 	</label>
 
 
