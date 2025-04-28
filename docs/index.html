@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/whatsapp-image-2023-11-05-a-12.55.29_fc021bce.jpg');
+            background-image: url('images/img_20221006_0015.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -55,16 +55,15 @@
             color: white;
         }
 	.buttontriangle  {
-	font-size: 80px;
+	font-size: 15px;
 	position: absolute;
         text-align: right;
- 	bottom: 30px;
+ 	bottom: 50px;
         padding-right: 3vw;
         height:3.5rem;
         width:96vw;
         transition:1s;
         background-color: rgba(0, 0, 0, 0);
-	cursor: pointer;
 	}
 
         .bottomdiv {
@@ -112,15 +111,27 @@
     opacity: 0;
   }
 }
-	  
+	     @keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+   }
+}
+	  	  
 		    
 .fadeInUp-animation {
   animation: 7s fadeInUp;
 }
 .fadeInOut-animation {
-  animation: fadeInOut 4s infinite;
+  animation: fadeInOut 3s infinite;
+  cursor: pointer
 }
-	  	    
+.fadeOut-animation {
+  animation: 3s fadieInOut
+	 }
+	    	  	    
     </style>
 </head>
 
@@ -128,11 +139,11 @@
 <body style="font-family:garamond">
 
     <audio class="fadeInUp-animation" controls controlsList="nodownload">
-        <source src="audios/aydin-ciracioglu-turkish-song.mp3" type="audio/mpeg">
+        <source src="audios/38-sidi-abid.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-	<div class="buttontriangle fadeInOut-animation"> ▼ </div>
+	<div class="buttontriangle fadeInOut-animation" onclick="Hide bottomdiv" onclick="Show bottomdiv" onclick="Hide audio" onclick="Show audio"> ▼ </div>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
@@ -152,7 +163,7 @@
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Pour penser, on passe à l’image lorsqu’on ne peut avoir sous les yeux tous les éléments de savoir, mais ça ne veut pas dire que l’on ne veut pas savoir. Suspension de l’analyse n’est pas refus de la connaissance.  </i>
+		  <i> Aporie a poros, sans ouverture, pensée close. Chercher les marges hors des objets culturels qui veulent l’hégémonie. Poros enfante Eros avec Penia. L’appel vers l’Autre est enfant de la perméabilité et du manque.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
