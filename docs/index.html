@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/r001-029.jpg');
+            background-image: url('images/10040005.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -59,6 +59,7 @@
             position: fixed;
             left: 0;
             bottom: 0vh;
+	    z-index: 3;
         }
 
         input {
@@ -75,18 +76,17 @@
         transition:1s;
         overflow:hidden;
         background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
     }
 	    
 .buttontriangle  {
-	font-size: 20px;
-	position: absolute;
-        text-align: right;
- 	bottom: 20px;
-        padding-right: 3vw;
+	font-size: 40px;
+ 	bottom: 30px;
+        padding-right: 8vw;
         height:3.5rem;
         width:96vw;
         transition:1s;
-        background-color: rgba(0, 0, 0, 0);
+	z-index: 5;
 	}
 	    
     input:checked ~ div {
@@ -141,10 +141,14 @@
 <body style="font-family:garamond">
 
     <audio class="fadeInUp-animation" controls controlsList="nodownload">
-        <source src="audios/rosaria-cista-ieri-e-oggi.mp3" type="audio/mpeg">
+        <source src="audios/poesia-campa-cista.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+	
+<div class="buttontriangle fadeInOut-animation" onclick="removeElement(bottomdiv)" onclick="resetElement(bottomdiv)" onclick="removeElement(audio)" onclick="resetElement(audio)"> ▼ </div>
+
+	
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomdiv fadeInUp-animation">
@@ -163,7 +167,7 @@
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Phénotype étendu, augmenter sa surface de contact avec le monde qui nous entoure par la construction (soit avec des éléments extérieurs, soit par sécrétion). Propre de l’animal humain : utiliser des représentations mentales et les organiser dans le langage.  </i>
+		  <i> Assomption Meinong : c’est dans la nature-même de l’assomption (supposer que) que de viser un être qui n’a pas lui-même besoin d’être. -compte non pas ce qu’il est mais ce qu’il “représente”? Objets oxymoriques.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
@@ -193,8 +197,6 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi,Mohamed Znaidi,Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef
 	</div>
 	
-<div class="buttontriangle fadeInOut-animation" onclick="removeElement(bottomdiv)" onclick="resetElement(bottomdiv)" onclick="removeElement(audio)" onclick="resetElement(audio)"> ▼ </div>
-
 	</label>
 
 
