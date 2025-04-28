@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/il-maggio-degli-sradicati.jpg');
+            background-image: url('images/img_1984.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -54,6 +54,15 @@
             margin-top: 0px;
             color: white;
         }
+	.circle  {
+	font-size: 80px;
+        text-align: right;
+        padding-right: 8vw;
+        height:3.5rem;
+        width:96vw;
+        transition:1s;
+        background-color: rgba(0, 0, 0, 0);
+	}
 
         .bottomdiv {
             position: fixed;
@@ -88,15 +97,27 @@
   100% {
     opacity: 1;
   }
+	    }
+	    @keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
+	  
+		    
 .fadeInUp-animation {
   animation: 7s fadeInUp;
 }
-.fadeInAndOut-animation {
-  animation: 2s fadeInUp
+.fadeInOut-animation {
+  animation: fadeInOut 4s linear 1 forwards;
 }
-	    
+	  	    
     </style>
 </head>
 
@@ -104,17 +125,16 @@
 <body style="font-family:garamond">
 
     <audio class="fadeInUp-animation" controls controlsList="nodownload">
-        <source src="audios/fanfare-saint-roger-zapjevala-sojca-ptica.mp3" type="audio/mpeg">
+        <source src="audios/turco-russo-gabola-uberto-03fimmene-fimmene.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-	<div class="absolute right-0 bottom-0 fadeInAndOut-animation">
-	<p style="font-family:garamond" size="40"> • </p>
+	<div class="circle fadeInOut-animation"> • </div>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
 <div class="bottomdiv fadeInUp-animation">
-	<p style="font-family:garamond" size="25">  <span class="fadeInAndOut-animation" ▼ </span> Les Barques </p>
+	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▼ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
 
@@ -129,7 +149,7 @@
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Sacrâlité d’un geste documentaire, attaché à la singularité d’un geste plutôt qu’à l’invariance scientifique, faire tenir sur la bande ce qui tient du miracle, l’enfantement d’étrangeté, de formes si singulières qu’on ne peut les nommer autrement que par des noms propres.  </i>
+		  <i> « La mia lingua sarda è il canto » detto da Maria Rita Piga. La lingua cantata ha una funzione invertita. Mentre ti sembra cantare, servi anche la lingua, sei usata per lei (e per il paesaggio indietro di lei) Sei il strumento, l’organo del canto, e quindi l’organo suonante della lingua.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
