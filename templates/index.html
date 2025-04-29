@@ -135,10 +135,36 @@
 .fadeOut-animation {
   animation: 3s fadieInOut
 	 }
+	    
+var fade_state = true;
+function fade() {
+  let div = document.getElementById("div");
+  let btn = document.getElementById("fade");
+  if (fade_state == true) {
+    div.style.animation = "fade-out 2s forwards";
+    btn.innerHTML = "fade-in";
+    fade_state = false;
+  } else if (fade_state == false) {
+    div.style.animation = "fade-in 2s forwards";
+    btn.innerHTML = "fade-out";
+    fade_state = true;
+  }
+	@keyframes fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
 
-function remove(el) {
-  var element = el;
-  element.remove();
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 	    	  	    
     </style>
@@ -147,22 +173,22 @@ function remove(el) {
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" controls controlsList="nodownload">
+    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
-<div class="buttontriangle fadeInOut-animation" id="i" onclick="remove(bottomdiv);remove(audio)" onclick2="resetElement(.bottomdiv)" onclick2="resetElement(audio)"> ▼ </div>
+<div class="buttontriangle fadeInOut-animation" id="fade" onclick="fade()"
 
 	
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation">
+<div class="bottomdiv fadeInUp-animation" id="div">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
-
+<script src="script.js"></script>
 <script>
   // Get current date and time
   var now = new Date();
