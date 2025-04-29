@@ -138,15 +138,13 @@
 	    
 var fade_state = true;
 function fade() {
-  let div = document.getElementById("trigged");
-  let btn = document.getElementById("fade");
+  let div = document.getElementById("div");
+  let div = document.getElementById("fade");
   if (fade_state == true) {
     div.style.animation = "fade-out 2s forwards";
-    btn.innerHTML = "fade-in";
     fade_state = false;
   } else if (fade_state == false) {
     div.style.animation = "fade-in 2s forwards";
-    btn.innerHTML = "fade-out";
     fade_state = true;
   }
 	@keyframes fade-out {
@@ -173,7 +171,7 @@ function fade() {
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" id="trigged" controls controlsList="nodownload">
+    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -183,7 +181,7 @@ function fade() {
 		
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation" id="trigged">
+<div class="bottomdiv fadeInUp-animation" id="div">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
