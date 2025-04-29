@@ -80,9 +80,9 @@
     }
 	    
 .buttontriangle  {
-	font-size: 40px;
+	font-size: 30px;
 	text-align: right;
- 	bottom: 30px;
+ 	bottom: 15px;
         padding-right: 8vw;
         height:3.5rem;
         width:96vw;
@@ -135,6 +135,11 @@
 .fadeOut-animation {
   animation: 3s fadieInOut
 	 }
+
+function remove(el) {
+  var element = el;
+  element.remove();
+}
 	    	  	    
     </style>
 </head>
@@ -148,7 +153,7 @@
     </audio>
 
 	
-<div class="buttontriangle fadeInOut-animation" onclick="removeElement(.bottomdiv)" onclick="resetElement(.bottomdiv)" onclick="removeElement(audio)" onclick="resetElement(audio)"> ▼ </div>
+<div class="buttontriangle fadeInOut-animation" id="i" onclick="remove(bottomdiv);remove(audio)" onclick2="resetElement(.bottomdiv)" onclick2="resetElement(audio)"> ▼ </div>
 
 	
     <label for="chk1">
