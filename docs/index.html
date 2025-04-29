@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/whatsapp-image-2023-11-05-a-12.55.31_e4af7ba8.jpg');
+            background-image: url('images/img_1752.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -135,10 +135,36 @@
 .fadeOut-animation {
   animation: 3s fadieInOut
 	 }
+	    
+var fade_state = true;
+function fade() {
+  let div = document.getElementById("div");
+  let btn = document.getElementById("fade");
+  if (fade_state == true) {
+    div.style.animation = "fade-out 2s forwards";
+    btn.innerHTML = "fade-in";
+    fade_state = false;
+  } else if (fade_state == false) {
+    div.style.animation = "fade-in 2s forwards";
+    btn.innerHTML = "fade-out";
+    fade_state = true;
+  }
+	@keyframes fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
 
-function remove(el) {
-  var element = el;
-  element.remove();
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 	    	  	    
     </style>
@@ -147,22 +173,22 @@ function remove(el) {
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" controls controlsList="nodownload">
-        <source src="audios/cantieri.mp3" type="audio/mpeg">
+    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
+        <source src="audios/03-la-mine-ammar-hayet-mousselmina.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
-<div class="buttontriangle fadeInOut-animation" id="i" onclick="remove(bottomdiv);remove(audio)" onclick2="resetElement(.bottomdiv)" onclick2="resetElement(audio)"> ▼ </div>
+<div class="buttontriangle fadeInOut-animation" id="fade" onclick="fade()"
 
 	
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation">
+<div class="bottomdiv fadeInUp-animation" id="div">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
-
+<script src="script.js"></script>
 <script>
   // Get current date and time
   var now = new Date();
@@ -174,7 +200,7 @@ function remove(el) {
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> On a représenté l’Arche comme un navire, c’est plutôt un coffre (Arca) balloté par les eaux. Le coffre d’épimethée ? On y mélange les espèces connues, et chaque nouvelle variation est une émanation des précédentes.  </i>
+		  <i> Il est tout aussi important d’enrichir que d’inquiéter notre connaissance. Des objets qui viennent inquiéter nos concepts, à ouvrir de nouveau nos dossiers mentaux associés à certains concepts, et nous forcer à les reformuler en cherchant de nouvelles données.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
