@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/whatsapp-image-2023-11-05-a-12.55.29_e5a8af3e-4.jpg');
+            background-image: url('images/img_1982.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -79,7 +79,7 @@
 	z-index: 2;
     }
 	    
-.buttontriangle  {
+  .button {
 	font-size: 30px;
 	text-align: right;
  	bottom: 15px;
@@ -139,12 +139,14 @@
 var fade_state = true;
 function fade() {
   let div = document.getElementById("div");
-  let div = document.getElementById("fade");
+  let btn = document.getElementById("fade");
   if (fade_state == true) {
     div.style.animation = "fade-out 2s forwards";
+    btn.innerHTML = "▼"
     fade_state = false;
   } else if (fade_state == false) {
     div.style.animation = "fade-in 2s forwards";
+    btn.innerHTML = "▲"
     fade_state = true;
   }
 	@keyframes fade-out {
@@ -172,12 +174,12 @@ function fade() {
 <body style="font-family:garamond">
 
     <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
-        <source src="audios/j.f.-favreau-chants-sans-auteurs.mp3" type="audio/mpeg">
+        <source src="audios/53-chansons-redeyef-redeyef-jedida.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
-<div class="buttontriangle fadeInOut-animation" id="fade" onclick="fade()"> ▼ </div>
+<button id="fade" onclick="fade()" class="button fadeInOut-animation"> ▼ </div>
 		
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
@@ -196,7 +198,7 @@ function fade() {
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Il est tout aussi important d’enrichir que d’inquiéter notre connaissance. Des objets qui viennent inquiéter nos concepts, à ouvrir de nouveau nos dossiers mentaux associés à certains concepts, et nous forcer à les reformuler en cherchant de nouvelles données.  </i>
+		  <i> Sacrâlité d’un geste documentaire, attaché à la singularité d’un geste plutôt qu’à l’invariance scientifique, faire tenir sur la bande ce qui tient du miracle, l’enfantement d’étrangeté, de formes si singulières qu’on ne peut les nommer autrement que par des noms propres.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
