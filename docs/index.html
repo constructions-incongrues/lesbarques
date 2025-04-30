@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/2023-05-30-23.47.06.jpeg');
+            background-image: url('images/img-20241010-wa0008.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -138,75 +138,27 @@
   animation: 3s fadieInOut
 	 }
 	    
-var fade_state = true;
-function fade() {
-  let div = document.getElementById("div");
-  let btn = document.getElementById("fade");
-	  }
-  if (fade_state == true) {
-    div.style.animation = "fade-out 2s forwards";
-    btn.innerHTML = "▼"
-    fade_state = false;
-  } 
-	else if (fade_state == false) {
-    div.style.animation = "fade-in 2s forwards";
-    btn.innerHTML = "▲"
-    fade_state = true;
-  }
-	@keyframes fade-out {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 100%;
-  }
-}
-	    	  	    
+	
     </style>
 </head>
 
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation--" id="div" controls controlsList="nodownload">
-        <source src="audios/anna-maria-civico-farfarra.mp3" type="audio/mpeg">
+    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
+        <source src="audios/01-la-mine-poeme-mineurs.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
 <button id="fade" onclick="fade()" class="button fadeInOut-animation" style="color:white"> ▼ </button>
 
-	<script> var fade_state = true;
-function fade() {
-  let div = document.getElementById("div");
-  let btn = document.getElementById("fade");
-	  }
-  if (fade_state == true) {
-    div.style.animation = "fade-out 2s forwards";
-    btn.innerHTML = "▼"
-    fade_state = false;
-  } 
-else if (fade_state == false) {
-    div.style.animation = "fade-in 2s forwards";
-    btn.innerHTML = "▲"
-    fade_state = true;
-  }
-		</script>
-		
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation--" id="div">
-	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation--"> ▲ </span> Les Barques </p>
+<div class="bottomdiv fadeInUp-animation" id="div">
+	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
+	
   <p id="datetime">  </p>
 <script>
   // Get current date and time
@@ -219,7 +171,7 @@ else if (fade_state == false) {
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Derrière les barques, un projet moral ? c’est ce qui fait une œuvre d ’art documentaire et non un ouvrage documentaire, mais la frontière est mince. La grande différence étant qu’ici les objets documentés ne sont pas des exemples de faits sociaux généraux mais des gestes singuliers qui, reçus à la lumière de l’œuvre, tiendront ensemble un discours de valeur plus universelle.  </i>
+		  <i> Assomption Meinong : c’est dans la nature-même de l’assomption (supposer que) que de viser un être qui n’a pas lui-même besoin d’être. -compte non pas ce qu’il est mais ce qu’il “représente”? Objets oxymoriques.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
@@ -250,7 +202,6 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	</div>
 	   	
 	</label>
-  <script src="script.js"></script>
 
 </body>
 
