@@ -79,7 +79,7 @@
 	z-index: 2;
     }
 	    
-.buttontriangle  {
+  .button {
 	font-size: 30px;
 	text-align: right;
  	bottom: 15px;
@@ -139,12 +139,14 @@
 var fade_state = true;
 function fade() {
   let div = document.getElementById("div");
-  let div = document.getElementById("fade");
+  let btn = document.getElementById("fade");
   if (fade_state == true) {
     div.style.animation = "fade-out 2s forwards";
+    btn.innerHTML = "▼"
     fade_state = false;
   } else if (fade_state == false) {
     div.style.animation = "fade-in 2s forwards";
+    btn.innerHTML = "▲"
     fade_state = true;
   }
 	@keyframes fade-out {
@@ -177,7 +179,7 @@ function fade() {
     </audio>
 
 	
-<div class="buttontriangle fadeInOut-animation" id="fade" onclick="fade()"> ▼ </div>
+<button id="fade" onclick="fade()" class="button fadeInOut-animation"> ▼ </div>
 		
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
