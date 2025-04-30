@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/img-20241010-wa0008.jpg');
+            background-image: url('images/o-dsc_2113.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -85,7 +85,7 @@
 	text-align: right;
  	bottom: 15px;
         padding-right: 8vw;
-	padding-bottom: 15vw;
+	padding-bottom: 95vw;
         height:3.5rem;
         width:96vw;
         transition:1s;
@@ -137,7 +137,30 @@
 .fadeOut-animation {
   animation: 3s fadieInOut
 	 }
-	    
+
+	     function togglediv() {
+    var toggleobjects = document.getElementById('div');
+
+    // get the current value of the clock's display property
+    var displaySetting = toggleobjects.style.display;
+
+    // also get the clock button, so we can change what it says
+    var divButton = document.getElementById('divButton');
+
+    // now toggle the clock and the button text, depending on current state
+    if (displaySetting == 'block') {
+      // clock is visible. hide it
+      toggleobjects.style.display = '▼';
+      // change button text
+      divButton.innerHTML = 'Show clock';
+    }
+    else {
+      // clock is hidden. show it
+      toggleobjects.style.display = 'block';
+      // change button text
+      divButton.innerHTML = '▲';
+    }
+  }
 	
     </style>
 </head>
@@ -145,17 +168,17 @@
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
-        <source src="audios/01-la-mine-poeme-mineurs.mp3" type="audio/mpeg">
+    <audio id="div" class="fadeInUp-animation" controls controlsList="nodownload">
+        <source src="audios/j.f-favreau-mighe.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
-<button id="fade" onclick="fade()" class="button fadeInOut-animation" style="color:white"> ▼ </button>
+<button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ▼ </button>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation" id="div">
+<div id="div" class="bottomdiv fadeInUp-animation">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
 	
@@ -171,7 +194,7 @@
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Assomption Meinong : c’est dans la nature-même de l’assomption (supposer que) que de viser un être qui n’a pas lui-même besoin d’être. -compte non pas ce qu’il est mais ce qu’il “représente”? Objets oxymoriques.  </i>
+		  <i> « La mia lingua sarda è il canto » detto da Maria Rita Piga. La lingua cantata ha una funzione invertita. Mentre ti sembra cantare, servi anche la lingua, sei usata per lei (e per il paesaggio indietro di lei) Sei il strumento, l’organo del canto, e quindi l’organo suonante della lingua.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
