@@ -138,46 +138,14 @@
   animation: 3s fadieInOut
 	 }
 	    
-var fade_state = true;
-function fade() {
-  let div = document.getElementById("div");
-  let btn = document.getElementById("fade");
-	  }
-  if (fade_state == true) {
-    div.style.animation = "fade-out 2s forwards";
-    btn.innerHTML = "▼"
-    fade_state = false;
-  } 
-	else if (fade_state == false) {
-    div.style.animation = "fade-in 2s forwards";
-    btn.innerHTML = "▲"
-    fade_state = true;
-  }
-	@keyframes fade-out {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 100%;
-  }
-}
-	    	  	    
+	
     </style>
 </head>
 
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation--" id="div" controls controlsList="nodownload">
+    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -185,28 +153,12 @@ function fade() {
 	
 <button id="fade" onclick="fade()" class="button fadeInOut-animation" style="color:white"> ▼ </button>
 
-	<script> var fade_state = true;
-function fade() {
-  let div = document.getElementById("div");
-  let btn = document.getElementById("fade");
-	  }
-  if (fade_state == true) {
-    div.style.animation = "fade-out 2s forwards";
-    btn.innerHTML = "▼"
-    fade_state = false;
-  } 
-else if (fade_state == false) {
-    div.style.animation = "fade-in 2s forwards";
-    btn.innerHTML = "▲"
-    fade_state = true;
-  }
-		</script>
-		
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation--" id="div">
-	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation--"> ▲ </span> Les Barques </p>
+<div class="bottomdiv fadeInUp-animation" id="div">
+	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
+	
   <p id="datetime">  </p>
 <script>
   // Get current date and time
@@ -250,7 +202,6 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	</div>
 	   	
 	</label>
-  <script src="script.js"></script>
 
 </body>
 
