@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/img_20221006_0011.png');
+            background-image: url('images/2023-05-30-23.47.06.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -85,6 +85,7 @@
 	text-align: right;
  	bottom: 15px;
         padding-right: 8vw;
+	padding-bottom: 15vw;
         height:3.5rem;
         width:96vw;
         transition:1s;
@@ -176,18 +177,35 @@ function fade() {
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
-        <source src="audios/53-chansons-redeyef-redeyef-jedida.mp3" type="audio/mpeg">
+    <audio class="fadeInUp-animation--" id="div" controls controlsList="nodownload">
+        <source src="audios/anna-maria-civico-farfarra.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
 <button id="fade" onclick="fade()" class="button fadeInOut-animation" style="color:white"> ▼ </button>
+
+	<script> var fade_state = true;
+function fade() {
+  let div = document.getElementById("div");
+  let btn = document.getElementById("fade");
+	  }
+  if (fade_state == true) {
+    div.style.animation = "fade-out 2s forwards";
+    btn.innerHTML = "▼"
+    fade_state = false;
+  } 
+else if (fade_state == false) {
+    div.style.animation = "fade-in 2s forwards";
+    btn.innerHTML = "▲"
+    fade_state = true;
+  }
+		</script>
 		
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation" id="div">
-	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
+<div class="bottomdiv fadeInUp-animation--" id="div">
+	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation--"> ▲ </span> Les Barques </p>
 	<br>
   <p id="datetime">  </p>
 <script>
@@ -201,7 +219,7 @@ function fade() {
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> Le manque n’est pas «  agent vers » (éros) mais une fin en soit . Ce n’est pas un manque à combler mais un manque à penser, à pratiquer, voire à favoriser . Un manque qui ne favorise pas l’accumulation mais la pauvreté et la sobriété  </i>
+		  <i> Derrière les barques, un projet moral ? c’est ce qui fait une œuvre d ’art documentaire et non un ouvrage documentaire, mais la frontière est mince. La grande différence étant qu’ici les objets documentés ne sont pas des exemples de faits sociaux généraux mais des gestes singuliers qui, reçus à la lumière de l’œuvre, tiendront ensemble un discours de valeur plus universelle.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
@@ -230,10 +248,9 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br> <br>
 	Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi,Mohamed Znaidi,Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef
 	</div>
-	     <script src="script.js"></script>
-	
+	   	
 	</label>
-
+  <script src="script.js"></script>
 
 </body>
 
