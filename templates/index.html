@@ -137,7 +137,30 @@
 .fadeOut-animation {
   animation: 3s fadieInOut
 	 }
-	    
+
+	     function togglediv() {
+    var toggleobjects = document.getElementById('div');
+
+    // get the current value of the clock's display property
+    var displaySetting = toggleobjects.style.display;
+
+    // also get the clock button, so we can change what it says
+    var divButton = document.getElementById('divButton');
+
+    // now toggle the clock and the button text, depending on current state
+    if (displaySetting == 'block') {
+      // clock is visible. hide it
+      toggleobjects.style.display = '▼';
+      // change button text
+      divButton.innerHTML = 'Show clock';
+    }
+    else {
+      // clock is hidden. show it
+      toggleobjects.style.display = 'block';
+      // change button text
+      divButton.innerHTML = '▲';
+    }
+  }
 	
     </style>
 </head>
@@ -145,17 +168,17 @@
 	
 <body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" id="div" controls controlsList="nodownload">
+    <audio id="div" class="fadeInUp-animation" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
-<button id="fade" onclick="fade()" class="button fadeInOut-animation" style="color:white"> ▼ </button>
+<button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ▼ </button>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
-<div class="bottomdiv fadeInUp-animation" id="div">
+<div id="div" class="bottomdiv fadeInUp-animation">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
 	
