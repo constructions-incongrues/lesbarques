@@ -140,24 +140,14 @@
 
 	     function togglediv() {
     var toggleobjects = document.getElementById('div');
-
-    // get the current value of the clock's display property
     var displaySetting = toggleobjects.style.display;
-
-    // also get the clock button, so we can change what it says
     var divButton = document.getElementById('divButton');
-
-    // now toggle the clock and the button text, depending on current state
     if (displaySetting == 'block') {
-      // clock is visible. hide it
       toggleobjects.style.display = '▼';
-      // change button text
       divButton.innerHTML = 'Show clock';
     }
     else {
-      // clock is hidden. show it
       toggleobjects.style.display = 'block';
-      // change button text
       divButton.innerHTML = '▲';
     }
   }
