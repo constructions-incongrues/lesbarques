@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/img_1984.jpg');
+            background-image: url('images/img_1995.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -84,9 +84,9 @@
 	border: 0px solid #04AA6D;
 	text-align: right;
  	padding-right: 8vw;
-	bottom: 0vh;
-        height:96vh;
-        width:96vw;
+ 	bottom: 5px;
+        height:5vh;
+        width:5vw;
         transition:1s;
 	background-color: rgba(0, 0, 0, 0);
 	z-index: 5;
@@ -143,7 +143,7 @@
 
 	<script>
     function togglediv() {
-    var toggleobjects = document.getElementById('div') document.getElementById('audio');
+    var toggleobjects = document.getElementById('div')
     var displaySetting = toggleobjects.style.display;
     var divButton = document.getElementById('divButton');
     if (displaySetting == 'block') {
@@ -159,8 +159,8 @@
 	
 <body style="font-family:garamond">
 
-    <audio id="audio" class="fadeInUp-animation" controls controlsList="nodownload">
-        <source src="audios/mondine-di-bentivoglio-povere-donne.mp3" type="audio/mpeg">
+    <audio id="div" class="fadeInUp-animation" controls controlsList="nodownload">
+        <source src="audios/32-sidi-abid.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
