@@ -83,10 +83,9 @@
 	font-size: 30px;
 	border: 0px solid #04AA6D;
 	text-align: right;
- 	bottom: 15px;
-        padding-right: 8vw;
-	padding-bottom: 3vh;
-        height:96rem;
+ 	padding-right: 8vw;
+	bottom: 0vh;
+        height:96vh;
         width:96vw;
         transition:1s;
 	background-color: rgba(0, 0, 0, 0);
@@ -144,8 +143,7 @@
 
 	<script>
     function togglediv() {
-    var toggleobjects = document.getElementById('div');
-    var toggleobjects = document.getElementById('chk1');
+    var toggleobjects = document.getElementById('div') document.getElementById('audio');
     var displaySetting = toggleobjects.style.display;
     var divButton = document.getElementById('divButton');
     if (displaySetting == 'block') {
@@ -161,7 +159,7 @@
 	
 <body style="font-family:garamond">
 
-    <audio id="div" class="fadeInUp-animation" controls controlsList="nodownload">
+    <audio id="audio" class="fadeInUp-animation" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
