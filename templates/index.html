@@ -85,8 +85,8 @@
 	text-align: right;
  	bottom: 15px;
         padding-right: 8vw;
-	bottom: 3vh;
-        height:3.5rem;
+	padding-bottom: 3vh;
+        height:96rem;
         width:96vw;
         transition:1s;
 	background-color: rgba(0, 0, 0, 0);
@@ -145,15 +145,16 @@
 	<script>
     function togglediv() {
     var toggleobjects = document.getElementById('div');
+    var toggleobjects = document.getElementById('chk1');
     var displaySetting = toggleobjects.style.display;
     var divButton = document.getElementById('divButton');
     if (displaySetting == 'block') {
       toggleobjects.style.display = 'none';
-      divButton.innerHTML = '▼';
+      divButton.innerHTML = '▲';
     }
     else {
       toggleobjects.style.display = 'block';
-      divButton.innerHTML = '▲';
+      divButton.innerHTML = '▼';
     }
   }
 	    </script>
@@ -169,7 +170,7 @@
 <button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ▼ </button>
 
     <label for="chk1">
-<input type="checkbox" name="menu" id="chk1 div">
+<input type="checkbox" name="menu" id="chk1">
 <div id="div" class="bottomdiv fadeInUp-animation">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
