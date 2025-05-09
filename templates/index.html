@@ -83,8 +83,9 @@
 	font-size: 30px;
 	border: 0px solid #04AA6D;
 	text-align: right;
- 	padding-right: 8vw;
- 	bottom: 5px;
+ 	right:0;
+	position:absolute;
+ 	bottom:0;
         height:5vh;
         width:5vw;
         transition:1s;
@@ -143,11 +144,11 @@
 
 	<script>
     function togglediv() {
-    var toggleobjects = document.getElementById('div')
+    var toggle = document.getElementById('chk1')
     var displaySetting = toggleobjects.style.display;
     var divButton = document.getElementById('divButton');
     if (displaySetting == 'block') {
-      toggleobjects.style.display = 'none';
+      toggle.style.display = 'none';
       divButton.innerHTML = '▲';
     }
     else {
@@ -159,13 +160,13 @@
 	
 <body style="font-family:garamond">
 
-    <audio id="div" class="fadeInUp-animation" controls controlsList="nodownload">
+    <audio id="chk1" class="fadeInUp-animation" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
 	
-<button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ▼ </button>
+<button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ◯ </button>
 
     <label for="chk1">
 <input type="checkbox" name="menu" id="chk1">
