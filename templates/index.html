@@ -138,22 +138,6 @@
   animation: 3s fadieInOut
 	 }
 	
-	    (script)
-    function togglediv() {
-    var toggle = document.getElementById('---')
-    var displaySetting = toggle.style.display;
-    var divButton = document.getElementById('divButton');
-    if (displaySetting == 'block') {
-      toggle.style.display = 'none';
-      divButton.innerHTML = '▲';
-    }
-    else {
-      toggle.style.display = 'block';
-      divButton.innerHTML = '▼';
-    }
-  }
-	    (script)    
-
     </style>
 </head>
 
@@ -161,7 +145,7 @@
 	
 <body style="font-family:garamond">
 
-    <audio id="chk1" class="fadeInUp-animation" controls controlsList="nodownload">
+    <audio class="fadeInUp-animation" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -170,7 +154,7 @@
 <button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ◯ </button>
 
     <label for="chk1">
-<input type="checkbox" name="menu" id="chk1">
+<input id="chk1" type="checkbox" name="menu">
 <div id="div" class="bottomdiv fadeInUp-animation">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
