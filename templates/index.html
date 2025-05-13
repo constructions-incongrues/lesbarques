@@ -16,6 +16,7 @@
             justify-content: center;
             align-items: center;
             color: white; /* Default text color */
+	    z-index:1;
    	}
 
         main {
@@ -47,6 +48,7 @@
             color: white; /* Match the text color */
             border: none; /* Remove default border */
             border-radius: 5px; /* Add rounded corners */
+	z-index:2;
         }
         .audio-filename {
             text-align: left;
@@ -59,7 +61,7 @@
             position: fixed;
             left: 0;
             bottom: 0vh;
-	    z-index: 3;
+	    z-index: 2;
         }
 
         input {
@@ -137,21 +139,32 @@
 .fadeOut-animation {
   animation: 3s fadieInOut
 	 }
-	
+
+	    
+.show{
+z-index:4;
+}
+	    
     </style>
 </head>
 
-
 	
-<body style="font-family:garamond">
+<body class="image" id="image" style="font-family:garamond">
 
     <audio class="fadeInUp-animation" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+	<script> 
+$('#button button').click(function() { 
+var box = $(this).attr('data-box');
+$('#' + box).addClass('show').siblings().removeClass('show');
+ alert(box); // Alerts the box id selected
+})
+</script> 
 	
-<button onclick="togglediv()" id="divbutton" class="button fadeInOut-animation" style="color:white"> ◯ </button>
+<button id="button" class="button fadeInOut-animation" data-box="image" style="color:white"> ◯ </button>
 
     <label for="chk1">
 <input id="chk1" type="checkbox" name="menu">
