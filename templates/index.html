@@ -155,14 +155,6 @@ z-index:4;
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
-	<script> 
-$('#button button').click(function() { 
-var box = $(this).attr('data-box');
-$('#' + box).addClass('show').siblings().removeClass('show');
- alert(box); // Alerts the box id selected
-})
-</script> 
 	
 <button id="button" class="button fadeInOut-animation" data-box="image" style="color:white"> ◯ </button>
 
@@ -217,5 +209,13 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	</label>
 
 </body>
+	
+		<script> 
+$('#button button').click(function() { 
+var box = $(this).attr('data-box');
+$('#' + box).addClass('show').siblings().removeClass('show');
+ alert(box); // Alerts the box id selected
+})
+</script> 
 
 </html>
