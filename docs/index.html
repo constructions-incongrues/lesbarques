@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/img_1995.jpg');
+            background-image: url('images/0127.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -141,24 +141,34 @@
 	 }
 
 	    
-.hide{
+.hide  {
   opacity: 0;
+  animation: 3s fadieInOut
+  animation: 7s fadeInUp;
 }
 	    
     </style>
 </head>
-
+	
+<script> 
+	$('#button button').click(function() { 
+var box = $(this).attr('data-box');
+$('#' + box).toggleClass('hide').siblings().toggleClass('hide');
+ alert(box); // Alerts the box id selected
+		})
+		</script> 
+		
 <body style="font-family:garamond">
 
     <audio id="fade" class="fadeInUp-animation fade" controls controlsList="nodownload">
-        <source src="audios/frode1.mp3" type="audio/mpeg">
+        <source src="audios/scusciati-veni-de-qua-veni-de-la.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 	
 <button id="button" class="button fadeInOut-animation" data-box="fade" style="color:white"> ◯ </button>
 
     <label for="chk1">
-<input id="chk1" type="checkbox" name="menu">
+<input id="chk1" type="checkbox" class="fade" name="menu">
 <div id="fade" class="bottomdiv fadeInUp-animation fade">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
@@ -175,7 +185,7 @@
 	
 	 <blockquote  style="font-family:garamond">
 		Journal : <br> 
-		  <i> , fragmentée collectages sonores, chroniques photographiques expériences littéraires. Chants et gestes populaires, exilés, expérimentaux… Documents libres, instantanés, voix qui chantent et parlent, associées à des lieux existants ou imaginaires, à des moments, à des territoires aimés dont elles se sont trouvées éloignées géographiquement ou conceptuellement. Une  </i>
+		  <i> On fossilise des expressions de la matière dans le temps. On voudrait laisser des fossiles plus rares et fragiles. On doit pouvoir juger de la bonne santé d’un système à sa capacité d’accepter, voire d’apprécier ce qui le dérange.  </i>
     </blockquote>
 	
 	  <br> ---  <br> 
@@ -210,11 +220,10 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 		<script> 
 	$('#button button').click(function() { 
 var box = $(this).attr('data-box');
-$('#' + box).addClass('hide').siblings().removeClass('hide');
+$('#' + box).toggleClass('hide').siblings().toggleClass('hide');
  alert(box); // Alerts the box id selected
 		})
-				  
-</script> 
+				  </script> 
 	
 </body>
 	
