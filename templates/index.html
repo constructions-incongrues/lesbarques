@@ -142,25 +142,35 @@
 
 	    
 .show{
-z-index:4;
+  opacity: 0;
 }
 	    
     </style>
 </head>
 
 	
-<body class="image" id="image" style="font-family:garamond">
+		<script> 
+$('#button button').click(function() { 
+var box = $(this).attr('data-box');
+$('#' + box).toggleClass('show').siblings().toggleClass('hide').toggleid('show').siblings().toggleid('hide');
+ alert(box); // Alerts the box id selected
+})
+						  
+</script> 
+	
+	
+<body style="font-family:garamond">
 
-    <audio class="fadeInUp-animation" controls controlsList="nodownload">
+    <audio id="fade" class="fadeInUp-animation fade" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 	
-<button id="button" class="button fadeInOut-animation" data-box="image" style="color:white"> ◯ </button>
+<button id="button" class="button fadeInOut-animation" data-box="fade" style="color:white"> ◯ </button>
 
     <label for="chk1">
 <input id="chk1" type="checkbox" name="menu">
-<div id="div" class="bottomdiv fadeInUp-animation">
+<div id="fade" class="bottomdiv fadeInUp-animation fade">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
 	
@@ -210,12 +220,4 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 
 </body>
 	
-		<script> 
-$('#button button').click(function() { 
-var box = $(this).attr('data-box');
-$('#' + box).addClass('show').siblings().removeClass('show');
- alert(box); // Alerts the box id selected
-})
-</script> 
-
 </html>
