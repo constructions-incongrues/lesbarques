@@ -141,13 +141,23 @@
 	 }
 
 	    
-.hide{
+.hide  {
   opacity: 0;
+  animation: 3s fadieInOut
+  animation: 7s fadeInUp;
 }
 	    
     </style>
 </head>
-
+	
+<script> 
+	$('#button button').click(function() { 
+var box = $(this).attr('data-box');
+$('#' + box).toggleClass('hide').siblings().toggleClass('hide');
+ alert(box); // Alerts the box id selected
+		})
+		</script> 
+		
 <body style="font-family:garamond">
 
     <audio id="fade" class="fadeInUp-animation fade" controls controlsList="nodownload">
@@ -158,7 +168,7 @@
 <button id="button" class="button fadeInOut-animation" data-box="fade" style="color:white"> ◯ </button>
 
     <label for="chk1">
-<input id="chk1" type="checkbox" name="menu">
+<input id="chk1" type="checkbox" class="fade" name="menu">
 <div id="fade" class="bottomdiv fadeInUp-animation fade">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
@@ -210,11 +220,10 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 		<script> 
 	$('#button button').click(function() { 
 var box = $(this).attr('data-box');
-$('#' + box).addClass('hide').siblings().removeClass('hide');
+$('#' + box).toggleClass('hide').siblings().toggleClass('hide');
  alert(box); // Alerts the box id selected
 		})
-				  
-</script> 
+				  </script> 
 	
 </body>
 	
