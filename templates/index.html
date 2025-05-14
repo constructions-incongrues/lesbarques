@@ -85,7 +85,7 @@
 	font-size: 30px;
 	border: 0px solid #04AA6D;
 	text-align: right;
- 	right:5px;
+ 	right:20px;
 	position:absolute;
  	bottom:20px;
         height:5vh;
@@ -141,7 +141,7 @@
 	 }
 
 	    
-.show{
+.hide{
   opacity: 0;
 }
 	    
@@ -208,11 +208,11 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	</label>
 
 		<script> 
-			
-$('#button button').click(function() { 
+	$('#button button').click(function() { 
 var box = $(this).attr('data-box');
-$('#' + box).toggleClass('show').siblings().toggleClass('hide');
+$('#' + box).addClass('hide').siblings().removeClass('hide');
  alert(box); // Alerts the box id selected
+		})
 				  
 </script> 
 	
