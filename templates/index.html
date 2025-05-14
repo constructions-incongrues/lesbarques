@@ -16,7 +16,6 @@
             justify-content: center;
             align-items: center;
             color: white; /* Default text color */
-	    z-index:1;
    	}
 
         main {
@@ -48,7 +47,6 @@
             color: white; /* Match the text color */
             border: none; /* Remove default border */
             border-radius: 5px; /* Add rounded corners */
-	z-index:2;
         }
         .audio-filename {
             text-align: left;
@@ -61,7 +59,6 @@
             position: fixed;
             left: 0;
             bottom: 0vh;
-	    z-index: 2;
         }
 
         input {
@@ -78,7 +75,7 @@
         transition:1s;
         overflow:hidden;
         background-color: rgba(0, 0, 0, 0.7);
-	z-index: 2;
+	display: block;
     }
 	    
   .button {
@@ -143,31 +140,12 @@
     
     </style>
 </head>
-		  <script>
-function hide() {
-  var x = document.getElementsByClassName("show");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
 	
+		 	
 <body style="font-family:garamond">
-
-	  <script>
-function hide() {
-  var x = document.getElementsByClassName("show");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
 	
-    <audio id="audio" class="fadeInUp-animation show" controls controlsList="nodownload">
+		
+    <audio id="audio" class="fadeInUp-animation show" tag="show" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -176,7 +154,7 @@ function hide() {
 
     <label for="chk1">
 <input id="chk1" type="checkbox" class="fade" name="menu">
-<div id="DIV" class="bottomdiv fadeInUp-animation show">
+<div id="DIV" class="bottomdiv fadeInUp-animation show" tag="show">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
 	
@@ -223,12 +201,12 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	</div>
 
 	  <script>
-function hide() {
-  var x = document.getElementsByClassName("show");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+function hide("show") {
+  var x = document.getElementsByClassName("show"); document.getElementsByTagName("show")
+  if (x.style.display = "block") {
     x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
 }
 </script>
