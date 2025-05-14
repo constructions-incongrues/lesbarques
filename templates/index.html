@@ -144,13 +144,24 @@
 		 	
 <body style="font-family:garamond">
 	
+	  <script>
+function hide("show") {
+  var x = document.getElementsByClassName("show"); document.getElementsByTagName("show")
+  if (x.style.display = "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+	
 		
-    <audio id="audio" class="fadeInUp-animation show" tag="show" controls controlsList="nodownload">
+    <audio id="DIV" class="fadeInUp-animation show" tag="show" controls controlsList="nodownload">
         <source src="{{ audio }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 	
-<button id="button" class="button fadeInOut-animation" onclick="hide()" style="color:white"> ◯ </button>
+<button id="button" class="button fadeInOut-animation" onclick="hide("show")" style="color:white"> ◯ </button>
 
     <label for="chk1">
 <input id="chk1" type="checkbox" class="fade" name="menu">
@@ -202,11 +213,11 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 
 	  <script>
 function hide("show") {
-  var x = document.getElementsByClassName("show"); document.getElementsByTagName("show")
-  if (x.style.display = "block") {
-    x.style.display = "none";
-  } else {
+  var x = document.getElementsById("DIV"); document.getElementsByClassName("show"); document.getElementsByTagName("show")
+  if (x.style.display = "none") {
     x.style.display = "block";
+  } else {
+    x.style.display = "none";
   }
 }
 </script>
