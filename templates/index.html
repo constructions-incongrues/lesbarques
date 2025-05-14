@@ -148,17 +148,6 @@
     </style>
 </head>
 
-	
-		<script> 
-$('#button button').click(function() { 
-var box = $(this).attr('data-box');
-$('#' + box).toggleClass('show').siblings().toggleClass('hide').toggleid('show').siblings().toggleid('hide');
- alert(box); // Alerts the box id selected
-})
-						  
-</script> 
-	
-	
 <body style="font-family:garamond">
 
     <audio id="fade" class="fadeInUp-animation fade" controls controlsList="nodownload">
@@ -218,6 +207,15 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	   	
 	</label>
 
+		<script> 
+			
+$('#button button').click(function() { 
+var box = $(this).attr('data-box');
+$('#' + box).toggleClass('show').siblings().toggleClass('hide');
+ alert(box); // Alerts the box id selected
+				  
+</script> 
+	
 </body>
 	
 </html>
