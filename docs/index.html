@@ -6,7 +6,7 @@
     <title>Les Barques</title>
     <style>
          body {
-            background-image: url('images/img_1752.jpg');
+            background-image: url('images/img-20241010-wa0011.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -16,7 +16,6 @@
             justify-content: center;
             align-items: center;
             color: white; /* Default text color */
-	    z-index:1;
    	}
 
         main {
@@ -48,7 +47,6 @@
             color: white; /* Match the text color */
             border: none; /* Remove default border */
             border-radius: 5px; /* Add rounded corners */
-	z-index:2;
         }
         .audio-filename {
             text-align: left;
@@ -61,7 +59,6 @@
             position: fixed;
             left: 0;
             bottom: 0vh;
-	    z-index: 2;
         }
 
         input {
@@ -78,7 +75,7 @@
         transition:1s;
         overflow:hidden;
         background-color: rgba(0, 0, 0, 0.7);
-	z-index: 2;
+	display: block;
     }
 	    
   .button {
@@ -143,23 +140,14 @@
     
     </style>
 </head>
-		  <script>
-function hide() {
-  var x = document.getElementsByClassName("show");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
 	
+		 	
 <body style="font-family:garamond">
-
+	
 	  <script>
-function hide() {
-  var x = document.getElementsByClassName("show");
-  if (x.style.display === "none") {
+function hide("show") {
+  var x = document.getElementsByClassName("show"); document.getElementsByTagName("show")
+  if (x.style.display = "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
@@ -167,16 +155,17 @@ function hide() {
 }
 </script>
 	
-    <audio id="audio" class="fadeInUp-animation show" controls controlsList="nodownload">
-        <source src="audios/33-sidi-abid.mp3" type="audio/mpeg">
+		
+    <audio id="DIV" class="fadeInUp-animation show" tag="show" controls controlsList="nodownload">
+        <source src="audios/jeanne-rencontre-avec-le-chant.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 	
-<button id="button" class="button fadeInOut-animation" onclick="hide()" style="color:white"> ◯ </button>
+<button id="button" class="button fadeInOut-animation" onclick="hide("show")" style="color:white"> ◯ </button>
 
     <label for="chk1">
 <input id="chk1" type="checkbox" class="fade" name="menu">
-<div id="DIV" class="bottomdiv fadeInUp-animation show">
+<div id="DIV" class="bottomdiv fadeInUp-animation show" tag="show">
 	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
 	<br>
 	
@@ -223,9 +212,9 @@ GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία
 	</div>
 
 	  <script>
-function hide() {
-  var x = document.getElementsByClassName("show");
-  if (x.style.display === "none") {
+function hide("show") {
+  var x = document.getElementsById("DIV"); document.getElementsByClassName("show"); document.getElementsByTagName("show")
+  if (x.style.display = "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
