@@ -1,0 +1,39 @@
+name: Reset
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 6 * * *
+
+permissions:
+  contents: write
+
+jobs:
+  run-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip pipenv
+        pipenv install
+
+    - name: Run schedule reset script
+      run: |
+        pipenv run python scripts/schedule.py --reset
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Publication quotidienne [skip ci]"
+        git push --force origin HEAD:${{ github.ref }}

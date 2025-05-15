@@ -1,4 +1,4 @@
-name: Build
+name: Schedule
 
 on:
   workflow_dispatch:
@@ -26,14 +26,14 @@ jobs:
         python -m pip install --upgrade pip pipenv
         pipenv install
 
-    - name: Run build script
+    - name: Run schedule script
       run: |
-        pipenv run python scripts/build.py --min-text-length=${{ vars.MIN_TEXT_LENGTH }} --max-text-length=${{ vars.MAX_TEXT_LENGTH }}
+        pipenv run python scripts/schedule.py --min-text-length=${{ vars.MIN_TEXT_LENGTH }} --max-text-length=${{ vars.MAX_TEXT_LENGTH }}
 
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git commit -m "Add build results [skip ci]"
+        git commit -m "Publication quotidienne [skip ci]"
         git push --force origin HEAD:${{ github.ref }}
