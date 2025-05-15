@@ -1,218 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="multi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les Barques</title>
     <style>
-         body {
-            background-image: url('images/img_1757.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-	    min-height: 100dvh; 
-            margin: 0;     /* Removes default margin */
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* Base styles */
+        body {
+            position: relative;
+            min-height: 100dvh;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white; /* Default text color */
-   	}
+            color: white;
+            font-family: Garamond, serif;
+        }
+
+        /* Background with fade in effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/2023-06-01-08.49.10.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            animation: fadeIn 3s ease-in-out;
+        }
 
         main {
             position: absolute;
-            background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
             max-width: 300px;
             max-height: 300px;
             text-align: left;
         }
+
         p, blockquote {
             font-size: 15px;
-	        background-color: rgba(0, 0, 0, 0);
         }
-        .audio-filename {
-            font-size: 0em;
-        }
+
         img {
             width: 100%;
             height: auto;
         }
+
+        /* Audio player */
+        .audio-container {
+            position: absolute;
+            top: 3vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         audio {
-	        position:absolute;
-	    opacity: 0.95;
-            top:3vh;
-            width:80vw;
-            margin: 10px auto; /* Center the audio player */
-            display: block; /* Ensure the audio player is displayed as a block element */
-            background-color: rgba(0, 0, 0, 0); /* Match the background color of the text */
-            color: white; /* Match the text color */
-            border: none; /* Remove default border */
-            border-radius: 5px; /* Add rounded corners */
-        }
-        .audio-filename {
-            text-align: left;
-            font-size: 0px;
-            margin-top: 0px;
+            width: 80vw;
+            opacity: 0.95;
+            background-color: rgba(0, 0, 0, 0);
             color: white;
+            border: none;
+            border-radius: 5px;
         }
-	
-        .bottomdiv {
+
+        .audio-filename {
+            font-size: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Bottom information panel */
+        .bottom-panel {
             position: fixed;
             left: 0;
-            bottom: 0vh;
+            bottom: 0;
+            width: 100%;
+            transition: height 1s ease;
         }
 
-        input {
-            display:none;
+        #panelContent {
+            font-size: 15px;
+            text-align: center;
+            padding: 1rem 8vw 1rem 12px;
+            height: 3.5rem;
+            width: 100%;
+            transition: height 1s ease;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
         }
-	    
-    #DIV {
-        font-size: 15px;
-        text-align: center;
-        padding-right: 8vw;
-        padding-left: 12px;
-        height:3.5rem;
-        width:96vw;
-        transition:1s;
-        overflow:hidden;
-        background-color: rgba(0, 0, 0, 0.7);
-	display: block;
-    }
-	    
-  .button {
-	font-size: 30px;
-	border: 0px solid #04AA6D;
-	text-align: right;
- 	right:20px;
-	position:absolute;
- 	bottom:20px;
-        height:5vh;
-        width:5vw;
-        transition:1s;
-	background-color: rgba(0, 0, 0, 0);
-	z-index: 5;
-	}
-	    
-    input:checked ~ #DIV {
-        height:95vh;
-        overflow:scroll;
-		      
-    }
-	    @keyframes fadeInUp {
-  0% {
-     opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-	    }
-	    @keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-	     @keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-   }
-}
-	  	  
-		    
-.fadeInUp-animation {
-  animation: 7s fadeInUp;
-}
-.fadeInOut-animation {
-  animation: fadeInOut 3s infinite;
-  cursor: pointer
-}
-.fadeOut-animation {
-  animation: 3s fadieInOut
-	 }
-  
-    
+
+        .expanded #panelContent {
+            height: 95vh;
+            overflow-y: auto;
+        }
+
+        /* Toggle button */
+        .toggle-button {
+            font-size: 30px;
+            border: none;
+            text-align: center;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            z-index: 5;
+            cursor: pointer;
+            animation: fadeInOut 3s infinite;
+        }
+
+        /* Animation classes */
+        .fadeInUp-animation {
+            animation: fadeInUp 7s;
+        }
+
+        .fadeInOut-animation {
+            animation: fadeInOut 3s infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .toggle-button {
+                right: 10px;
+                bottom: 10px;
+            }
+        }
     </style>
 </head>
-	
-		 	
-<body style="font-family:garamond">
-		
-    <audio id="audio" class="fadeInUp-animation show" tag="show" controls controlsList="nodownload">
-        <source src="audios/jeanne-frontieres.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-	
-<button id="button" class="button fadeInOut-animation" onclick="hide("show")" style="color:white"> ◯ </button>
+<body>
+    <div class="audio-container fadeInUp-animation">
+        <audio id="audioPlayer" controls controlsList="nodownload">
+            <source src="audios/mondine-di-bentivoglio-a-la-frontiera-aspetta.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
-    <label for="chk1">
-<input id="chk1" type="checkbox" class="fade" name="menu">
-<div id="DIV" class="bottomdiv fadeInUp-animation show" tag="show">
-	<p style="font-family:garamond" size="25">  <span class="fadeInOut-animation"> ▲ </span> Les Barques </p>
-	<br>
-	
-  <p id="datetime">  </p>
-<script>
-  // Get current date and time
-  var now = new Date();
-  var datetime = now.toLocaleString();
+    <div id="bottomPanel" class="bottom-panel">
+        <button id="toggleButton" class="toggle-button fadeInOut-animation">◯</button>
 
-  // Insert date and time into HTML
-  document.getElementById("datetime").innerHTML = datetime;
-</script>
-	
-	 <blockquote  style="font-family:garamond">
-		Journal : <br> 
-		  <i> Sacrâlité d’un geste documentaire, attaché à la singularité d’un geste plutôt qu’à l’invariance scientifique, faire tenir sur la bande ce qui tient du miracle, l’enfantement d’étrangeté, de formes si singulières qu’on ne peut les nommer autrement que par des noms propres.  </i>
-    </blockquote>
-	
-	  <br> ---  <br> 
-	 <br> 
-FR . Chaque jour, un enregistrement, une photographie et une entrée de journal, <br>
-sélectionnés au hasard dans une archive fluide comme la mémoire. <br>
-Une arche des étrangetés divisée en une multitude d’embarcations chancelantes. <br>  
-<br>
-IT . Ogni giorno, una registrazione, una fotografia e un estratto di quaderno, <br>
-selezionati casualmente da un archivio fluido come la memoria. <br>
-Un'arca di stranezza divise in una moltitudine di barche vacillanti. <br>
-<br>
-EN . Each day, a recording, a photograph, and a journal entry, <br>
-randomly selected from an archive as fluid as memory. <br>
-An ark of strangeness divided into a multitude of tottering boats. <br>
-	<br>
-GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία και ένα απόσπασμα από ένα σημειωματάριο, <br>
-επιλεγμένα τυχαία από ένα αρχείο τόσο ρευστό όσο η μνήμη. <br>
-Μια κιβωτός παραξενιάς χωρισμένη σε ένα πλήθος από τρανταχτές βάρκες. <br>
-	<br>
-	 عربي . كل يوم تسجيل وصورة ومقتطف من دفتر ملاحظات
-تم اختيارها عشوائيًا من أرشيف سائل مثل الذاكرة <br>
-     سفينة الغرابة انقسمت إلى عدد كبير من القوارب المهتزة  <br>
-  <br>
-	<br>  ---  <br>    <br>
-	Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br> <br>
-	Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi,Mohamed Znaidi,Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef
-	</div>
-  
-	</label>
+        <div id="panelContent">
+            <p style="font-size: 18px;"><span class="fadeInOut-animation">▲</span> Les Barques</p>
 
-	  <script>
-function hide("show") {
-  var x = document.getElementsById("DIV"); document.getElementsByClassName("show"); document.getElementsByTagName("show")
-  if (x.style.display = "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-		  
-</script>
+            <div id="expandedContent">
+                <p id="datetime"></p>
 
+                <blockquote>
+                    Journal : <br>
+                    <em>Comme il semblerait contre-intuitif que des gènes usent de la culture (des comportements d’influence culturelle)pour se répliquer, Est-ce que les comportements induits par nos gènes pourraient user de nos gènes pour se reproduire, plutôt que l’inverse? Phénomène de contamination culturelle, puis sélection.</em>
+                </blockquote>
+
+                <br> ---  <br><br>
+
+                FR . Chaque jour, un enregistrement, une photographie et une entrée de journal, <br>
+                sélectionnés au hasard dans une archive fluide comme la mémoire. <br>
+                Une arche des étrangetés divisée en une multitude d'embarcations chancelantes. <br>
+                <br>
+
+                IT . Ogni giorno, una registrazione, una fotografia e un estratto di quaderno, <br>
+                selezionati casualmente da un archivio fluido come la memoria. <br>
+                Un'arca di stranezza divise in una moltitudine di barche vacillanti. <br>
+                <br>
+
+                EN . Each day, a recording, a photograph, and a journal entry, <br>
+                randomly selected from an archive as fluid as memory. <br>
+                An ark of strangeness divided into a multitude of tottering boats. <br>
+                <br>
+
+                GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία και ένα απόσπασμα από ένα σημειωματάριο, <br>
+                επιλεγμένα τυχαία από ένα αρχείο τόσο ρευστό όσο η μνήμη. <br>
+                Μια κιβωτός παραξενιάς χωρισμένη σε ένα πλήθος από τρανταχτές βάρκες. <br>
+                <br>
+
+                عربي . كل يوم تسجيل وصورة ومقتطف من دفتر ملاحظات
+                تم اختيارها عشوائيًا من أرشيف سائل مثل الذاكرة <br>
+                سفينة الغرابة انقسمت إلى عدد كبير من القوارب المهتزة  <br>
+                <br><br>
+
+                ---  <br><br>
+
+                Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br><br>
+
+                Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set current date and time
+        document.addEventListener('DOMContentLoaded', function() {
+            var now = new Date();
+            var datetime = now.toLocaleString();
+            document.getElementById("datetime").innerHTML = datetime;
+
+            // Toggle panel expansion
+            var panel = document.getElementById('bottomPanel');
+            var button = document.getElementById('toggleButton');
+            var audioControl = document.getElementById('audioPlayer');
+
+            button.addEventListener('click', function() {
+                panel.classList.toggle('expanded');
+
+                // Change button text based on state
+                if(panel.classList.contains('expanded')) {
+                    button.textContent = '×'; // Change to X when expanded
+                } else {
+                    button.textContent = '◯'; // Change back to circle when collapsed
+                }
+            });
+
+            // Audio controls functionality
+            audioControl.addEventListener('play', function() {
+                // You can add behaviors when audio plays
+            });
+
+            audioControl.addEventListener('pause', function() {
+                // You can add behaviors when audio pauses
+            });
+        });
+    </script>
 </body>
-	
 </html>
