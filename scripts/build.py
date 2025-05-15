@@ -18,12 +18,15 @@ filtered_texts = [text for text in data["texts"] if args.min_text_length <= len(
 
 # Sélectionner un texte, une image et un audio au hasard
 if filtered_texts:
+    # trunk-ignore(bandit/B311)
     text = random.choice(filtered_texts)
 else:
     print(f"Aucun texte ne correspond aux critères de longueur (min: {args.min_text_length}, max: {args.max_text_length} caractères).")
     exit(1)
 
+# trunk-ignore(bandit/B311)
 image = random.choice(data["images"])
+# trunk-ignore(bandit/B311)
 audio = random.choice(data["audios"])
 
 # Configurer Jinja2 pour charger le modèle HTML
