@@ -53,7 +53,6 @@
             background-repeat: no-repeat;
             z-index: -1;
             animation: fadeIn 3s ease-in-out;
-            animation-delay: 2s;
         }
 
         main {
@@ -102,7 +101,7 @@
         .bottom-panel {
             position: fixed;
             left: 0;
-            bottom: 10px;
+            bottom: 0px;
             width: 100%;
             transition: height 1s ease;
             animation: fadeIn 3s ease-in-out;
@@ -112,7 +111,7 @@
             font-size: 15px;
             text-align: center;
             padding: 1rem 8vw 1rem;
-            height: 3.5rem;
+            height: 3rem;
             width: 100%;
             transition: height 1s ease;
             overflow: hidden;
@@ -168,9 +167,9 @@
         </audio>
     </div>
 
+     <button id="toggleButton" class="toggle-button fadeInOut-animation">◯</button>
+    
     <div id="bottomPanel" class="bottom-panel">
-        <button id="toggleButton" class="toggle-button fadeInOut-animation">◯</button>
-
         <div id="panelContent">
             <p style="font-size: 17px;"><span class="fadeInOut-animation">▲</span> Les Barques</p>
 
