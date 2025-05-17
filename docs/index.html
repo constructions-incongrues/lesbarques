@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/0041-1.jpg');
+            background-image: url('images/2023-06-03-10.57.16-1.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -151,8 +151,7 @@
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  min-width: 90dvw;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -161,11 +160,11 @@
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
-  background-image: url('images/0041-1.jpg');
+  background-image: url('images/2023-06-03-10.57.16-1.jpeg');
   margin: auto;
-  padding: 2px;
-  border: 1px solid #888;
-  width: 100%;
+  padding: 0px;
+  border: 0px solid #888;
+  min-width: 100dvw;
 }
 
 /* The Close Button */
@@ -205,7 +204,7 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="audios/fanny-george-simon-rummel-damunt-de-tu-nomes-les-flors-mompou.mp3" type="audio/mpeg">
+            <source src="audios/la-filanda-giaco.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -221,7 +220,7 @@
 
                 <blockquote>
                     Journal : <br>
-                    <em>Les barques n’archivent pas un grand récit mais l’étonnante est inquiétante singularité d’une vaste somme de récit particulier. Parmi ces récits, certains peut-être se vivent comme absolus, on laisse ceux-là prendre l’eau davantage que les autres pour qu’ils en viennent à s’interroger, nous documentons aussi et d’abord l’eau qui entre dans les barques.. Il n’y a que des sens relatif pour la vie, pas de sens absolu. C’est en cherchant à créer des sens absolus que l’on crée des idoles. Mettre sur les barques des petits monde dans la relativité de leur sens, et voir ce qui relit absolument ces relativités.</em>
+                    <em>Au rebours de l&#39;Arche de Noé, qui préserve les icônes sous le geste souverain d&#39;un Dieu univoque, Les Barques choisissent plutôt d&#39;abriter les iconoclastes, ceux dont l’épreuve d’une déshérence collective constitue l&#39;acte le plus spontané de contemporanéité ; Un geste composite, paradoxalement fondé sur les mêmes pivots qu&#39;une tradition orale : pas de lois écrites, pas de protocole défini, et le besoin impérieux d&#39;une co-action sans cesse renouvelée.</em>
                 </blockquote>
 
                 <br> ---  <br><br>
@@ -267,8 +266,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-   <img src="url('images/0041-1.jpg'">
-                    </div>
+                      </div>
       
   </div>
 
@@ -276,7 +274,7 @@
         
         // Modal
 var modal = document.getElementById("modal");
-var btn = document.getElementById("toggleButtontriangle");
+var btn = document.getElementById("togglebuttoncircle");
 var span = document.getElementsByClassName("close")[0];
       // When the user clicks the button, open the modal 
 btn.onclick = function() {
