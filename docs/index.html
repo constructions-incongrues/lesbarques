@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/2023-06-03-10.59.24.jpeg');
+            background-image: url('images/2023-05-08-10.10-2-2.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -150,6 +150,7 @@
   z-index: 6;
   width: 98dvw;
   height: 98dvh;
+  border-radius: 10px;
   overflow: auto; /* Enable scroll if needed */
   background-color: transparent; /* Fallback color */
 
@@ -157,7 +158,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('images/2023-06-03-10.59.24.jpeg');
+  background-image: url('images/2023-05-08-10.10-2-2.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -165,11 +166,10 @@
   height: 98dvh;
 }
 
-/* The Close Button */
 .close {
   color: #aaaaaa;
-  float: right;
-  font-size: 28px;
+  float: bottom-right;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -202,7 +202,7 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="audios/38-sidi-abid.mp3" type="audio/mpeg">
+            <source src="audios/37-sidi-abid.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -218,7 +218,7 @@
 
                 <blockquote>
                     Journal : <br>
-                    <em>Une théorie humaine se révèle toujours fausse, étant soumise au contrôle du temps, un système humain d’explication du monde révèle toujours ses limites, mais sa fonction est de nous mettre en chemin vers une définition toujours plus riche (au sens quasiment utilitariste du terme) de notre monde et de son rapport aux autres mondes, des lois qui régissent les rapports des mondes, une redéfinition permanente des frontières et des réseaux qui les lient et sous-tendent leurs interactions, une submersion de ses mondes dans des ensembles qui les comprennent ensemble et remettent en mouvement les intuitions qui les ont enfantés.</em>
+                    <em>Notre logos -discours est motivé (motif du discours) par une morale, motivée elle-même par une psychologie -esprit/cognition motivée par un sens logique -logique à priori, qu’il soit théoriquement valide ou non. logique dans le sens “raisonnement inductif qui formule des hypothèses pour expliquer ce qu’il perçoit des faits, hypothèses auxquelles accorder plus ou moins de crédence en fonction de ce qui motive ce logos” -fonction du logos</em>
                 </blockquote>
 
                 <br> ---  <br><br>
@@ -277,14 +277,14 @@ var span = document.getElementsByClassName("close")[0];
       // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
-  modal.style.animation="fadeIn 2s ease-in-out";
+  modal.style.animation="fadeIn 1s ease-in-out";
 }
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+// When the user clicks on the modal, close it
+modal.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
