@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/2023-06-03-10.56.11.jpeg');
+            background-image: url('images/2023-06-03-10.59.44-1.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -125,7 +125,7 @@
         }
 
         /* Toggle button */
-        .toggle-button {
+        .toggle-button-circle {
             font-size: 30px;
             border: none;
             text-align: center;
@@ -162,23 +162,23 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="audios/50-chansons-redeyef-al-amam.mp3" type="audio/mpeg">
+            <source src="audios/j.f.-favreau-chants-sans-auteurs.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
 
-     <button id="toggleButton" class="toggle-button fadeInOut-animation">◯</button>
+     <button class="toggle-button-circle fadeInOut-animation">◯</button>
     
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;"><span class="fadeInOut-animation">▲</span> Les Barques</p>
+            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation">▲</span> Les Barques</p>
 
             <div id="expandedContent">
                 <p id="datetime"></p>
 
                 <blockquote>
                     Journal : <br>
-                    <em>chancelantes, construites avec des chants, des poèmes et des silhouettes dont la fragilité exprime une</em>
+                    <em>Mettre l’humanité sur les barques, l’éternelle déplacée. L’arca affondata</em>
                 </blockquote>
 
                 <br> ---  <br><br>
@@ -226,7 +226,7 @@
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
-            var button = document.getElementById('toggleButton');
+            var button = document.getElementById('toggleButtontriangle');
             var audioControl = document.getElementById('audioPlayer');
 
             button.addEventListener('click', function() {
@@ -234,9 +234,9 @@
 
                 // Change button text based on state
                 if(panel.classList.contains('expanded')) {
-                    button.textContent = '×'; // Change to X when expanded
+                    button.textContent = '▼'; // Change to X when expanded
                 } else {
-                    button.textContent = '◯'; // Change back to circle when collapsed
+                    button.textContent = '▲'; // Change back to circle when collapsed
                 }
             });
 
