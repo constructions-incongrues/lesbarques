@@ -151,8 +151,7 @@
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  min-width: 90dvw;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -163,9 +162,9 @@
   background-color: #fefefe;
   background-image: url('{{ image }}');
   margin: auto;
-  padding: 2px;
-  border: 1px solid #888;
-  width: 100%;
+  padding: 0px;
+  border: 0px solid #888;
+  min-width: 100dvw;
 }
 
 /* The Close Button */
@@ -267,8 +266,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-   <img src="url('{{ image }}'">
-                    </div>
+                      </div>
       
   </div>
 
@@ -276,7 +274,7 @@
         
         // Modal
 var modal = document.getElementById("modal");
-var btn = document.getElementById("toggleButtontriangle");
+var btn = document.getElementById("togglebuttoncircle");
 var span = document.getElementsByClassName("close")[0];
       // When the user clicks the button, open the modal 
 btn.onclick = function() {
