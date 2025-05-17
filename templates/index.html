@@ -120,7 +120,7 @@
         }
 
         .expanded #panelContent {
-            height: 95vh;
+            height: 90vh;
             overflow-y: auto;
         }
 
@@ -155,13 +155,12 @@
   min-height: 90dvh;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background: none;
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
-  image: url('{{ image }}');
+  background-image: url('{{ image }}');
   margin: auto;
   padding: 0px;
   border: 0px solid #888;
