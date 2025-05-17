@@ -125,7 +125,7 @@
         }
 
         /* Toggle button */
-        .toggle-button {
+        .toggle-button-circle {
             font-size: 30px;
             border: none;
             text-align: center;
@@ -167,11 +167,11 @@
         </audio>
     </div>
 
-     <button id="toggleButton" class="toggle-button fadeInOut-animation">◯</button>
+     <button class="toggle-button-circle fadeInOut-animation">◯</button>
     
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;"><span class="fadeInOut-animation">▲</span> Les Barques</p>
+            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation">▲</span> Les Barques</p>
 
             <div id="expandedContent">
                 <p id="datetime"></p>
@@ -226,7 +226,7 @@
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
-            var button = document.getElementById('toggleButton');
+            var button = document.getElementById('toggleButtontriangle');
             var audioControl = document.getElementById('audioPlayer');
 
             button.addEventListener('click', function() {
@@ -234,9 +234,9 @@
 
                 // Change button text based on state
                 if(panel.classList.contains('expanded')) {
-                    button.textContent = '×'; // Change to X when expanded
+                    button.textContent = '▼'; // Change to X when expanded
                 } else {
-                    button.textContent = '◯'; // Change back to circle when collapsed
+                    button.textContent = '▲'; // Change back to circle when collapsed
                 }
             });
 
