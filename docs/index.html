@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/2023-06-03-10.59.44-1.jpeg');
+            background-image: url('images/0041-1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -137,9 +137,52 @@
             background-color: rgba(0, 0, 0, 0);
             color: white;
             z-index: 5;
-            cursor: pointer;
             animation: fadeInOut 3s infinite;
         }
+        .pointer {
+          cursor: pointer;
+         }
+        
+     /* Modal classes */
+        .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 6;
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  background-image: url('images/0041-1.jpg');
+  margin: auto;
+  padding: 2px;
+  border: 1px solid #888;
+  width: 100%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+        
 
         /* Animation classes */
         .fadeInUp-animation {
@@ -162,23 +205,23 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="audios/j.f.-favreau-chants-sans-auteurs.mp3" type="audio/mpeg">
+            <source src="audios/fanny-george-simon-rummel-damunt-de-tu-nomes-les-flors-mompou.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
 
-     <button class="toggle-button-circle fadeInOut-animation">◯</button>
+     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
     
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation">▲</span> Les Barques</p>
+            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques</p>
 
             <div id="expandedContent">
                 <p id="datetime"></p>
 
                 <blockquote>
                     Journal : <br>
-                    <em>Mettre l’humanité sur les barques, l’éternelle déplacée. L’arca affondata</em>
+                    <em>Les barques n’archivent pas un grand récit mais l’étonnante est inquiétante singularité d’une vaste somme de récit particulier. Parmi ces récits, certains peut-être se vivent comme absolus, on laisse ceux-là prendre l’eau davantage que les autres pour qu’ils en viennent à s’interroger, nous documentons aussi et d’abord l’eau qui entre dans les barques.. Il n’y a que des sens relatif pour la vie, pas de sens absolu. C’est en cherchant à créer des sens absolus que l’on crée des idoles. Mettre sur les barques des petits monde dans la relativité de leur sens, et voir ce qui relit absolument ces relativités.</em>
                 </blockquote>
 
                 <br> ---  <br><br>
@@ -217,7 +260,39 @@
         </div>
     </div>
 
+  
+<!-- The Modal -->
+<div id="modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+   <img src="url('images/0041-1.jpg'">
+                    </div>
+      
+  </div>
+
     <script>
+        
+        // Modal
+var modal = document.getElementById("modal");
+var btn = document.getElementById("toggleButtontriangle");
+var span = document.getElementsByClassName("close")[0];
+      // When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+        
         // Set current date and time
         document.addEventListener('DOMContentLoaded', function() {
             var now = new Date();
