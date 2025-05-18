@@ -301,7 +301,7 @@
     <script>
         
             // Newsletter
-var modal = document.getElementById("newsletter");
+var newsletter = document.getElementById("newsletter");
 var btn = document.getElementById("togglebuttonnewsletter");
 var span = document.getElementsByClassName("close")[0];
       // When the user clicks the button, open the modal 
@@ -314,7 +314,7 @@ span.onclick = function() {
   newsletter.style.display = "none";
   modal.style.display = "none";
 }
-   }
+         });
         
         // Modal
 var modal = document.getElementById("modal");
@@ -335,7 +335,7 @@ modal.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+ });
         
           // display current date
     const datetimeDisplayElement = document.getElementById("date");
@@ -343,6 +343,8 @@ modal.onclick = function(event) {
     const date = currentDateTime.toDateString();
     // Display the date and time in the span element
     datetimeDisplayElement.textContent = ${date};
+
+         });
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
@@ -370,5 +372,6 @@ modal.onclick = function(event) {
             });
         });
     </script>
+    
 </body>
 </html>
