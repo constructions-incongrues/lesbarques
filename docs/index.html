@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/o-dsc_2113.jpg');
+            background-image: url('images/img-20241010-wa0013-edited.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -157,7 +157,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('images/o-dsc_2113.jpg');
+  background-image: url('images/img-20241010-wa0013-edited.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -214,7 +214,7 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="audios/aydin-ciracioglu-improvisation.mp3" type="audio/mpeg">
+            <source src="audios/jeanne-frontieres.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -229,7 +229,7 @@
 
                 <blockquote>
                     Journal : <br>
-                    <em>archè</em>
+                    <em>L’Arca che si bagna / Décrire la proximité de l’archive et du chant. Archive désigne également le coffre ou l’on place les documents.</em>
                 </blockquote>
 
                 <br> ---  <br><br>
@@ -301,7 +301,7 @@
     <script>
         
             // Newsletter
-var modal = document.getElementById("newsletter");
+var newsletter = document.getElementById("newsletter");
 var btn = document.getElementById("togglebuttonnewsletter");
 var span = document.getElementsByClassName("close")[0];
       // When the user clicks the button, open the modal 
@@ -314,7 +314,7 @@ span.onclick = function() {
   newsletter.style.display = "none";
   modal.style.display = "none";
 }
-   }
+         });
         
         // Modal
 var modal = document.getElementById("modal");
@@ -335,7 +335,7 @@ modal.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+ });
         
           // display current date
     const datetimeDisplayElement = document.getElementById("date");
@@ -343,6 +343,8 @@ modal.onclick = function(event) {
     const date = currentDateTime.toDateString();
     // Display the date and time in the span element
     datetimeDisplayElement.textContent = ${date};
+
+         });
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
@@ -370,5 +372,6 @@ modal.onclick = function(event) {
             });
         });
     </script>
+    
 </body>
 </html>
