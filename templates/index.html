@@ -205,7 +205,7 @@
     
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="datetime"> </span> </p>
+            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="date"> </span> </p>
 
             <div id="expandedContent">
 
@@ -286,8 +286,8 @@ modal.onclick = function(event) {
         // Set current date and time
         document.addEventListener('DOMContentLoaded', function() {
             var now = new Date();
-            var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = datetime;
+            var date = now.toLocaleString();
+            document.getElementById("date").innerHTML = date;
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
