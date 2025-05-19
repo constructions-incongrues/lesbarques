@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/2023-05-08-10.08.jpeg');
+            background-image: url('images/cropped-r001-001.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -157,7 +157,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('images/2023-05-08-10.08.jpeg');
+  background-image: url('images/cropped-r001-001.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -214,7 +214,7 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="audios/r-cista-g-campa-l-uberto-ninna-nanna-griko.mp3" type="audio/mpeg">
+            <source src="audios/36-sidi-abid.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -229,7 +229,7 @@
 
                 <blockquote>
                     Journal : <br>
-                    <em>L’œuvre est la conséquence d’un geste fixé sur un support, l’ouvrage est au contraire un geste vécu au présent, partagé, transmis comme tel, résistant à la signature d’un seul. Geste avec une portée collective, voisin sur ce point avec la méthode scientifique. Le geste devient Une Geste?</em>
+                    <em>Le manque n’est pas «  agent vers » (éros) mais une fin en soit . Ce n’est pas un manque à combler mais un manque à penser, à pratiquer, voire à favoriser . Un manque qui ne favorise pas l’accumulation mais la pauvreté et la sobriété.</em>
                 </blockquote>
 
                 <br> ---  <br><br>
@@ -300,21 +300,6 @@
 
     <script>
         
-            // Newsletter
-var newsletter = document.getElementById("newsletter");
-var btn = document.getElementById("togglebuttonnewsletter");
-var span = document.getElementsByClassName("close")[0];
-      // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  newsletter.style.display = "block";
-  newsletter.style.animation="fadeIn 1s ease-in-out";
-}
-// When the user clicks on <span> (x), close the form
-span.onclick = function() {
-  newsletter.style.display = "none";
-}
-         });
-        
         // Modal
 var modal = document.getElementById("modal");
 var btn = document.getElementById("togglebuttoncircle");
@@ -333,16 +318,15 @@ modal.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
- });
         
           // display current date
-    const datetimeDisplayElement = document.getElementById("date");
-    const currentDateTime = new Date();
+    const dateDisplayElement = document.getElementById("date");
+    const currentDate = new Date();
     const date = currentDate.toDateString();
     // Display the date and time in the span element
     dateDisplayElement.textContent = ${date};
 
-         });
+         }
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
@@ -368,7 +352,23 @@ modal.onclick = function(event) {
             audioControl.addEventListener('pause', function() {
                 // You can add behaviors when audio pauses
             });
+        
         });
+        
+            // Newsletter
+var newsletter = document.getElementById("newsletter");
+var btn = document.getElementById("togglebuttonnewsletter");
+var span = document.getElementsByClassName("close")[0];
+      // When the user clicks the button, open the modal 
+btn.onclick = function() {
+  newsletter.style.display = "block";
+  newsletter.style.animation="fadeIn 1s ease-in-out";
+}
+// When the user clicks on <span> (x), close the form
+span.onclick = function() {
+  newsletter.style.display = "none";
+}
+
     </script>
     
 </body>
