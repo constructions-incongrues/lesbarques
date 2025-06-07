@@ -14,7 +14,7 @@ def filter_texts(texts, min_text_length=0, max_text_length=float('inf'), delimit
     # Traiter chaque texte individuellement
     for text in texts:
         # Chercher les positions du délimiteur
-        delimiter_positions = [pos for pos in range(len(text)) if text.startswith(delimiter, pos)]
+        delimiter_positions = [pos for pos in range(len(text)) if text.startswith(delimiter)]
 
         # Si le texte contient au moins deux délimiteurs, extraire la portion entre les deux premiers
         if len(delimiter_positions) >= 2:
@@ -22,9 +22,6 @@ def filter_texts(texts, min_text_length=0, max_text_length=float('inf'), delimit
             end_pos = delimiter_positions[1]
             extracted_text = text[start_pos:end_pos]
             filtered_texts.append(extracted_text)
-        # Sinon, appliquer les règles de longueur min/max
-        elif min_text_length <= len(text) <= max_text_length:
-            filtered_texts.append(text)
 
     return filtered_texts
 
@@ -73,7 +70,7 @@ def load_or_create_schedule(manifest_path, schedule_path, min_text_length=0, max
         manifest = json.load(f)
 
     # Filtrer les textes selon les critères
-    filtered_texts = filter_texts(manifest["texts"], min_text_length, max_text_length, delimiter)
+    filtered_texts = filter_texts(manifest["texts"], delimiter)
 
     if not filtered_texts:
         print("Aucun texte ne correspond aux critères (délimiteur ou longueur).")
