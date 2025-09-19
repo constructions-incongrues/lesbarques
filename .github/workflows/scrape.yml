@@ -32,20 +32,27 @@ jobs:
         rclone_config: ${{ secrets.RCLONE_CONFIG }}
         disable_base64: true
 
-    - name: Scrape Texts
+    - name: Scrape texts
       id: texts
       run: |
         pipenv run python scripts/texts.py "${{ vars.SCRAPE_TEXTS_URLS }}"
 
-    - name: Scrape Audios
+    - name: Scrape audios
       id: audios
       run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection"
 
+    - name: Scrape images (TODO)
+      id: images
+      # run: rclone lsjson --include "*.jpg"  "lesbarques-images:Les Barques sélection"
+      run: |
+        echo '{"images": []}'
+
     - name: Update manifest
       run: |
-        echo "${{ steps.texts.outputs.stdout }}" > docs/texts.json
-        echo "${{ steps.audios.outputs.stdout }}" > docs/audios.json
-        jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: [], texts: .[0].texts, audios: .[1] | map(.Path) }" docs/texts.json docs/audios.json > docs/manifest.json
+        echo '${{ steps.texts.outputs.result }}' | jq '.' > docs/texts.json
+        echo '${{ steps.audios.outputs.result }}' | jq '.' > docs/audios.json
+        echo '${{ steps.images.outputs.result }}' | jq '.' > docs/images.json
+        jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: .[0].images, texts: .[0].texts, audios: .[1] | map(.Path) }" docs/texts.json docs/audios.json docs/images.json > docs/manifest.json
 
     - name: Commit and push changes
       run: |
