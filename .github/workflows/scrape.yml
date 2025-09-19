@@ -21,7 +21,7 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip pipenv
         pipenv install
@@ -32,18 +32,18 @@ jobs:
         rclone_config: ${{ secrets.RCLONE_CONFIG }}
         disable_base64: true
 
-    - name: Texts
+    - name: Scrape Texts
       id: texts
       run: |
         pipenv run python scripts/texts.py "${{ vars.SCRAPE_TEXTS_URLS }}"
 
-    - name: Audios
+    - name: Scrape Audios
       id: audios
       run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection"
 
     - name: Update manifest
       run: |
-        echo "${{ steps.texts.outputs.texts }}" > docs/texts.json
+        echo "${{ steps.texts.outputs.stdout }}" > docs/texts.json
         echo "${{ steps.audios.outputs.stdout }}" > docs/audios.json
         jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: [], texts: .[0].texts, audios: .[1] | map(.Path) }" docs/texts.json docs/audios.json > docs/manifest.json
 
