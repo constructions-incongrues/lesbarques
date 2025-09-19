@@ -45,7 +45,7 @@ jobs:
       run: |
         echo "${{ steps.texts.outputs.texts }}" > docs/texts.json
         echo "${{ steps.audios.outputs.stdout }}" > docs/audios.json
-        jq -s '.[0] * {audios: .[1]}' docs/texts.json docs/audios.json > docs/manifest.json
+        jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: [], texts: .[0].texts, audios: .[1] | map(.Path) }" docs/texts.json docs/audios.json > docs/manifest.json
 
     - name: Commit and push changes
       run: |
