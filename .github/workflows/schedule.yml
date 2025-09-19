@@ -43,7 +43,7 @@ jobs:
 
     - name: Fetch audio
       run: |
-        rclone copy "lesbarques:Le Barche sélection/$(jq -r .audio ./docs/current.json)" ./docs/current/
+        rclone copy "lesbarques:Le Barche sélection/audio/$(jq -r .audio ./docs/current.json)" ./docs/current/
 
     - name: Fetch image
       run: |

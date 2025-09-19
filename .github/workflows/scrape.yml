@@ -39,7 +39,7 @@ jobs:
 
     - name: Scrape audios
       id: audios
-      run: rclone lsjson --files-only --include "*.{flac,mp3}"  "lesbarques:Le Barche sélection" | tee docs/audios.json
+      run: rclone lsjson --files-only --include "*.{flac,mp3}"  "lesbarques:Le Barche sélection/audio" | tee docs/audios.json
 
     - name: Scrape images
       id: images

@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  run-build:
+  run-reset:
     runs-on: ubuntu-latest
 
     steps:
