@@ -1,0 +1,23 @@
+name: Scrape Audios
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+permissions:
+  contents: write
+
+jobs:
+  run-scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: NiceLabs/rclone-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ secrets.RCLONE_CONFIG }}
+          config-secret-name: RCLONE_CONFIG
+      - name: Upload Pre-built images
+        run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection"
