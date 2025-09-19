@@ -26,6 +26,12 @@ jobs:
         python -m pip install --upgrade pip pipenv
         pipenv install
 
+    - name: Setup Rclone
+      uses: AnimMouse/setup-rclone@v1
+      with:
+        rclone_config: ${{ secrets.RCLONE_CONFIG }}
+        disable_base64: true
+
     - name: Texts
       id: texts
       run: |
