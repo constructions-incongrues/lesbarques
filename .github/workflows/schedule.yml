@@ -43,11 +43,11 @@ jobs:
 
     - name: Fetch audio
       run: |
-        rclone copy "lesbarques-audio:Le Barche sélection/$(jq -r .audio ./docs/current.json)" ./docs/current/
+        rclone copy "lesbarques:Le Barche sélection/$(jq -r .audio ./docs/current.json)" ./docs/current/
 
     - name: Fetch image
       run: |
-        rclone copy "lesbarques-audio:Le Barche sélection/images/$(jq -r .image ./docs/current.json)" ./docs/current/
+        rclone copy "lesbarques:Le Barche sélection/images/$(jq -r .image ./docs/current.json)" ./docs/current/
 
     - name: Commit and push changes
       run: |
