@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: NiceLabs/rclone-action@master
+      - name: Setup Rclone
+        uses: AnimMouse/setup-rclone@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          config: ${{ secrets.RCLONE_CONFIG }}
-          config-secret-name: RCLONE_CONFIG
-      - name: Upload Pre-built images
+          rclone_config: ${{ secrets.RCLONE_CONFIG }}
+          disable_base64: true
+      - name: List audio files in kdrive share
         run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection"
