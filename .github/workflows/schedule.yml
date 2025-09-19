@@ -26,6 +26,12 @@ jobs:
         python -m pip install --upgrade pip pipenv
         pipenv install
 
+    - name: Setup rclone
+      uses: AnimMouse/setup-rclone@v1
+      with:
+        rclone_config: ${{ secrets.RCLONE_CONFIG }}
+        disable_base64: true
+
     - name: Run schedule script
       run: |
         pipenv run python scripts/schedule.py --min-text-length=${{ vars.MIN_TEXT_LENGTH }} --max-text-length=${{ vars.MAX_TEXT_LENGTH }}
