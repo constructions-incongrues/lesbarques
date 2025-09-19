@@ -203,6 +203,10 @@ def generate_today_content(schedule_data, output_file, force_day=None):
         today_entry["day"] = day_index + 1
         today_entry["total_days"] = len(schedule_data["entries"])
 
+        # Enregister l'entrée du jour dans un fichier JSON pour référence
+        with open("./docs/current.json", "w", encoding="utf-8") as f:
+            json.dump(today_entry, f, ensure_ascii=False, indent=2)
+
         html_content = template.render(**today_entry)
 
         # Enregistrer le contenu HTML dans un fichier

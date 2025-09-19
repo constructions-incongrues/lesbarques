@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('{{ image }}');
+            background-image: url('current/{{ image }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -223,13 +223,13 @@
 <body>
     <div class="audio-container fadeInUp-animation">
         <audio id="audioPlayer" controls controlsList="nodownload">
-            <source src="{{ audio }}" type="audio/mpeg">
+            <source src="current/{{ audio }}" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
 
      <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
-    
+
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
             <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="datetime"> </span> </p>

@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  run-build:
+  run-schedule:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +29,19 @@ jobs:
     - name: Run schedule script
       run: |
         pipenv run python scripts/schedule.py --min-text-length=${{ vars.MIN_TEXT_LENGTH }} --max-text-length=${{ vars.MAX_TEXT_LENGTH }}
+
+    - name: Empty "current" directory
+      run: |
+        rm -rf ./docs/current/*
+        mkdir -p ./docs/current/
+
+    - name: Fetch audio
+      run: |
+        rclone copy "lesbarques-audio:Le Barche sélection/$(jq -r .audio ./docs/current.json)" ./docs/current/
+
+    - name: Fetch image
+      run: |
+        rclone copy "lesbarques-audio:Le Barche sélection/images/$(jq -r .image ./docs/current.json)" ./docs/current/
 
     - name: Commit and push changes
       run: |

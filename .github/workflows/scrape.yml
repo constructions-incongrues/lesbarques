@@ -39,17 +39,15 @@ jobs:
 
     - name: Scrape audios
       id: audios
-      run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection" | tee docs/audios.json
+      run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques:Le Barche sélection" | tee docs/audios.json
 
-    - name: Scrape images (TODO)
+    - name: Scrape images
       id: images
-      # run: rclone lsjson --include "*.jpg"  "lesbarques-images:Les Barques sélection"
-      run: |
-        echo '{"images": []}' | tee docs/images.json
+      run: rclone lsjson --include "*.{jpg,gif,png,webp}"  "lesbarques:Le Barche sélection/images" | tee docs/images.json
 
     - name: Update manifest
       run: |
-        jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: .[0].images, texts: .[0].texts, audios: .[1] | map(.Path) }" docs/texts.json docs/audios.json docs/images.json > docs/manifest.json
+        jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: .[0] | map(.Path), texts: .[1].texts, audios: .[2] | map(.Path) }" docs/images.json docs/texts.json docs/audios.json
 
     - name: Commit and push changes
       run: |
