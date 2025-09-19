@@ -1,4 +1,4 @@
-name: Scrape Texts
+name: Scrape
 
 on:
   workflow_dispatch:
@@ -26,9 +26,22 @@ jobs:
         python -m pip install --upgrade pip pipenv
         pipenv install
 
-    - name: Run scrape script
+    - name: Texts
+      id: texts
+      env:
+        SCRAPE_TEXTS_URLS: ${{ secrets.SCRAPE_TEXTS_URLS }}
       run: |
-        pipenv run python scripts/scrape-texts.py "${{ env.SCRAPE_TEXTS_URLS }}"
+        pipenv run python scripts/texts.py "${{ env.SCRAPE_TEXTS_URLS }}"
+
+    - name: Audios
+      id: audios
+      run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection"
+
+    - name: Update manifest
+      run: |
+        echo "${{ steps.texts.outputs.texts }}" > docs/texts.json
+        echo "${{ steps.audios.outputs.stdout }}" > docs/audios.json
+        jq -s '.[0] * {audios: .[1]}' docs/texts.json docs/audios.json > docs/manifest.json
 
     - name: Commit and push changes
       run: |

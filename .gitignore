@@ -1,3 +1,5 @@
 /var
 /.trunk
 rclone.conf
+docs/audios.json
+docs/texts.json
