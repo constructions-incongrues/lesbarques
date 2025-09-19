@@ -26,7 +26,7 @@ jobs:
         python -m pip install --upgrade pip pipenv
         pipenv install
 
-    - name: Setup Rclone
+    - name: Setup rclone
       uses: AnimMouse/setup-rclone@v1
       with:
         rclone_config: ${{ secrets.RCLONE_CONFIG }}
@@ -35,23 +35,20 @@ jobs:
     - name: Scrape texts
       id: texts
       run: |
-        pipenv run python scripts/texts.py "${{ vars.SCRAPE_TEXTS_URLS }}"
+        pipenv run python scripts/texts.py "${{ vars.SCRAPE_TEXTS_URLS }}" | tee docs/texts.json
 
     - name: Scrape audios
       id: audios
-      run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection"
+      run: rclone lsjson --include "*.{flac,mp3}"  "lesbarques-audio:Le Barche sélection" | tee docs/audios.json
 
     - name: Scrape images (TODO)
       id: images
       # run: rclone lsjson --include "*.jpg"  "lesbarques-images:Les Barques sélection"
       run: |
-        echo '{"images": []}'
+        echo '{"images": []}' | tee docs/images.json
 
     - name: Update manifest
       run: |
-        echo '${{ steps.texts.outputs.result }}' | jq '.' > docs/texts.json
-        echo '${{ steps.audios.outputs.result }}' | jq '.' > docs/audios.json
-        echo '${{ steps.images.outputs.result }}' | jq '.' > docs/images.json
         jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: .[0].images, texts: .[0].texts, audios: .[1] | map(.Path) }" docs/texts.json docs/audios.json docs/images.json > docs/manifest.json
 
     - name: Commit and push changes
