@@ -76,7 +76,7 @@ for url in urls:
     audios_urls = []
     for link in soup.find_all('a'):
         href = link.get('href')
-        if href and href.endswith('.mp3'):
+        if href and (href.endswith('.mp3') or href.endswith('.flac')):
             audios_urls.append(href)
 
     # Afficher les résultats

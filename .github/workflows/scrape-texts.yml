@@ -1,4 +1,4 @@
-name: Scrape
+name: Scrape Texts
 
 on:
   workflow_dispatch:
@@ -28,7 +28,7 @@ jobs:
 
     - name: Run scrape script
       run: |
-        pipenv run python scripts/scrape.py "${{ secrets.SCRAPED_URLS }}"
+        pipenv run python scripts/scrape-texts.py "${{ env.SCRAPE_TEXTS_URLS }}"
 
     - name: Commit and push changes
       run: |
