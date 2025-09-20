@@ -106,6 +106,7 @@
             width: 100%;
             transition: height 1s ease;
             animation: fadeIn 2s ease-in-out;
+            z-position: 10;
         }
 
         #panelContent {
@@ -118,11 +119,13 @@
             overflow: hidden;
             background-color: rgba(0, 0, 0, 0.7);
             box-sizing: border-box;
+                  z-position: 10;
         }
 
         .expanded #panelContent {
             height: 100vh;
             overflow-y: auto;
+                  z-position: 10;
         }
 
         /* Toggle button */
@@ -139,6 +142,7 @@
             color: white;
             z-index: 5;
             animation: fadeInOut 3s infinite;
+                  z-position: 10;
         }
         .pointer {
           cursor: pointer;
@@ -153,6 +157,7 @@
   height: 100dvh;
   overflow: auto; /* Enable scroll if needed */
   background-color: black;
+                  z-position: 10;
 
 }
 
@@ -173,6 +178,7 @@
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
+          z-position: 10;
 }
 
 .closepointernewsletter {
