@@ -74,14 +74,15 @@
         /* Audio player */
         .audio-container {
             position: absolute;
-            bottom: 1vh;
+            bottom: 2vh;
             left: 2vh;
             width: 100%;
             display: flex;
+            z-index:10;
         }
 
         audio {
-            width: 50px;
+            width: 7vw;
             height: 30px;
             opacity: 9.9;
             background-color: rgba(0, 0, 0, 0);
@@ -120,7 +121,7 @@
         }
 
         .expanded #panelContent {
-            height: 90vh;
+            height: 100vh;
             overflow-y: auto;
         }
 
