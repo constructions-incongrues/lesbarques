@@ -77,17 +77,19 @@
             top: 4vh;
             width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: left;
+            align-items: left;
         }
 
         audio {
-            width: 80vw;
-            opacity: 0;
+            width: 10vw;
+            opacity: 9.9;
             background-color: rgba(0, 0, 0, 0);
             color: white;
             border: none;
             border-radius: 5px;
+            justify-content: left;
+            align-items: left;
         }
 
         .audio-filename {
@@ -222,7 +224,7 @@
 </head>
 <body>
     <div class="audio-container fadeInUp-animation">
-        <audio id="audioPlayer" controls controlsList="nodownload autoplay">
+        <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="current/Loup Uberto - Me siento alegre - rutas singulares en Cuba (février-mars 2017) - 04 Armonía del son del Caribe - Apago la vela.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
@@ -232,7 +234,11 @@
 
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;"><span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="datetime"> </span> </p>
+            <p style="font-size: 17px;">         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
+            <source src="current/Loup Uberto - Me siento alegre - rutas singulares en Cuba (février-mars 2017) - 04 Armonía del son del Caribe - Apago la vela.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+                <span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="datetime"> </span> </p>
 
             <div id="expandedContent">
 
