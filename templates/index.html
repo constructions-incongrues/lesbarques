@@ -74,7 +74,8 @@
         /* Audio player */
         .audio-container {
             position: absolute;
-            top: 4vh;
+            bottom: 1vh;
+            left: 2vh;
             width: 100%;
             display: flex;
             justify-content: left;
@@ -82,7 +83,8 @@
         }
 
         audio {
-            width: 10vw;
+            width: 40px;
+            height: 17px;
             opacity: 9.9;
             background-color: rgba(0, 0, 0, 0);
             color: white;
@@ -234,11 +236,7 @@
 
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;">         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/{{ audio }}" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-                <span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="datetime"> </span> </p>
+            <p style="font-size: 17px;"> <span id="toggleButtontriangle" class="fadeInOut-animation pointer">▲</span> Les Barques |  <span id="datetime"> </span> </p>
 
             <div id="expandedContent">
 
