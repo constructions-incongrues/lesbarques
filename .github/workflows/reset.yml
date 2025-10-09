@@ -41,5 +41,5 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git commit -m "Publication quotidienne [skip ci]"
+        git commit -m "Reset [skip ci]"
         git push --force origin HEAD:${{ github.ref }}
