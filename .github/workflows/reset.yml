@@ -36,6 +36,19 @@ jobs:
       run: |
         pipenv run python scripts/schedule.py --reset
 
+    - name: Empty "current" directory
+      run: |
+        rm -rf ./docs/current/*
+        mkdir -p ./docs/current/
+
+    - name: Fetch audio
+      run: |
+        rclone copy "lesbarques:Le Barche sélection/audio/$(jq -r .audio ./docs/current.json)" ./docs/current/
+
+    - name: Fetch image
+      run: |
+        rclone copy "lesbarques:Le Barche sélection/images/$(jq -r .image ./docs/current.json)" ./docs/current/
+
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
