@@ -79,7 +79,7 @@
         .audio-container {
             position: absolute;
             bottom: 3vh;
-            right: 13vw;
+            right: 11vw;
             width: 15vw;
             display: flex;
             z-index:10;
@@ -108,6 +108,7 @@
             left: 0;
             bottom: 0px;
             width: 100%;
+            overflow: scroll;
             transition: height 1s ease;
             animation: fadeIn 2s ease-in-out;
         }
@@ -124,7 +125,8 @@
             overflow: hidden;
             background-color: rgba(0, 0, 0, 0.7);
             box-sizing: border-box;
-        }
+            scroll-behavior: auto;
+                    }
 
         .expanded #panelContent {
             height: 90vh;
@@ -239,7 +241,7 @@
 
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent">
-            <p style="font-size: 17px;"> Les Barques <span id="toggleButtontriangle" class="fadeInOut-animation pointer">     ▲     </span> <span id="datetime"> </span> </p>
+            <p style="font-size: 17px;"> Les Barques <span id="toggleButtontriangle" class="fadeInOut-animation pointer">     ▼     </span> <span id="datetime"> </span> </p>
 
             <div id="expandedContent">
 
@@ -361,7 +363,7 @@ modal.onclick = function(event) {
                 if(panel.classList.contains('expanded')) {
                     button.textContent = '▼'; // Change to X when expanded
                 } else {
-                    button.textContent = '▲'; // Change back to circle when collapsed
+                    button.textContent = '▼'; // Change back to circle when collapsed
                 }
             });
 
