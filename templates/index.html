@@ -230,13 +230,7 @@
     </style>
 </head>
 <body>
-    <div class="audio-container fadeInUp-animation">
-        <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/{{ audio }}" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
-
+    
      <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
 
     <div id="bottomPanel" class="bottom-panel">
@@ -249,6 +243,15 @@
                     Journal : <br>
                     {{ text }}
                 </blockquote>
+
+                <br><br>
+
+                <div class="audio fadeInUp-animation">
+        <audio id="audioPlayer" autoplay controls controlsList="nodownload">
+            <source src="current/{{ audio }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
                <br><br> ---  <br><br>
 
