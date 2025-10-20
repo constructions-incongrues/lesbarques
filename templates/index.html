@@ -358,9 +358,16 @@ modal.onclick = function(event) {
             var panel = document.getElementById('bottomPanel');
             var button = document.getElementById('toggleButtontriangle');
             var audioControl = document.getElementById('audioPlayer');
+            var scrollpanel = document.getElementById('body');
+            
 
             button.addEventListener('click', function() {
                 panel.classList.toggle('expanded');
+
+                scrollpanel.addEventListener('scroll', function() {
+                panel.classList.toggle('expanded');
+
+                var audioControl = document.getElementById('audioPlayer');
 
                 // Change button text based on state
                 if(panel.classList.contains('expanded')) {
