@@ -125,10 +125,11 @@
   background-color: rgba(0, 0, 0, 0.7);
   padding-left: 15px;
   padding-right: 10px;
-  padding-bottom: 4vh;
+  padding-bottom: 2vh;
   padding-top:1vh;
   font-family: "Garamond";
   font-weight:lighter;
+  scroll-behavior:smooth;
         
            }
 
@@ -156,8 +157,8 @@
   display: none; /* Hidden by default */
   position: center; 
   z-index: 6;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
   background-color: black;
 
 }
@@ -168,14 +169,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-color:black;
   border-radius: 10px;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
 }
 
 .close {
   color: white;
-  float: right;
+  float: bottom-right;
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
@@ -194,16 +196,16 @@
         display: none;
   position: center; 
   z-index: 6;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
   background-color: black;
 
 }
 
 /* Newsletter Content */
 .newslettercontent {
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
 }
         
 
@@ -251,22 +253,22 @@
                <br> ---  <br><br>
 
 
-                FR . Chaque jour, un enregistrement, une photographie et une entrée de journal,
+                FR . Un enregistrement, une photographie et une entrée de journal publiés chaque matin,
                 sélectionnés au hasard dans une archive fluide comme la mémoire.
                 Une arche des étrangetés divisée en une multitude d'embarcations chancelantes.
                 <br> <br>
 
-                IT . Ogni giorno, una registrazione, una fotografia e un estratto di quaderno, 
+                IT . Una registrazione, una fotografia e un estratto di quaderno pubblicati ogni mattina, 
                 selezionati casualmente da un archivio fluido come la memoria.
                 Un'arca di stranezza divise in una moltitudine di barche vacillanti. 
                 <br> <br>
 
-                EN . Each day, a recording, a photograph, and a journal entry, 
+                EN . A recording, a photograph, and a journal entry published every morning,
                 randomly selected from an archive fluid as memory itself. 
                 An ark of strangeness divided into a multitude of tottering boats. 
                 <br> <br>
 
-                GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία και ένα απόσπασμα από ένα σημειωματάριο, 
+                GR . μια ηχογράφηση, μια φωτογραφία και ένα απόσπασμα από ένα σημειωματάριο που δημοσιεύονται κάθε πρωί,
                 επιλεγμένα τυχαία από ένα αρχείο τόσο ρευστό όσο η μνήμη. 
                 Μια κιβωτός παραξενιάς χωρισμένη σε ένα πλήθος από τρανταχτές βάρκες.
                 <br> <br>
@@ -380,6 +382,13 @@ modal.onclick = function(event) {
 
             audioControl.addEventListener('pause', function() {
                 // You can add behaviors when audio pauses
+            });
+                
+                function disable_audio_download() {
+            ?>
+    document.querySelectorAll('.wp-block-audio audio').forEach(audio => audio.setAttribute('controlsList', 'nodownload')); <?php
+}
+add_action('wp_footer', 'disable_audio_download');
             });
         });
     </script>
