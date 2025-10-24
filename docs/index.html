@@ -47,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('current/0139.jpg');
+            background-image: url('current/img_1985.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -125,10 +125,11 @@
   background-color: rgba(0, 0, 0, 0.7);
   padding-left: 15px;
   padding-right: 10px;
-  padding-bottom: 4vh;
+  padding-bottom: 2vh;
   padding-top:1vh;
   font-family: "Garamond";
   font-weight:lighter;
+  scroll-behavior:smooth;
         
            }
 
@@ -156,26 +157,27 @@
   display: none; /* Hidden by default */
   position: center; 
   z-index: 6;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
   background-color: black;
 
 }
 
 /* Modal Content */
 .modal-content {
-  background-image: url('current/0139.jpg');
+  background-image: url('current/img_1985.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-color:black;
   border-radius: 10px;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
 }
 
 .close {
   color: white;
-  float: right;
+  float: bottom-right;
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
@@ -194,16 +196,16 @@
         display: none;
   position: center; 
   z-index: 6;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
   background-color: black;
 
 }
 
 /* Newsletter Content */
 .newslettercontent {
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
 }
         
 
@@ -236,7 +238,7 @@
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Poesia G Campa R Cista.mp3" type="audio/mpeg">
+            <source src="current/A mute with a mouth - 06 6.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -244,29 +246,29 @@
                               
                 <blockquote>
                     Journal : <br>
-                    È importante arricchire le nostre conoscenze tanto quanto metterle in discussione. Gli oggetti che mettono in discussione i nostri concetti riaprono i nostri archivi mentali associati a determinati concetti e ci costringono a riformularli alla ricerca di nuovi dati.
+                    A l’è si l’pont ant’è ca’l sautava al non’, al temp quan aj vivio tütch ant’ la stessa cà. Pore marùn, quan c’al piava la paga, la buttava ant la taula, e l’pare l’andava beula al bar.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
                <br> ---  <br><br>
 
 
-                FR . Chaque jour, un enregistrement, une photographie et une entrée de journal,
+                FR . Un enregistrement, une photographie et une entrée de journal publiés chaque matin,
                 sélectionnés au hasard dans une archive fluide comme la mémoire.
                 Une arche des étrangetés divisée en une multitude d'embarcations chancelantes.
                 <br> <br>
 
-                IT . Ogni giorno, una registrazione, una fotografia e un estratto di quaderno, 
+                IT . Una registrazione, una fotografia e un estratto di quaderno pubblicati ogni mattina, 
                 selezionati casualmente da un archivio fluido come la memoria.
                 Un'arca di stranezza divise in una moltitudine di barche vacillanti. 
                 <br> <br>
 
-                EN . Each day, a recording, a photograph, and a journal entry, 
+                EN . A recording, a photograph, and a journal entry published every morning,
                 randomly selected from an archive fluid as memory itself. 
                 An ark of strangeness divided into a multitude of tottering boats. 
                 <br> <br>
 
-                GR . Κάθε μέρα, μια ηχογράφηση, μια φωτογραφία και ένα απόσπασμα από ένα σημειωματάριο, 
+                GR . μια ηχογράφηση, μια φωτογραφία και ένα απόσπασμα από ένα σημειωματάριο που δημοσιεύονται κάθε πρωί,
                 επιλεγμένα τυχαία από ένα αρχείο τόσο ρευστό όσο η μνήμη. 
                 Μια κιβωτός παραξενιάς χωρισμένη σε ένα πλήθος από τρανταχτές βάρκες.
                 <br> <br>
@@ -380,6 +382,13 @@ modal.onclick = function(event) {
 
             audioControl.addEventListener('pause', function() {
                 // You can add behaviors when audio pauses
+            });
+                
+                function disable_audio_download() {
+            ?>
+    document.querySelectorAll('.wp-block-audio audio').forEach(audio => audio.setAttribute('controlsList', 'nodownload')); <?php
+}
+add_action('wp_footer', 'disable_audio_download');
             });
         });
     </script>
