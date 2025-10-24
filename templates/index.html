@@ -85,8 +85,6 @@
         }
 
         audio {
-            width: 30vw;
-            height: auto;
             opacity: 9.9;
             background-color: rgba(0, 0, 0, 0);
             color: white;
@@ -132,6 +130,19 @@
         
            }
 
+        title {
+
+  position:absolute;
+  width:auto;
+  top:88vh;
+  padding-left: 15px;
+  padding-right: 10px;
+  paddimg-bottom:1vh;
+  padding-top:1vh;
+  font-family: "Garamond";
+  font-weight:lighter;
+  scroll-behavior:smooth;       
+
                     /* Toggle button */
         .toggle-button-circle {
             font-size: 30px;
@@ -157,7 +168,7 @@
   position: center; 
   z-index: 6;
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-color: black;
 
 }
@@ -171,7 +182,7 @@
   background-color:black;
   border-radius: 10px;
   width: 100%;
-  height: 100vh;
+  height: auto;
 }
 
 .close {
@@ -196,7 +207,7 @@
   position: center; 
   z-index: 6;
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-color: black;
 
 }
@@ -230,11 +241,10 @@
 <body>
     
     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
-
+    <title><p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> </title>
+    
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent"> 
-            <h1><p style="font-size: 16px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p>
-
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="current/{{ audio }}" type="audio/mpeg">
@@ -242,7 +252,8 @@
         </audio>
     </div>
 
-                              
+               <h1>
+                               
                 <blockquote>
                     Journal : <br>
                     {{ text }}
