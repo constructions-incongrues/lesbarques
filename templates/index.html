@@ -119,7 +119,6 @@
  h1 { 
   position:relative;
   width:auto;
-  height:auto;
   top:88vh;
   bottom:2vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -384,12 +383,6 @@ modal.onclick = function(event) {
                 // You can add behaviors when audio pauses
             });
                 
-                function disable_audio_download() {
-            ?>
-    document.querySelectorAll('.wp-block-audio audio').forEach(audio => audio.setAttribute('controlsList', 'nodownload')); <?php
-}
-add_action('wp_footer', 'disable_audio_download');
-            });
         });
     </script>
 </body>
