@@ -236,21 +236,41 @@
 <body>
     
     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
+
+    <!-- The Modal -->
+<div id="modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" controls controlsList="nodownload"> 
+    <span class="close pointer">&times;</span>
+                      </div>
+      
+  </div>
+  
+   
+<!-- The newsletter form -->
+<div id="newsletter" class="newsletter">
+
+  <!-- Newsletter form content -->
+  <div class="newslettercontent"> <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6Ijd3TVJWUmVuSDVaYkFScDhlTFRNREpQaGxWWVdjUEJ2eVNVU2xnUWJPR2s9IiwibWFjIjoiMGJhOWU1ZWU0OTQzNjQ3MDhhZjA3ODJhZTdjMGFlZWNlN2VhN2Q4MTgxYmM1MzJhZGJiYTgzYzdkMTc2OGJhMyIsInZhbHVlIjoiNDBjQ1ljMmdhbnVYQ0tIS0tScGdPWko5ZE5ZUzdTelwvdXphWXo3a1NDOWM9In0="></script>
+ <span class="closepointernewsletter pointer">&times;</span>
+    
+                      </div>
+
+    
     
     <div id="bottomPanel" class="bottom-panel">
-        <div id="panelContent"> 
-            
-              <p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> 
+        
+                               <h1>
+
+                        <p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> 
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="current/{{ audio }}" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
-    </div>
-
-               <h1>
-                               
+                    
                 <blockquote>
                     Journal : <br>
                     {{ text }}
@@ -297,26 +317,6 @@
         </div>
     </div>
 
-  
-<!-- The Modal -->
-<div id="modal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content" controls controlsList="nodownload"> 
-    <span class="close pointer">&times;</span>
-                      </div>
-      
-  </div>
-  
-   
-<!-- The newsletter form -->
-<div id="newsletter" class="newsletter">
-
-  <!-- Newsletter form content -->
-  <div class="newslettercontent"> <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6Ijd3TVJWUmVuSDVaYkFScDhlTFRNREpQaGxWWVdjUEJ2eVNVU2xnUWJPR2s9IiwibWFjIjoiMGJhOWU1ZWU0OTQzNjQ3MDhhZjA3ODJhZTdjMGFlZWNlN2VhN2Q4MTgxYmM1MzJhZGJiYTgzYzdkMTc2OGJhMyIsInZhbHVlIjoiNDBjQ1ljMmdhbnVYQ0tIS0tScGdPWko5ZE5ZUzdTelwvdXphWXo3a1NDOWM9In0="></script>
- <span class="closepointernewsletter pointer">&times;</span>
-    
-                      </div>
 
     <script>
         
