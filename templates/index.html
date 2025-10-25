@@ -37,6 +37,7 @@
             align-items: center;
             color: white;
             font-family: Garamond, serif;
+            z-index:3;
         }
 
         /* Background with fade in effect */
@@ -53,6 +54,7 @@
             background-repeat: no-repeat;
             z-index: -1;
             animation: fadeIn 5s ease-in-out;
+             z-index:3;
         }
 
         main {
@@ -60,6 +62,7 @@
             max-width: 300px;
             max-height: 300px;
             text-align: left;
+             z-index:3;
         }
 
         p, blockquote {
@@ -67,6 +70,7 @@
             text-align: justify;
             text-justify: inter-word;
             width: 80%;
+                z-index:5;
            
         }
 
@@ -77,11 +81,8 @@
 
         /* Audio player */
         .audio-container {
-            position: absolute;
-            bottom: 3vh;
-            right: 11vw;
-            width: 30vw;
-            z-index:10;
+            position: relative;
+                  z-index:5;
         }
 
         audio {
@@ -90,6 +91,7 @@
             color: white;
             border: none;
             border-radius: 5px;
+                  z-index:4;
         }
 
         .audio-filename {
@@ -104,7 +106,7 @@
         .bottom-panel {
             position: relative;
             width: auto;
-            overflow: auto;
+            overflow: scroll;
             transition: height 1s ease;
             animation: fadeIn 2s ease-in-out;
             font-size: 15px;
@@ -112,6 +114,7 @@
             text-justify: inter-word;
             height: auto;
             transition: height 1s ease;
+              z-index:4;
                                }
       
  h1 { 
@@ -127,25 +130,11 @@
   font-family: "Garamond";
   font-weight:lighter;
   scroll-behavior:smooth;
+     z-index:4;
         
            }
 
-        title {
-
-  position:absolute;
-  width:auto;
-  top:88vh;
-  padding-left: 15px;
-  padding-right: 10px;
-  paddimg-bottom:1vh;
-  padding-top:1vh;
-  font-family: "Garamond";
-  font-weight:lighter;
-  scroll-behavior:smooth;     
-
-        }
-
-                    /* Toggle button */
+                        /* Toggle button */
         .toggle-button-circle {
             font-size: 30px;
             border: none;
@@ -157,7 +146,7 @@
             width: 40px;
             background-color: rgba(0, 0, 0, 0);
             color: white;
-            z-index: 5;
+            z-index: 6;
             animation: fadeInOut 3s infinite;
         }
         .pointer {
@@ -168,7 +157,7 @@
         .modal {
   display: none; /* Hidden by default */
   position: center; 
-  z-index: 6;
+  z-index: 7;
   width: 100%;
   height: auto;
   background-color: black;
@@ -180,11 +169,12 @@
   background-image: url('current/{{ image }}');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
   background-color:black;
   border-radius: 10px;
   width: 100%;
   height: auto;
+    z-index: 7;
 }
 
 .close {
@@ -193,6 +183,7 @@
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
+    z-index: 8;
 }
 
 .closepointernewsletter {
@@ -201,13 +192,14 @@
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
+    z-index: 8;
 }
         
            /* Newsletter classes */
         .newsletter {
         display: none;
   position: center; 
-  z-index: 6;
+  z-index: 7;
   width: 100%;
   height: auto;
   background-color: black;
@@ -218,6 +210,7 @@
 .newslettercontent {
   width: 100%;
   height: auto;
+      z-index: 7;
 }
         
 
@@ -243,10 +236,12 @@
 <body>
     
     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
-    <title><p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> </title>
     
     <div id="bottomPanel" class="bottom-panel">
         <div id="panelContent"> 
+            
+              <p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> 
+
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="current/{{ audio }}" type="audio/mpeg">
@@ -375,9 +370,7 @@ modal.onclick = function(event) {
                 addEventListener("scroll", (event) => {panel.classList.toggle('expanded')}) ;
                 onscroll = (event) => {panel.classList.toggle('expanded') } ;
 
-            
-
-                var audioControl = document.getElementById('audioPlayer');
+             var audioControl = document.getElementById('audioPlayer');
 
                 // Change button text based on state
                 if(panel.classList.contains('expanded')) {
