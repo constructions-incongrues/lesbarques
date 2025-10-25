@@ -37,7 +37,6 @@
             align-items: center;
             color: white;
             font-family: Garamond, serif;
-            z-index:3;
         }
 
         /* Background with fade in effect */
@@ -48,13 +47,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('current/0144.jpg');
+            background-image: url('current/img_1985.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
             animation: fadeIn 5s ease-in-out;
-             z-index:3;
+        
         }
 
         main {
@@ -70,7 +69,7 @@
             text-align: justify;
             text-justify: inter-word;
             width: 80%;
-                z-index:5;
+         
            
         }
 
@@ -82,7 +81,7 @@
         /* Audio player */
         .audio-container {
             position: relative;
-                  z-index:5;
+               
         }
 
         audio {
@@ -91,7 +90,7 @@
             color: white;
             border: none;
             border-radius: 5px;
-                  z-index:4;
+                 
         }
 
         .audio-filename {
@@ -106,15 +105,12 @@
         .bottom-panel {
             position: relative;
             width: auto;
+            height:100%;
             overflow: scroll;
             transition: height 1s ease;
             animation: fadeIn 2s ease-in-out;
-            font-size: 15px;
-            text-align: justify;
-            text-justify: inter-word;
-            height: auto;
             transition: height 1s ease;
-              z-index:4;
+             
                                }
       
  h1 { 
@@ -129,9 +125,11 @@
   padding-top:1vh;
   font-family: "Garamond";
   font-weight:lighter;
+  font-size: 15px;
+  text-align: justify;
+  text-justify: inter-word;
   scroll-behavior:smooth;
-     z-index:4;
-        
+         
            }
 
                         /* Toggle button */
@@ -146,8 +144,7 @@
             width: 40px;
             background-color: rgba(0, 0, 0, 0);
             color: white;
-            z-index: 6;
-            animation: fadeInOut 3s infinite;
+                animation: fadeInOut 3s infinite;
         }
         .pointer {
           cursor: pointer;
@@ -157,7 +154,6 @@
         .modal {
   display: none; /* Hidden by default */
   position: center; 
-  z-index: 7;
   width: 100%;
   height: auto;
   background-color: black;
@@ -166,7 +162,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('current/0144.jpg');
+  background-image: url('current/img_1985.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -174,7 +170,7 @@
   border-radius: 10px;
   width: 100%;
   height: auto;
-    z-index: 7;
+
 }
 
 .close {
@@ -183,7 +179,7 @@
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
-    z-index: 8;
+
 }
 
 .closepointernewsletter {
@@ -192,7 +188,7 @@
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
-    z-index: 8;
+
 }
         
            /* Newsletter classes */
@@ -210,8 +206,7 @@
 .newslettercontent {
   width: 100%;
   height: auto;
-      z-index: 7;
-}
+   }
         
 
 
@@ -237,27 +232,7 @@
     
     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
 
-    <!-- The Modal -->
-<div id="modal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content" controls controlsList="nodownload"> 
-    <span class="close pointer">&times;</span>
-                      </div>
-      
-  </div>
   
-   
-<!-- The newsletter form -->
-<div id="newsletter" class="newsletter">
-
-  <!-- Newsletter form content -->
-  <div class="newslettercontent"> <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6Ijd3TVJWUmVuSDVaYkFScDhlTFRNREpQaGxWWVdjUEJ2eVNVU2xnUWJPR2s9IiwibWFjIjoiMGJhOWU1ZWU0OTQzNjQ3MDhhZjA3ODJhZTdjMGFlZWNlN2VhN2Q4MTgxYmM1MzJhZGJiYTgzYzdkMTc2OGJhMyIsInZhbHVlIjoiNDBjQ1ljMmdhbnVYQ0tIS0tScGdPWko5ZE5ZUzdTelwvdXphWXo3a1NDOWM9In0="></script>
- <span class="closepointernewsletter pointer">&times;</span>
-    
-                      </div>
-
-    
     
     <div id="bottomPanel" class="bottom-panel">
         
@@ -267,13 +242,14 @@
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Vicenzo Lipari e Pietro Romito.mp3" type="audio/mpeg">
+            <source src="current/Conrad, un poète polonais à Lisbonne.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+                </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Απορία aporie - Απόρος aporos, sans ouverture, pensée close. Chercher les marges hors des objets culturels qui veulent l’hégémonie. Dans le discours de Diotime, Poros enfante Eros avec Penia. L’appel vers l’Autre est enfant de la perméabilité et du manque.
+                    Écartelés entre l’espoir de combler l’inachevé et l’espoir que notre nubilité dure toujours. Confluence impossible entre la finitude de notre vie et l’idéal d’achèvement d’un destin qui s’obstine en nous. Quelque chose doit subsister dans le monde, quelque chose qui soit nous, qui persévère et interagit avec le monde après nous. Mais ces choses, nous les voudrions aussi pleines, achevées, entières que notre vie, nous voulons encore les percevoir après la mort comme ce que nous percevons au présent être un “moi”. Nous ne voulons pas mourir, nous voulons que ce corps périssable, la seule chose que nous sommes, et que nous expérimentons comme limite, que ce corps fasse enfin l’expérience d’un achèvement, mais d’un achèvement en tant qu’une continuité. Nous voulons supprimer le temps, mais pour toujours… nous voulons rejoindre l’impossible, ce qui est sans le temps, sans la matière, rejoindre ce qui n’est pas…
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -314,10 +290,27 @@
                  <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> <b><cite>  Contact | Newsletter </b></cite>  </p>  </h1>
 <br><br> </span>
             </div>
-        </div>
-    </div>
+     
+    <!-- The Modal -->
+<div id="modal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content" controls controlsList="nodownload"> 
+    <span class="close pointer">&times;</span>
+                      </div>
+      
+  </div>
+  
+   
+<!-- The newsletter form -->
+<div id="newsletter" class="newsletter">
 
+  <!-- Newsletter form content -->
+  <div class="newslettercontent"> <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6Ijd3TVJWUmVuSDVaYkFScDhlTFRNREpQaGxWWVdjUEJ2eVNVU2xnUWJPR2s9IiwibWFjIjoiMGJhOWU1ZWU0OTQzNjQ3MDhhZjA3ODJhZTdjMGFlZWNlN2VhN2Q4MTgxYmM1MzJhZGJiYTgzYzdkMTc2OGJhMyIsInZhbHVlIjoiNDBjQ1ljMmdhbnVYQ0tIS0tScGdPWko5ZE5ZUzdTelwvdXphWXo3a1NDOWM9In0="></script>
+ <span class="closepointernewsletter pointer">&times;</span>
+    
+                      </div>
+    
     <script>
         
         // Modals
