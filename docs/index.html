@@ -29,13 +29,14 @@
 
         /* Base styles */
         body {
-            position: relative;
-            min-height: 100vh;
+            position: absolute;
+            min-width: 100vh;
+            height:auto;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: transparent;
             font-family: Garamond, serif;
         }
 
@@ -45,13 +46,12 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: auto%;
-            background-image: url('current/p1010119.jpg');
+            min-width: 100vh;
+            height: auto;
+            background-image: url('current/10040005.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -1;
             animation: fadeIn 5s ease-in-out;
         
         }
@@ -153,7 +153,7 @@
      /* Modal classes */
         .modal {
   display: none; /* Hidden by default */
-  position: absolute; 
+  position: fixed; 
   width: 100%;
   height: auto;
   background-color: black;
@@ -162,7 +162,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('current/p1010119.jpg');
+  background-image: url('current/10040005.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -194,7 +194,7 @@
            /* Newsletter classes */
         .newsletter {
         display: none;
-  position: absolute; 
+  position: fixed; 
   width: 100%;
   height: auto;
   background-color: black;
@@ -227,28 +227,27 @@
         }
     </style>
 </head>
+    
 <body>
+      
+  
+        <div id="bottomPanel" class="bottom-panel">
+       
 
-    
-    <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
-
-    
-    <div id="bottomPanel" class="bottom-panel">
-        
                                <h1>
 
                         <p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> 
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Spingula francesa - Giovanna Turco, Davide Russo, Mario Gabola, Giovanni De Luca, Loup Uberto.mp3" type="audio/mpeg">
+            <source src="current/Une bête de chair - Fröde Bjørnstad02.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Oggetti residui, domande sospese. Canto e silenzio (l&#39;indescrivibile?) - L&#39;unico mezzo di espressione universale e non totalizzante?
+                    Aporia - Aporos, senza apertura, pensiero chiuso. Cercare i margini al di fuori degli oggetti culturali che vogliono l&#39;egemonia. Nel discorso di Diotima, Poros genera Eros con Penia. L&#39;appello all&#39;Altro è figlio della permeabilità e della mancanza.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -309,7 +308,8 @@
  <span class="closepointernewsletter pointer">&times;</span>
     
                       </div>
-    
+       <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
+      
     <script>
         
         // Modals
