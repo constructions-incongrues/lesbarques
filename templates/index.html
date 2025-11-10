@@ -148,12 +148,15 @@
           cursor: pointer;
          }
         
+       
      /* Modal classes */
         .modal {
   display: none; /* Hidden by default */
-  position: fixed; 
-  width: 100%;
-  height: auto;
+  position: center; 
+  z-index: 6;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: auto; /* Enable scroll if needed */
   background-color: black;
 
 }
@@ -163,21 +166,18 @@
   background-image: url('current/{{ image }}');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-color:black;
+  background-size: contain;
   border-radius: 10px;
-  width: 100%;
-  height: auto;
-
+  width: 100dvw;
+  height: 100dvh;
 }
 
 .close {
   color: white;
-  float: bottom-right;
+  float: right;
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
-
 }
 
 .closepointernewsletter {
@@ -186,24 +186,25 @@
   font-size: 50px;
   font-weight: bold;
   animation: fadeInOut 3s infinite;
-
 }
         
            /* Newsletter classes */
         .newsletter {
         display: none;
-  position: fixed; 
-  width: 100%;
-  height: auto;
+  position: center; 
+  z-index: 6;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: auto; /* Enable scroll if needed */
   background-color: black;
 
 }
 
 /* Newsletter Content */
 .newslettercontent {
-  width: 100%;
-  height: auto;
-   }
+  width: 100dvw;
+  height: 100dvh;
+}
         
 
 
