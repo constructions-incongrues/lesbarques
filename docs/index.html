@@ -47,8 +47,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('current/img_1994.jpg');
-            background-size: cover;
+            background-image: url('current/0060-2.jpg');
+            background-size: 100vw;
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
@@ -57,8 +57,8 @@
 
         main {
             position: absolute;
-            max-width: 300px;
-            max-height: 300px;
+            max-width: 100vw;
+            max-height: 100vh;
             text-align: left;
         }
 
@@ -152,8 +152,8 @@
      /* Modal classes */
         .modal {
   display: none; /* Hidden by default */
-  position: bottom; 
-  z-index: 6;
+  position: fixed; 
+  z-index: 1;
   width: 100dvw;
   height: 100dvh;
   overflow: auto; /* Enable scroll if needed */
@@ -162,8 +162,8 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('current/img_1994.jpg');
-  position: bottom; 
+  background-image: url('current/0060-2.jpg');
+  position: fixed; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -191,8 +191,8 @@
            /* Newsletter classes */
         .newsletter {
         display: none;
-  position: bottom; 
-  z-index: 6;
+  position: fixed; 
+  z-index: 1;
   width: 100dvw;
   height: 100dvh;
   overflow: auto; /* Enable scroll if needed */
@@ -239,14 +239,14 @@
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Soledad Zarka - Prêter au geste.mp3" type="audio/mpeg">
+            <source src="current/24 Sidi Abid.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Una lingua non ha bisogno di una nazione, e tanto meno di una nazione che la utilizzi a fini di potere.
+                    Gli strumenti tecnici, la τέχνη - techni indica sia l&#39;arte che la capacità di plasmare, e il καλλιτέχνης sia l&#39;artista che l&#39;artigiano, si fondono sia con la loro capacità che con il loro strumento. Amalgamare lo strumento, όργανο, l&#39;organo, lo strumento-di, lo strumento-verso.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -287,6 +287,9 @@
                  <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> <b><cite>  Contact | Newsletter </b></cite>  </p>  </h1>
 <br><br> </span>
             </div>
+
+        <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
+    
      
     <!-- The Modal -->
 <div id="modal" class="modal">
@@ -305,9 +308,10 @@
   <!-- Newsletter form content -->
   <div class="newslettercontent"> <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6Ijd3TVJWUmVuSDVaYkFScDhlTFRNREpQaGxWWVdjUEJ2eVNVU2xnUWJPR2s9IiwibWFjIjoiMGJhOWU1ZWU0OTQzNjQ3MDhhZjA3ODJhZTdjMGFlZWNlN2VhN2Q4MTgxYmM1MzJhZGJiYTgzYzdkMTc2OGJhMyIsInZhbHVlIjoiNDBjQ1ljMmdhbnVYQ0tIS0tScGdPWko5ZE5ZUzdTelwvdXphWXo3a1NDOWM9In0="></script>
  <span class="closepointernewsletter pointer">&times;</span>
+      
     
                       </div>
-       <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
+    
       
     <script>
         
