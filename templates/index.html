@@ -45,9 +45,10 @@
             position: absolute;
             top: 0;
             left: 0;
-            min-height: 100dvw;
+            min-width: 100dvw;
             background-image: url('current/{{ image }}');
             background-size: 100dvw;
+            min-height: 100dvh;
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
@@ -151,7 +152,7 @@
      /* Modal classes */
         .modal {
   display: none; /* Hidden by default */
-  position: fixed; 
+  position: center; 
   z-index: 1;
   width: 100dvw;
   height: 100dvh;
@@ -163,7 +164,7 @@
 /* Modal Content */
 .modal-content {
   background-image: url('current/{{ image }}');
-  position: fixed; 
+  position: center; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -192,7 +193,7 @@
            /* Newsletter classes */
         .newsletter {
         display: none;
-  position: fixed; 
+  position: center; 
   z-index: 1;
   width: 100dvw;
   height: 100dvh;
