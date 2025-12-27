@@ -111,7 +111,7 @@
  h1 { 
   position:relative;
   width:auto;
-  top:75vh;
+  top:78vh;
   background-color: rgba(0, 0, 0, 0.7);
   padding-left: 15px;
   padding-right: 10px;
@@ -160,14 +160,12 @@
 /* Modal Content */
 .modal-content {
   background-image: url('current/{{ image }}');
-  position: center; 
+  position: absolute; 
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-repeat: repeat;
+  background-size: cover;
   border-radius: 10px;
-  width: 100dvw;
-  height: 100dvh;
-  background-color: black;
+  min-height: 100dvh;
 }
 
 .close {
@@ -185,17 +183,16 @@
   font-weight: bold;
   animation: fadeInOut 3s infinite;
 }
-        
-           /* Newsletter classes */
+         /* Newsletter classes */
         .newsletter {
         display: none;
-  position: center; 
   z-index: 1;
-  width: 100dvw;
-  height: 100dvh;
-  overflow: auto; /* Enable scroll if needed */
-  background-color: black;
-
+   position:absolute; 
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  border-radius: 10px;
+  min-height: 100dvh;
 }
 
 /* Newsletter Content */
