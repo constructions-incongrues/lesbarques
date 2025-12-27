@@ -30,7 +30,7 @@
         /* Base styles */
        body {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             background-image: url('current/{{ image }}');
@@ -49,11 +49,10 @@
         /* Background with fade in effect */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             background-image: url('current/{{ image }}');
-            background-size: 100dvw;
             min-height: 100dvh;
             background-position: center;
             background-repeat: no-repeat;
