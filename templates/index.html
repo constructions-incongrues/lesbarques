@@ -30,14 +30,14 @@
         /* Base styles */
        body {
             content: "";
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             background-image: url('current/{{ image }}');
-            background-size: 100dvw;
+            background-size: 100dvh;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 100dvh;
+            min-width: 100dvw;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -53,9 +53,10 @@
             top: 0;
             left: 0;
             background-image: url('current/{{ image }}');
-            min-height: 100dvh;
+            background-size: 100dvh;
             background-position: center;
             background-repeat: no-repeat;
+            min-width: 100dvw;
             z-index: -1;
             animation: fadeIn 5s ease-in-out;
         }
