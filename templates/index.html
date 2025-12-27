@@ -29,7 +29,14 @@
 
         /* Base styles */
        body {
+            content: "";
             position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('current/{{ image }}');
+            background-size: 100dvw;
+            background-position: center;
+            background-repeat: no-repeat;
             min-height: 100dvh;
             margin: 0;
             display: flex;
@@ -150,8 +157,7 @@
   display: none; /* Hidden by default */
   position: center; 
   z-index: 1;
-  width: 100dvw;
-  height: 100dvh;
+  min-height: 100dvh;
   background-color: black;
   overflow: auto; /* Enable scroll if needed */
 
