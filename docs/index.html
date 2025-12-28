@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/img_1976.jpg');
+            background-image: url('current/img_1751.jpg');
             background-position: top-center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -51,7 +51,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-image: url('current/img_1976.jpg');
+            background-image: url('current/img_1751.jpg');
                    background-position: top-center;
             background-repeat: no-repeat;
                   background-size: cover;
@@ -188,17 +188,18 @@
                                <h1>
 
                         <p style="font-size:17px"> Les Barques <span id="datetime"> </span> </p> 
+                                   <input type="date" id="datedemande" readonly="readonly" name="datedemande"> </input>
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Ravinale &amp; Uberto - Segador.mp3" type="audio/mpeg">
+            <source src="current/Giuseppe Campa e Rosaria Cista.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Un artisanat documentaire pour sublimer l’insignifiance, la fragilité et le manque existentiel, tout comme le christianisme l’avait par l’outillage de la souffrance. Comme la souffrance n’est pas quantifiables, et puisque l’on ne peut savoir si nous travaillons efficacement à cette diminution, alors nous voudrions croire au bien-fondé d’une attention portée sur les plus petits objets prêts à se perdre dans l’universelle fragilité, sans la solennité du religieux, des formes en marge est chargées de manques. Le problème de la souffrance vient avant tous les autres. Mais une peur terrible ; qu’une des premières propriétés psychologiques des êtres humain soit moins de rechercher la réponse au problème de leur corps susceptible d’éprouver la souffrance, que d’agir aveuglément vers la réplication de leurs gènes, réplication perçue aveuglément comme plus désirable qu’une diminution de la souffrance.
+                    Il nostro logos- discorso è motivato (motivo del discorso) da una morale, a sua volta motivata da una psicologia-mente/cognizione motivata da un senso logico. Logica a priori, che sia teoricamente valida o non valida. Logica nel senso di “ragionamento induttivo che formula ipotesi per spiegare ciò che percepisce dai fatti, ipotesi alle quali attribuire più o meno credito a seconda di ciò che motiva questo logos” - funzione del logos.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -248,7 +249,10 @@
    
      
     <script>
-        
+
+        var d = new Date();
+document.getElementById("datedemande").valueAsDate=d;
+
         // Modals
 var modal = document.getElementById("modal");
 var modal2 = document.getElementById("newsletter")
