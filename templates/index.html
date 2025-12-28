@@ -133,6 +133,7 @@
 
                         /* Toggle button */
         .toggle-button-circle {
+            display: none;
             font-size: 30px;
             border: none;
             text-align: center;
@@ -191,10 +192,7 @@
         .newsletter {
         display: none;
   z-index: 1;
-   position:absolute; 
-  background-position: center;
-  background-repeat: repeat;
-  background-size: cover;
+  position:absolute;
   border-radius: 10px;
   min-height: 100dvh;
 }
@@ -203,7 +201,9 @@
 .newslettercontent {
   width: 100dvw;
   height: 100dvh;
-  background-color: black;
+  background-color: white;
+  background-repeat: repeat;
+  
 }
         
 
@@ -235,7 +235,7 @@
 
                                <h1>
 
-                        <p style="font-size: 17px;"> Les Barques <span class="fadeInOut-animation">     ▼     </span> <span id="datetime"> </span> </p> 
+                        <p style="font-size: 17px;"> Les Barques | <span class="fadeInOut-animation"> <span id="datetime"> </span> </span> </p> 
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
@@ -288,7 +288,7 @@
 <br><br> </span>
             </div>
 
-        <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation pointer">◯</button>
+        <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
     
      
     <!-- The Modal -->
