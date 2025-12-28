@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/img_1751.jpg');
+            background-image: url('current/img_1997.jpg');
             background-position: top-center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -51,7 +51,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-image: url('current/img_1751.jpg');
+            background-image: url('current/img_1997.jpg');
                    background-position: top-center;
             background-repeat: no-repeat;
                   background-size: cover;
@@ -187,19 +187,18 @@
 
                                <h1>
 
-                        <p style="font-size:17px"> Les Barques <span id="datetime"> </span> </p> 
-                                   <input type="date" id="datedemande" readonly="readonly" name="datedemande"> </input>
-
+                        <p style="font-size:17px"> Les Barques <input id="datetime"> </input> </p> 
+                                
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Giuseppe Campa e Rosaria Cista.mp3" type="audio/mpeg">
+            <source src="current/Eglise Sibiu.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Il nostro logos- discorso è motivato (motivo del discorso) da una morale, a sua volta motivata da una psicologia-mente/cognizione motivata da un senso logico. Logica a priori, che sia teoricamente valida o non valida. Logica nel senso di “ragionamento induttivo che formula ipotesi per spiegare ciò che percepisce dai fatti, ipotesi alle quali attribuire più o meno credito a seconda di ciò che motiva questo logos” - funzione del logos.
+                    Avvicinare tutto, mettere tutto in relazione, confondere i momenti e i gesti, per mostrare la ricchezza della variabilità e l&#39;ambiguità dei confini. È necessario studiare e difendere tutte le sfumature, ma senza separare nulla.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -250,8 +249,12 @@
      
     <script>
 
-        var d = new Date();
-document.getElementById("datedemande").valueAsDate=d;
+      document.addEventListener('DOMContentLoaded', function() {
+            var now = new Date();
+            var nowDate = new Date(); 
+            var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
+            var datetime = now.toLocaleString();
+            document.getElementById("datetime").innerHTML = date};
 
         // Modals
 var modal = document.getElementById("modal");
@@ -282,14 +285,6 @@ modal.onclick = function(event) {
   }
 }
         
-       // Set current date and time
-        document.addEventListener('DOMContentLoaded', function() {
-            var now = new Date();
-            var nowDate = new Date(); 
-            var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
-            var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = ${date};
-
            var audioControl = document.getElementById('audioPlayer');
                    
                          }
