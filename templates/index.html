@@ -188,6 +188,7 @@
                                <h1>
 
                         <p style="font-size:17px"> Les Barques <span id="datetime"> </span> </p> 
+                                   <input type="date" id="datedemande" readonly="readonly" name="datedemande"> </input>
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
@@ -248,7 +249,10 @@
    
      
     <script>
-        
+
+        var d = new Date();
+document.getElementById("datedemande").valueAsDate=d;
+
         // Modals
 var modal = document.getElementById("modal");
 var modal2 = document.getElementById("newsletter")
