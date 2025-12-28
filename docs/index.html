@@ -133,7 +133,6 @@
 
                         /* Toggle button */
         .toggle-button-circle {
-            display: none;
             font-size: 30px;
             border: none;
             text-align: center;
@@ -144,7 +143,7 @@
             width: 40px;
             background-color: rgba(0, 0, 0, 0);
             color: white;
-                animation: fadeInOut 3s infinite;
+            animation: fadeInOut 3s infinite;
         }
         .pointer {
           cursor: pointer;
@@ -193,14 +192,15 @@
         display: none;
   z-index: 1;
   position:absolute;
+  bottom:0px;
   border-radius: 10px;
   min-height: 100dvh;
 }
 
 /* Newsletter Content */
 .newslettercontent {
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: 1000%;
   background-color: white;
   background-repeat: repeat;
   
@@ -235,18 +235,18 @@
 
                                <h1>
 
-                        <p style="font-size: 17px;"> Les Barques | <span class="fadeInOut-animation"> <span id="datetime"> </span> </span> </p> 
+                        <p style="font-size: 17px;"> Les Barques | <span id="datetime"> </span> </p> 
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Luigi de santis 2.mp3" type="audio/mpeg">
+            <source src="current/Cahier vacant (mai-juin-juillet 2016, Albanie, Bulgarie, Grèce, Hongrie, Roumanie) - 15 15 Amar.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Sous son profil pratique, un mode militant de création en faveur d’une plus grande variété de formes hybrides et collectives, création expérimentale populaire, variations questionnant la norme. Il y a probablement derrière Les Barques un projet moral à délimiter, c’est ce qui en fait une œuvre d’art documentaire et non un ouvrage documentaire, mais la frontière est mince. Les objets documentés ici ne sont pas des exemples de faits sociaux généraux pouvant être étudiés par l’approche statistique, mais des gestes singuliers qui, reçus à la lumière de l’ouvrage, semblent traversés par une même ontologie, dans la question du manque. Et une performativité (le geste d’archive est déjà geste d’art, œuvre collective au présent, au moment-même de l’enregistrement) qui n’apparaît pas intuitivement pouvoir être associée à l’archivage documentaire.
+                    Se sembra controintuitivo che i geni utilizzino la cultura (comportamenti di influenza culturale) per replicarsi, è possibile che i comportamenti, di per sé e per necessità, possano utilizzare i nostri geni per riprodursi? Fenomeno di contaminazione culturale, quindi selezione dei comportamenti. Studiare l&#39;antecedenza di un fenomeno rispetto all&#39;altro non avrebbe senso, si tratta piuttosto di una retroazione continua dai corpi ai gesti, dai gesti ai corpi. Sembra inutile stabilire cosa viene prima, ma questo permette almeno di osservare i fenomeni da altre angolazioni. Porre il gesto prima dell&#39;individuo o accanto ad esso permette di relativizzare la prevalenza del libero arbitrio, la nostra ossessione di addomesticare il gesto. Se una maggiore diversità genetica genera una maggiore ricchezza di individui e di tratti specifici, lo stesso vale senza dubbio per le idee e i gesti: si può parlare di opere selvagge in contrapposizione a opere addomesticate? In base alla diversità e alla complessità della loro fonte, ma anche al loro carattere più o meno conciliante con la nostra analisi delle stesse.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -318,7 +318,6 @@
         // Modals
 var modal = document.getElementById("modal");
 var modal2 = document.getElementById("newsletter")
-var btn = document.getElementById("togglebuttoncircle");
 var btn2 = document.getElementById("toggleButtonnewsletter");
 var span = document.getElementsByClassName("close pointer")[0];
 var span2 = document.getElementsByClassName("closepointernewsletter")[0];
