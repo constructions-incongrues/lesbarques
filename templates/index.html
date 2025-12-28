@@ -187,9 +187,8 @@
 
                                <h1>
 
-                        <p style="font-size:17px"> Les Barques <span id="datetime"> </span> </p> 
-                                   <input type="date" id="datedemande" readonly="readonly" name="datedemande"> </input>
-
+                        <p style="font-size:17px"> Les Barques <input id="datetime"> </input> </p> 
+                                
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="current/{{ audio }}" type="audio/mpeg">
@@ -250,8 +249,12 @@
      
     <script>
 
-        var d = new Date();
-document.getElementById("datedemande").valueAsDate=d;
+      document.addEventListener('DOMContentLoaded', function() {
+            var now = new Date();
+            var nowDate = new Date(); 
+            var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
+            var datetime = now.toLocaleString();
+            document.getElementById("datetime").innerHTML = date};
 
         // Modals
 var modal = document.getElementById("modal");
@@ -282,14 +285,6 @@ modal.onclick = function(event) {
   }
 }
         
-       // Set current date and time
-        document.addEventListener('DOMContentLoaded', function() {
-            var now = new Date();
-            var nowDate = new Date(); 
-            var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
-            var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = ${date};
-
            var audioControl = document.getElementById('audioPlayer');
                    
                          }
