@@ -235,7 +235,7 @@
 
                                <h1>
 
-                        <p style="font-size:17px"> <div class="datetime" id="datetime"> </div> Les Barques | </p> 
+                        <p style="font-size:17px"> Les Barques | <span id="datetime"> </span> </p> 
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
@@ -364,7 +364,7 @@ modal.onclick = function(event) {
             var nowDate = new Date(); 
             var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
             var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = date;
+            document.getElementById("datetime").innerHTML = ${date};
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
