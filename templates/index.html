@@ -109,9 +109,7 @@
             height:100%;
             transition: height 1s ease;
             animation: fadeIn 2s ease-in-out;
-            transition: height 1s ease;
-            z-index: -1;
-             
+            transition: height 1s ease;           
                                }
       
  h1 { 
@@ -129,7 +127,7 @@
   text-align: justify;
   text-justify: inter-word;
   scroll-behavior:smooth;
-         
+        
            }
 
                         /* Toggle button */
@@ -150,28 +148,7 @@
           cursor: pointer;
          }
         
-       
-     /* Modal classes */
-        .modal {
-  display: none; /* Hidden by default */
-  position: center; 
-  z-index: 1;
-  min-height: 100dvh;
-  background-color: black;
-  overflow: auto; /* Enable scroll if needed */
-
-}
-
-/* Modal Content */
-.modal-content {
-  background-image: url('current/{{ image }}');
-  position: absolute; 
-  background-position: center;
-  background-repeat: repeat;
-  background-size: cover;
-  border-radius: 10px;
-  min-height: 100dvh;
-}
+       }
 
 .close {
   color: white;
@@ -180,32 +157,7 @@
   font-weight: bold;
   animation: fadeInOut 3s infinite;
 }
-
-.closepointernewsletter {
- color: white;
-  float: right;
-  font-size: 50px;
-  font-weight: bold;
-  animation: fadeInOut 3s infinite;
-}
-         /* Newsletter classes */
-        .newsletter {
-        display: none;
-  z-index: 1;
-  position:absolute;
-  bottom:0px;
-  border-radius: 10px;
-  }
-
-/* Newsletter Content */
-.newslettercontent {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  background-repeat: repeat;
-  
-}
-        
+         
 
 
         /* Animation classes */
@@ -284,47 +236,18 @@
 
                 Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić <br> <br>
 
-                     <span id="toggleButtonnewsletter" onclick="togglenewsletter()" class="pointer fadeInOut-animation"> <b><cite> <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ=="> Contact | Newsletter</a> </b></cite>  </p>  </h1>
+                     <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> <b><cite> <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ=="> Contact | Newsletter</a> </b></cite>  </p>  </h1>
+            <br><br> </span>
             
-<br><br> </span>
             </div>
 
         <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
-     
-    
-     
-    <!-- The Modal -->
-<div id="modal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content" controls controlsList="nodownload"> 
-    <span class="close pointer">&times;</span>
-                      </div>
-      
+          
   </div>
   
    
-<!-- The newsletter form -->
-<div id="newsletter" class="newsletter">
-
-  <!-- Newsletter form content -->
-  <div class="newslettercontent"> <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6Ijd3TVJWUmVuSDVaYkFScDhlTFRNREpQaGxWWVdjUEJ2eVNVU2xnUWJPR2s9IiwibWFjIjoiMGJhOWU1ZWU0OTQzNjQ3MDhhZjA3ODJhZTdjMGFlZWNlN2VhN2Q4MTgxYmM1MzJhZGJiYTgzYzdkMTc2OGJhMyIsInZhbHVlIjoiNDBjQ1ljMmdhbnVYQ0tIS0tScGdPWko5ZE5ZUzdTelwvdXphWXo3a1NDOWM9In0="></script>
- <span class="closepointernewsletter pointer">&times;</span>
-      
-    
-                      </div>
-    
-      
+     
     <script>
-
-function togglenewsletter() {
-  var x = document.getElementById("newsletter");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-} 
         
         // Modals
 var modal = document.getElementById("modal");
@@ -363,26 +286,9 @@ modal.onclick = function(event) {
             var datetime = now.toLocaleString();
             document.getElementById("datetime").innerHTML = ${date};
 
-            // Toggle panel expansion
-            var panel = document.getElementById('bottomPanel');
-            var button = document.getElementById('toggleButtontriangle');
-            var audioControl = document.getElementById('audioPlayer');
-            
-
-            button.addEventListener('click', function() {
-                panel.classList.toggle('expanded');
-
-                addEventListener("scroll", (event) => {panel.classList.toggle('expanded')}) ;
-                onscroll = (event) => {panel.classList.toggle('expanded') } ;
-
-             var audioControl = document.getElementById('audioPlayer');
-
-                // Change button text based on state
-                if(panel.classList.contains('expanded')) {
-                    button.textContent = '▼'; // Change to X when expanded
-                } else {
-                    button.textContent = '▼'; // Change back to circle when collapsed
-                }
+           var audioControl = document.getElementById('audioPlayer');
+                   
+                         }
             });
 
             // Audio controls functionality
