@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/10040005.jpg');
+            background-image: url('current/p1010110.jpg');
             background-position: top-center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -51,7 +51,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-image: url('current/10040005.jpg');
+            background-image: url('current/p1010110.jpg');
                    background-position: top-center;
             background-repeat: no-repeat;
                   background-size: cover;
@@ -164,7 +164,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-image: url('current/10040005.jpg');
+  background-image: url('current/p1010110.jpg');
   position: absolute; 
   background-position: center;
   background-repeat: repeat;
@@ -235,18 +235,18 @@
 
                                <h1>
 
-                        <p style="font-size:17px"> <div class="datetime" id="datetime"> </div> Les Barques | </p> 
+                        <p style="font-size:17px"> Les Barques | <span id="datetime"> </span> </p> 
 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Noemi - Lu paese meu.mp3" type="audio/mpeg">
+            <source src="current/Luigi de santis 2.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Objets résiduels, questions suspendues. Le chant et le silence (l’indescriptible?) - Seuls moyens d’expressions universels et non-totalisants ?
+                    Un après-midi dans un café de Grenoble, je demande à Aboubakar s’il a souvent eut l’occasion d’entendre chanter les personnes de son village, au Tchad. Il me parle d’une femme, Hapsita, qui sait mener vers le chant toutes ses pensées. Nous évoquons notre envie commune de documenter les singularités qui nous entourent, les chants et les gestes « sans pareil » qui enrichissent nos lieux de vie de certains caractères spécifiques. Et la semaine suivante, il me donne rendez-vous dans le même café, je l’y retrouve tout excité et fébrile. Il me presse de sortir mon téléphone car, là, sur un coin de table, il va me transmettre un joyau : Un ami de son village a convaincu Hapsita de chanter pour nous, devant son téléphone, une longe lamentation pour les exilés. L’enregistrement dure 12 minutes, on y entend cette voix seule, un peu intimidée, portée par tous les sons du village, emmener une gamme majeure lancinante, droite, continue. Une simple prière pour celles et ceux qui sont parti. Cet enregistrement représente pour moi le plus pur exemple de fabrique populaire ; Hapsita possède l’art singulier de distinguer un lieu, de l’enchanter, de lui donner sa voix. On lui propose un système d’archivage comme un cadre pour offrir son savoir au-delà de ce qu’elle considère habituellement comme son lieu de vie. Le savoir local se voit doté d’une adresse vers qui, vers ce qu’elle veut, au-delà de son temps et de ce qu’elle perçoit comme les frontières de son quotidien. S’ajoute donc, à la fonction familière de son art, une « portée », une seconde fonction de l’outil, qui ne l’a porte désormais plus seulement elle, mais également nous ici dans un café de Grenoble, d’une autre manière et pour d’autres raisons.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -364,7 +364,7 @@ modal.onclick = function(event) {
             var nowDate = new Date(); 
             var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
             var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = date;
+            document.getElementById("datetime").innerHTML = ${date};
 
             // Toggle panel expansion
             var panel = document.getElementById('bottomPanel');
