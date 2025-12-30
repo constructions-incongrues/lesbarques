@@ -43,7 +43,8 @@
             align-items: center;
             color: white;
             font-family: Garamond, serif;
-        }
+          
+       }
 
         /* Background with fade in effect */
         body::before {
@@ -179,7 +180,7 @@
     </style>
 </head>
     
-<body>
+<body onLoad="datetime('date');">
       
   
         <div id="bottomPanel" class="bottom-panel">
@@ -188,7 +189,10 @@
                                <h1>
 
                         <p style="font-size:17px"> Les Barques </p> 
-                                   <span id="datetime"> </span>                                
+                                   
+                                   <p id="datetime" style="font-size:17px"> </p>    
+
+                                
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="current/{{ audio }}" type="audio/mpeg">
@@ -249,7 +253,7 @@
      
     <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function datetime(id) {
             var now = new Date();
             var nowDate = new Date(); 
             var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
