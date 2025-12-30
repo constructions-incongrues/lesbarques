@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/rollei3.jpg');
+            background-image: url('current/10040021.jpg');
             background-position: top-center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -43,7 +43,8 @@
             align-items: center;
             color: white;
             font-family: Garamond, serif;
-        }
+          
+       }
 
         /* Background with fade in effect */
         body::before {
@@ -51,7 +52,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-image: url('current/rollei3.jpg');
+            background-image: url('current/10040021.jpg');
                    background-position: top-center;
             background-repeat: no-repeat;
                   background-size: cover;
@@ -179,7 +180,7 @@
     </style>
 </head>
     
-<body>
+<body onLoad="datetime('date');">
       
   
         <div id="bottomPanel" class="bottom-panel">
@@ -188,17 +189,20 @@
                                <h1>
 
                         <p style="font-size:17px"> Les Barques </p> 
-                                   <span id="datetime"> </span>                                
+                                   
+                                   <p id="datetime" style="font-size:17px"> </p>    
+
+                                
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Noemi - Lu paese meu.mp3" type="audio/mpeg">
+            <source src="current/Jure Miloš - Gusle.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Quando il corpo trasmette a sua volta l&#39;oggetto, ne esprime ogni volta una versione sensibilmente diversa. C&#39;è una doppia interpretazione: quella del soggetto che trasmette e quella del soggetto che riceve. L&#39;oggetto viene così modificato due volte. Un dato memorizzato dal cervello è più fluido di un dato memorizzato su un supporto inanimato. Un file mentale non è un oggetto annotato o registrato, i dati che lo compongono acquisiscono qualcosa di più labile, come una vita propria? Questi dati alimentano un Gesto specifico per ogni oggetto reale o astratto che può essere oggetto della percezione di un soggetto, Gesto che potremmo definire come la somma dei file mentali associati a un oggetto di conoscenza.
+                    Un artigianato documentario per sublimare l&#39;insignificanza, la fragilità e il vuoto esistenziale, proprio come ha fatto il cristianesimo attraverso lo strumento della sofferenza. Poiché la sofferenza non è quantificabile e poiché non possiamo sapere se stiamo lavorando efficacemente alla sua riduzione, vorremmo credere nella fondatezza di un&#39;attenzione rivolta agli oggetti più piccoli, pronti a perdersi nella fragilità universale, senza la solennità del religioso, delle forme marginali cariche di mancanze. Il problema della sofferenza viene prima di tutti gli altri. Ma una paura terribile: che una delle prime proprietà psicologiche degli esseri umani sia meno quella di cercare la risposta al problema del loro corpo suscettibile di provare sofferenza, quanto quella di agire ciecamente verso la replicazione dei loro geni, replicazione percepita ciecamente come più desiderabile di una diminuzione della sofferenza.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -249,7 +253,7 @@
      
     <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function datetime(id) {
             var now = new Date();
             var nowDate = new Date(); 
             var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
