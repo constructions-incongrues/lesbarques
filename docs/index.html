@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/10040021.jpg');
+            background-image: url('current/0032_30a.jpg');
             background-position: top-center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -52,7 +52,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-image: url('current/10040021.jpg');
+            background-image: url('current/0032_30a.jpg');
                    background-position: top-center;
             background-repeat: no-repeat;
                   background-size: cover;
@@ -188,21 +188,23 @@
 
                                <h1>
 
-                        <p style="font-size:17px"> Les Barques </p> 
+                        <p style="font-size:17px"> Les Barques <span id="display-date"> </span></p> 
                                    
                                    <p id="datetime" style="font-size:17px"> </p>    
+                                   
+                                   <p id="display-date"></p>
 
                                 
                 <div class="audio fadeInUp-animation">
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="current/Jure Miloš - Gusle.mp3" type="audio/mpeg">
+            <source src="current/Ernest Sitges - Chant de berger2.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
                 </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Un artigianato documentario per sublimare l&#39;insignificanza, la fragilità e il vuoto esistenziale, proprio come ha fatto il cristianesimo attraverso lo strumento della sofferenza. Poiché la sofferenza non è quantificabile e poiché non possiamo sapere se stiamo lavorando efficacemente alla sua riduzione, vorremmo credere nella fondatezza di un&#39;attenzione rivolta agli oggetti più piccoli, pronti a perdersi nella fragilità universale, senza la solennità del religioso, delle forme marginali cariche di mancanze. Il problema della sofferenza viene prima di tutti gli altri. Ma una paura terribile: che una delle prime proprietà psicologiche degli esseri umani sia meno quella di cercare la risposta al problema del loro corpo suscettibile di provare sofferenza, quanto quella di agire ciecamente verso la replicazione dei loro geni, replicazione percepita ciecamente come più desiderabile di una diminuzione della sofferenza.
+                    L&#39;immaginario tecnico (τέχνη techni “arte/artigianato”) del gesto artigianale, contro l&#39;efficienza ergonomica dell&#39;ingegneria.  τέχνης ≠  έργο -   techni ≠  ergo. L&#39;idiozia artigianale, da ιδιος idios “particolare”, è la sua singolarità, il suo carattere senza pari contro l&#39;uniformità degli usi. Ciò che distingue il vero artigianato dall&#39;ingegneria deve essere l&#39;eccezione (ex-capiō “uscito da”) di ogni storia particolare raccontata dall&#39;artigiano per far reggere il suo mondo, traendo conseguenze che egli definisce “vere” dalle sue particolari osservazioni empiriche. L&#39;importante non è la verità dei suoi rituali né la sua fede in essi, né gli effetti oggettivi delle sue preghiere, ma gli effetti più direttamente terapeutici che hanno su di lui e sugli amanti delle sue opere (θεραπεύω therapeo “utile alla cura”), la sua capacità di creare forme che esistono una sola volta. Che egli creda eventualmente nella realtà di queste forme, bisognerà diffidarne solo se queste finiscono per danneggiare altri elementi di una realtà più oggettiva a cui appartengono.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -252,6 +254,19 @@
    
      
     <script>
+
+        function getCurrentDate() {
+    let date;
+    let dateTime;
+  
+    date = new Date;
+    dateTime = date.toISOString().split("T")[0];
+
+    document.querySelector("#display-date").textContent =  dateTime;
+}
+
+getCurrentDate();
+        
 
       document.addEventListener('DOMContentLoaded', function datetime(id) {
             var now = new Date();
