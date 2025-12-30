@@ -188,9 +188,11 @@
 
                                <h1>
 
-                        <p style="font-size:17px"> Les Barques </p> 
+                        <p style="font-size:17px"> Les Barques <span id="display-date"> </span></p> 
                                    
                                    <p id="datetime" style="font-size:17px"> </p>    
+                                   
+                                   <p id="display-date"></p>
 
                                 
                 <div class="audio fadeInUp-animation">
@@ -252,6 +254,19 @@
    
      
     <script>
+
+        function getCurrentDate() {
+    let date;
+    let dateTime;
+  
+    date = new Date;
+    dateTime = date.toISOString().split("T")[0];
+
+    document.querySelector("#display-date").textContent =  dateTime;
+}
+
+getCurrentDate();
+        
 
       document.addEventListener('DOMContentLoaded', function datetime(id) {
             var now = new Date();
