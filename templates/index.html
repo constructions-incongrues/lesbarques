@@ -116,7 +116,6 @@
  h1 { 
   position:relative;
   width:auto;
-  top:78vh;
   background-color: rgba(0, 0, 0, 0.7);
   padding-left: 15px;
   padding-right: 10px;
@@ -332,6 +331,30 @@ modal.onclick = function(event) {
             audioControl.addEventListener('pause', function() {
                 // You can add behaviors when audio pauses
             });
+
+    
+
+  window.addEventListener('load', () => {
+    // 1. Get the background image URL from the body element
+    const bodyStyle = window.getComputedStyle(document.body);
+    const bgUrlMatch = bodyStyle.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+
+    if (bgUrlMatch && bgUrlMatch[1]) {
+      // 2. Preload the image in memory to extract its real pixel dimensions
+      const img = new Image();
+      img.src = bgUrlMatch[1];
+      
+      img.onload = () => {
+        // 3. Calculate rendered height based on current body width
+        const bodyWidth = document.body.clientWidth;
+        const scaleFactor = bodyWidth / img.naturalWidth;
+        const renderedHeight = img.naturalHeight * scaleFactor;
+
+        // 4. Apply calculated height as top margin
+        document.getElementById('content').style.marginTop = `${renderedHeight}px`;
+      };
+    }
+
                 
         });
     </script>
