@@ -116,7 +116,6 @@
  h1 { 
   position:relative;
   width:auto;
-  top:78vh;
   background-color: rgba(0, 0, 0, 0.7);
   padding-left: 15px;
   padding-right: 10px;
@@ -214,6 +213,7 @@ current/2023 - 03 Mondine di Bentivoglio - Un bel di andando in Francia.mp3" typ
                <br> ---  <br><br>
 
              
+Fra. 
 10 ans d'expérience sonore collective au long du chemin,
 Un flux audio continu, une photographie et une entrée de journal publiées chaque matin,
 sélectionnées au hasard dans une archive fluide comme la mémoire.
@@ -254,7 +254,7 @@ An ark of strangeness divided into a multitude of faltering craft.
 
                 Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br><br>
 
-                Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić... <br> <br>
+                Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Coro feminino da Dona Joaquina, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Oficina Rua do Relógio Alcaçovas, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić... <br> <br>
 
                      <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> <b><cite> <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ=="> Contact | Newsletter</a> </b></cite>  </p>  </h1>
             <br><br> </span>
@@ -331,6 +331,30 @@ modal.onclick = function(event) {
             audioControl.addEventListener('pause', function() {
                 // You can add behaviors when audio pauses
             });
+
+    
+
+  window.addEventListener('load', () => {
+    // 1. Get the background image URL from the body element
+    const bodyStyle = window.getComputedStyle(document.body);
+    const bgUrlMatch = bodyStyle.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+
+    if (bgUrlMatch && bgUrlMatch[1]) {
+      // 2. Preload the image in memory to extract its real pixel dimensions
+      const img = new Image();
+      img.src = bgUrlMatch[1];
+      
+      img.onload = () => {
+        // 3. Calculate rendered height based on current body width
+        const bodyWidth = document.body.clientWidth;
+        const scaleFactor = bodyWidth / img.naturalWidth;
+        const renderedHeight = img.naturalHeight * scaleFactor;
+
+        // 4. Apply calculated height as top margin
+        document.getElementById('content').style.marginTop = `${renderedHeight}px`;
+      };
+    }
+
                 
         });
     </script>
