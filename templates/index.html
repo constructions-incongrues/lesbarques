@@ -342,12 +342,12 @@ modal.onclick = function(event) {
     if (bgUrlMatch && bgUrlMatch[1]) {
       // 2. Preload the image in memory to extract its real pixel dimensions
       const img = new Image();
-      img.src = bgUrlMatch[1];
+      img.src = bgUrlMatch;
       
       img.onload = () => {
-        // 3. Calculate rendered height based on current body width
-        const bodyWidth = document.body.clientWidth;
-        const scaleFactor = bodyWidth / img.naturalWidth;
+        // 3. Calculate rendered height based on current body height
+        const bodyHeight = document.body.clientHeight;
+        const scaleFactor = bodyHeight / img.naturalHeight;
         const renderedHeight = img.naturalHeight * scaleFactor;
 
         // 4. Apply calculated height as top margin
