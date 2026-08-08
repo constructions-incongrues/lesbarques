@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/r001-028.jpg');
+            background-image: url('current/capture-decran-26.png');
             background-position: top-center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -52,7 +52,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-image: url('current/r001-028.jpg');
+            background-image: url('current/capture-decran-26.png');
                    background-position: top-center;
             background-repeat: no-repeat;
                   background-size: cover;
@@ -199,14 +199,14 @@
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac">
             Your browser does not support the audio element.
-current/γυναίκες από την Μπαφρα και Νεοκαισαρεια με καταγωγή  από τη Καππαδοκία-005.mp3" type="audio/mpeg
+current/La Principal del Rosselo - Cobla Eglise Estagel1.mp3" type="audio/mpeg
         
         </audio>
      </div>
                     
                 <blockquote>
                     Journal : <br>
-                    Esplorare una dialettica dell&#39;arca, dell&#39;archè e della حرق - harqa , letteralmente «la bruciatura», termine arabo che designa un incendio interiore che porta uno o una all&#39;emigrazione via mare. L&#39;archè, è ciò che cercavano di comprendere le prime teorie fisiche, proporre un sistema di regole fondamentali che regolano i comportamenti della materia... La morte di Empedocle, italiota-elleno nato in Sicilia, presocratico, allievo di Talete, sarebbe stata una حرق, riportata da Diogene Laerzio (e più tardi da Hölderlin nella poesia moderna) come un suicidio per fuoco nel cratere dell&#39;Etna - ai piedi del quale si trova il santuario dei naufraghi di Trecastagni, tormentati dalle acque del canale di Klibia.
+                    Geste phénoménologique, l’ouvrage/ou la fragilité, la complexité de la réalité gouverne, se laisser prendre par l’ouvrage et se fondre avec lui.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -342,12 +342,12 @@ modal.onclick = function(event) {
     if (bgUrlMatch && bgUrlMatch[1]) {
       // 2. Preload the image in memory to extract its real pixel dimensions
       const img = new Image();
-      img.src = bgUrlMatch[1];
+      img.src = bgUrlMatch;
       
       img.onload = () => {
-        // 3. Calculate rendered height based on current body width
-        const bodyWidth = document.body.clientWidth;
-        const scaleFactor = bodyWidth / img.naturalWidth;
+        // 3. Calculate rendered height based on current body height
+        const bodyHeight = document.body.clientHeight;
+        const scaleFactor = bodyHeight / img.naturalHeight;
         const renderedHeight = img.naturalHeight * scaleFactor;
 
         // 4. Apply calculated height as top margin
