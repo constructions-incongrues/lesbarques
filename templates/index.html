@@ -36,7 +36,7 @@
             background-image: url('current/{{ image }}');
             background-position: top-center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -53,9 +53,8 @@
             top: 0;
             left: 0;
             background-image: url('current/{{ image }}');
-                   background-position: top-center;
+            background-position: top-center;
             background-repeat: no-repeat;
-                  background-size: cover;
             z-index: -1;
             animation: fadeIn 5s ease-in-out;
         }
@@ -184,7 +183,7 @@
   
         <div id="bottomPanel" class="bottom-panel">
 
-            <img src="current/{{ image }}" display="flex" opacity="0">
+            <img src="current/{{ image }}" height="100vh" display="flex" opacity="0">
        
 
                                <h1>
