@@ -90,6 +90,18 @@
             height: 100dvh;
         }
 
+          .hero-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .hero-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
         /* Audio player */
         .audio-container {
             position: relative;
@@ -194,8 +206,7 @@
   
         <div id="bottomPanel" class="bottom-panel">
 
-            <img src="current/{{ image }}" size="cover" min-height="100vh" opacity="0">
-       
+            <div class="hero-container">  <img src="current/{{ image }}"> </div>
 
                                <h1>
 
