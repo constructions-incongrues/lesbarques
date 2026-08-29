@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/img_1756.jpg');
+            background-image: url('current/whatsapp-image-2023-11-05-a-12.55.32_419b091b.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -58,7 +58,7 @@
             top: 0;
             left: 0;
             opacity:100;
-            background-image: url('current/img_1756.jpg');
+            background-image: url('current/whatsapp-image-2023-11-05-a-12.55.32_419b091b.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -206,7 +206,7 @@
   
         <div id="bottomPanel" class="bottom-panel">
 
-            <div class="hero-container">  <img src="current/img_1756.jpg"> </div>
+            <div class="hero-container">  <img src="current/whatsapp-image-2023-11-05-a-12.55.32_419b091b.jpg"> </div>
 
                                <h1>
 
@@ -222,14 +222,14 @@
         <audio id="audioPlayer" autoplay controls controlsList="nodownload">
             <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac">
             Your browser does not support the audio element.
-current/31 Sidi Abid - prière répétition.mp3" type="audio/mpeg
+current/La Principal del Rosselo - Cobla Eglise Estagel1.mp3" type="audio/mpeg
         
         </audio>
      </div>
                     
                 <blockquote>
                     Journal : <br>
-                    L’imaginaire technique (τέχνη techni ‘art/artisanat’) du geste artisan, contre l’efficacité ergonomique de l&#39;ingénierie.  τέχνης ≠  έργο -   techni ≠  ergo. L’idiotie artisane, de ιδιος idios ‘particulier’, c’est ses singularités, leur caractère sans-pareils contre l’uniformisation des usages. Ce qui distingue l’artisanat véritable de l&#39;ingénierie, ce doit être l’exception (ex-capiō ‘sorti de’) chaque histoire particulière racontée par l’artisan pour faire tenir son monde, tirant des conséquences qu’il nomme « vraies » de ses observations empiriques particulières. L’important n’est pas la vérité de ses rituels ni sa croyance en eux, ni encore les effets objectifs de ses prières, mais les effets plus directement thérapeutiques qu’ils ont sur lui et les amateurs de ses oeuvres (θεραπεύω therapeo ‘utile au soin’), la capacité qui est la sienne de créer des formes qui n&#39;existent qu’une fois. Qu’il croit éventuellement à la réalité de ces formes, il faudra s’en méfier seulement si celles-ci viennent à nuire à d’autres éléments d’une réalité plus objective à laquelle elles appartiennent.
+                    Une Arche d&#39;errance, fragmentée en collectages sonores, chroniques photographiques expériences littéraires. Chants et gestes populaires, exilés, expérimentaux… Documents libres, instantanés, voix qui chantent et parlent, associées à des lieux existants ou imaginaires, à des moments, à des territoires aimés dont elles se sont trouvées éloignées géographiquement ou conceptuellement. Une Arche divisée en une multitude de Barques chancelantes, construites avec des chants, des poèmes et des silhouettes dont la fragilité exprime une universalité du manque.
                 </blockquote>
 
 <p style="font-size: 16px;"> 
@@ -287,8 +287,25 @@ An ark of strangeness divided into a multitude of faltering craft.
         <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
           
   </div>
-  
-   
+
+    <!-- MULTILINGUAL PWA INSTALLATION BANNER (No Emojis) -->
+<div id="pwa-install-banner" style="display:none; background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:12px; margin:20px auto; max-width:400px; text-align:center; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; box-shadow:0 4px 15px rgba(0,0,0,0.1); color:#333; direction: ltr;">
+    
+    <h3 id="pwa-title" style="margin-top:0; font-size:19px; color:#222;">Install our App</h3>
+    <p id="pwa-desc" style="font-size:15px; color:#555; margin-bottom:20px; line-height:1.4;">
+        For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.
+    </p>
+    
+    <!-- Dynamic Instructions -->
+    <div id="pwa-instructions" style="text-align:left; font-size:14px; background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #eee; color:#444;">
+        <!-- Text injected by script -->
+    </div>
+
+    <button id="pwa-close-btn" onclick="document.getElementById('pwa-install-banner').style.display='none'" style="background:#222; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px; font-weight:500; transition:background 0.2s;">
+        Close
+    </button>
+</div>
+
      
     <script>
 
@@ -378,8 +395,124 @@ modal.onclick = function(event) {
         document.getElementById('h1').style.marginTop = `${renderedHeight}px`;
       };
     }
-                
-        });
+
+       (function() {
+        // --- Translations Database ---
+        const translations = {
+            'en': {
+                title: "Install our App",
+                desc: "For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.",
+                ios: "<strong>On iPhone or iPad:</strong><br><br>1. Tap the <strong>Share</strong> button at the bottom of Safari.<br>2. Scroll down and tap <strong>'Add to Home Screen'</strong>.<br>3. Tap <strong>Add</strong> in the top right corner.",
+                android: "<strong>On Android:</strong><br><br>1. Tap the <strong>three dots</strong> menu in the top-right corner of Chrome.<br>2. Select <strong>'Add to Home screen'</strong> or 'Install app'.<br>3. Tap <strong>Add</strong> to confirm.",
+                close: "Close",
+                rtl: false
+            },
+            'fr': {
+                title: "Installez l'application",
+                desc: "Pour un accès rapide et une écoute continue, ajoutez <strong>Les Barques</strong> à votre écran d'accueil.",
+                ios: "<strong>Sur iPhone / iPad :</strong><br><br>1. Appuyez sur le bouton <strong>Partager</strong> en bas de Safari.<br>2. Faites défiler et choisissez <strong>'Sur l'écran d'accueil'</strong>.<br>3. Validez en haut à droite.",
+                android: "<strong>Sur Android :</strong><br><br>1. Appuyez sur les <strong>3 points</strong> en haut à droite de Chrome.<br>2. Choisissez <strong>'Ajouter à l'écran d'accueil'</strong> ou 'Installer l'application'.<br>3. Validez l'installation.",
+                close: "Fermer",
+                rtl: false
+            },
+            'de': {
+                title: "App installieren",
+                desc: "Für schnellen Zugriff und unterbrechungsfreies Hören fügen Sie <strong>Les Barques</strong> Ihrem Startbildschirm hinzu.",
+                ios: "<strong>Auf dem iPhone oder iPad:</strong><br><br>1. Tippen Sie auf die <strong>Teilen</strong>-Schaltfläche unten in Safari.<br>2. Scrollen Sie nach unten und tippen Sie auf <strong>'Zum Home-Bildschirm'</strong>.<br>3. Tippen Sie oben rechts auf <strong>Hinzufügen</strong>.",
+                android: "<strong>Auf Android:</strong><br><br>1. Tippen Sie auf das Menü mit den <strong>drei Punkten</strong> oben rechts in Chrome.<br>2. Wählen Sie <strong>'Zum Startbildschirm hinzufügen'</strong> oder 'App installieren'.<br>3. Bestätigen Sie mit <strong>Hinzufügen</strong>.",
+                close: "Schließen",
+                rtl: false
+            },
+            'es': {
+                title: "Instalar la aplicación",
+                desc: "Para un acceso rápido y una escucha ininterrumpida, añada <strong>Les Barques</strong> a su pantalla de inicio.",
+                ios: "<strong>En iPhone o iPad:</strong><br><br>1. Toque el botón <strong>Compartir</strong> en la parte inferior de Safari.<br>2. Desplácese hacia abajo y toque <strong>'Añadir a la pantalla de inicio'</strong>.<br>3. Toque <strong>Añadir</strong> en la esquina superior derecha.",
+                android: "<strong>En Android:</strong><br><br>1. Toque el menú de los <strong>tres puntos</strong> en la esquina superior derecha de Chrome.<br>2. Seleccione <strong>'Añadir a la pantalla de inicio'</strong> o 'Instalar aplicación'.<br>3. Toque <strong>Añadir</strong> para confirmar.",
+                close: "Cerrar",
+                rtl: false
+            },
+            'it': {
+                title: "Installa l'app",
+                desc: "Per un accesso rapido e un ascolto ininterrotto, aggiungi <strong>Les Barques</strong> alla tua schermata home.",
+                ios: "<strong>Su iPhone o iPad:</strong><br><br>1. Tocca il pulsante <strong>Condividi</strong> in basso in Safari.<br>2. Scorri verso il basso e tocca <strong>'Aggiungi alla schermata home'</strong>.<br>3. Tocca <strong>Aggiungi</strong> in alto a destra.",
+                android: "<strong>Su Android:</strong><br><br>1. Tocca il menu dei <strong>tre puntini</strong> nell'angolo in alto a destra di Chrome.<br>2. Seleziona <strong>'Aggiungi alla schermata home'</strong> o 'Installa app'.<br>3. Tocca <strong>Aggiungi</strong> per confermare.",
+                close: "Chiudi",
+                rtl: false
+            },
+            'pt': {
+                title: "Instalar o Aplicativo",
+                desc: "Para acesso rápido e escuta ininterrupta, adicione <strong>Les Barques</strong> à sua tela inicial.",
+                ios: "<strong>No iPhone ou iPad:</strong><br><br>1. Toque no botão <strong>Compartilhar</strong> na parte inferior do Safari.<br>2. Role para baixo e toque em <strong>'Adicionar à Tela de Início'</strong>.<br>3. Toque em <strong>Adicionar</strong> no canto superior direito.",
+                android: "<strong>No Android:</strong><br><br>1. Toque no menu de <strong>três pontos</strong> no canto superior direito do Chrome.<br>2. Selecione <strong>'Adicionar à tela inicial'</strong> ou 'Instalar aplicativo'.<br>3. Toque em <strong>Adicionar</strong> para confirmar.",
+                close: "Fechar",
+                rtl: false
+            },
+            'el': {
+                title: "Εγκατάσταση Εφαρμογής",
+                desc: "Για γρήγορη πρόσβαση και αδιάλειπτη ακρόαση, προσθέστε το <strong>Les Barques</strong> στην αρχική σας οθόνη.",
+                ios: "<strong>Σε iPhone ή iPad:</strong><br><br>1. Πατήστε το κουμπί <strong>Κοινοποίηση</strong> στο κάτω μέρος του Safari.<br>2. Κυλήστε προς τα κάτω και πατήστε <strong>'Προσθήκη στην Αρχική οθόνη'</strong>.<br>3. Πατήστε <strong>Προσθήκη</strong> στην πάνω δεξιά γωνία.",
+                android: "<strong>Σε Android:</strong><br><br>1. Πατήστε το μενού με τις <strong>τρεις τελείες</strong> στην πάνω δεξιά γωνία του Chrome.<br>2. Επιλέξτε <strong>'Προσθήκη στην αρχική οθόνη'</strong> ή 'Εγκατάσταση εφαρμογής'.<br>3. Πατήστε <strong>Προσθήκη</strong> για επιβεβαίωση.",
+                close: "Κλείσιμο",
+                rtl: false
+            },
+            'ar': {
+                title: "تثبيت التطبيق",
+                desc: "للوصول السريع والاستماع دون انقطاع، أضف <strong>Les Barques</strong> إلى شاشتك الرئيسية.",
+                ios: "<strong>على iPhone أو iPad:</strong><br><br>1. اضغط على زر <strong>مشاركة</strong> في أسفل Safari.<br>2. مرر لأسفل واضغط على <strong>'إضافة إلى الشاشة الرئيسية'</strong>.<br>3. اضغط على <strong>إضافة</strong> في الزاوية العلوية اليمنى.",
+                android: "<strong>على Android:</strong><br><br>1. اضغط على قائمة <strong>النقاط الثلاث</strong> في الزاوية العلوية اليمنى من Chrome.<br>2. اختر <strong>'إضافة إلى الشاشة الرئيسية'</strong> أو 'تثبيت التطبيق'.<br>3. اضغط على <strong>إضافة</strong> للتأكيد.",
+                close: "إغلاق",
+                rtl: true
+            }
+        };
+
+        // --- Logic ---
+        const banner = document.getElementById('pwa-install-banner');
+        const titleEl = document.getElementById('pwa-title');
+        const descEl = document.getElementById('pwa-desc');
+        const instructions = document.getElementById('pwa-instructions');
+        const closeBtn = document.getElementById('pwa-close-btn');
+
+        // Detect language
+        const userLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
+        
+        // Fallback to English if language not supported
+        const lang = translations[userLang] ? userLang : 'en';
+        const t = translations[lang];
+
+        // Detect Device
+        const ua = navigator.userAgent.toLowerCase();
+        const isIOS = /iphone|ipad|ipod/.test(ua);
+        const isAndroid = /android/.test(ua);
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+        // Do not show if already installed
+        if (isStandalone) return;
+
+        // Handle RTL for Arabic
+        if (t.rtl) {
+            banner.style.direction = 'rtl';
+            instructions.style.textAlign = 'right';
+            instructions.style.fontFamily = "'Tahoma', 'Arial', sans-serif";
+        } else {
+            banner.style.direction = 'ltr';
+            instructions.style.textAlign = 'left';
+            instructions.style.fontFamily = "inherit";
+        }
+
+        // Apply Text
+        titleEl.innerHTML = t.title;
+        descEl.innerHTML = t.desc;
+        closeBtn.innerText = t.close;
+
+        if (isIOS) {
+            instructions.innerHTML = t.ios;
+            banner.style.display = 'block';
+        } else if (isAndroid) {
+            instructions.innerHTML = t.android;
+            banner.style.display = 'block';
+        }
+    })();
+      
     </script>
 </body>
 </html>
