@@ -24,8 +24,8 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/10040021.jpg');
-            background-size: 110% 110%; /* Un peu plus grand que l'écran */
+            background-image: url('current/r001-038.jpg');
+            background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
             background-attachment: scroll; /* Défile avec la page */
@@ -83,22 +83,25 @@
             color: #fff;
         }
 
-        p, blockquote, .audio {
+                /* Styles de base pour le texte */
+        p, .audio {
             font-size: 15px;
             line-height: 1.35;
             margin-top: 12px;
             margin-bottom: 12px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* Ombre pour lisibilité sur l'image */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
-        /* Effet "Citation" pour le Journal (Sans la barre verticale) */
+        /* Journal : Pas d'italique, interligne plus serré */
         blockquote {
             margin-left: 40px;
             margin-right: 40px;
-            font-style: italic;
-            /* border-left supprimé */
+            font-style: normal;
+            line-height: 1.20;
             padding-left: 0;
             color: #eee;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         /* Audio */
@@ -140,7 +143,7 @@
             border: none; /* Pas de cadre */
             padding: 10px 0;
             margin: 30px 0 0 0; /* Marge en haut */
-            text-align: right; /* Aligné à droite */
+            text-align: center; /* Aligné à droite */
             font-family: 'Garamond', serif;
             color: #ccc;
             direction: ltr;
@@ -155,19 +158,19 @@
             font-size: 14px;
             color: #aaa;
             margin-bottom: 8px;
-            line-height: 1.3;
+            line-height: 1.2;
             font-style: italic;
             display: inline-block; /* Pour que le texte suive l'alignement */
         }
 
         #pwa-instructions {
-            text-align: right;
+            text-align: center;
             font-size: 13px;
             background: transparent; /* Pas de fond */
             padding: 5px 0;
             border: none;
             color: #bbb;
-            line-height: 1.4;
+            line-height: 1.2;
             display: block;
         }
 
@@ -187,7 +190,7 @@
             letter-spacing: 1px;
             text-decoration: underline;
             margin-top: 5px;
-            float: right; /* Bouton à droite aussi */
+            float: center; /* Bouton à droite aussi */
         }
 
         #pwa-close-btn:hover {
@@ -217,7 +220,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/10040021.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/r001-038.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -235,7 +238,7 @@
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;">Chargement...</span> <br>
-                    Les barques n’archivent pas un grand récit, mais l’étonnante est inquiétante singularité d’une innombrable somme de récits particuliers. Parmi ces récits, certains peuvent se méprendre parfois sur eux-mêmes en se vivant comme des absolus, les barques les laisseront prendre l’eau un peu plus que les autres pour qu’ils en viennent à s’interroger sur leur fragilité, il faudra également inscrire dans nos mémoires cette eau qui entre dans leurs barques. Mettre sur les barques des petits monde dans la relativité de leur sens et voir ce qui relit absolument ces relativités: un sentiment de manque? La fragilité de notre entente du monde? Comme il n’y a que des sens relatif pour la vie, ou du moins aucun sens métaphysique, il ne faudra créer aucun sens absolu, aucune idole, aucune arche.
+                    C’est notre usage de l’objet culturel qui le rend vif, figé, ou quelque part entre les deux... Il peut être vif ici devant nos yeux, là-bas figé au même moment, il peut demeurer longtemps éteint, puis retrouver sa vigueur, selon les mains s’en saisissent, selon qui l’observe. L’objet culturel est encore plus fluide qu’un corps. Figé lorsqu’il est uniformément nommé, décrit, répété, utilisé comme un ensemble de signes communautaires, vif lorsqu’un corps en use par syncrétisme, pour adapter sa singularité endogène au monde extérieur, et qu’ainsi il questionne et renouvelle les formes exogènes qu’il rencontre.
                 </blockquote>
 
                 <!-- Textes Complets -->
