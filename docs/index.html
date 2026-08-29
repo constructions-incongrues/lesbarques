@@ -33,7 +33,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('current/ane.jpg');
+            background-image: url('current/r001-028.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -58,7 +58,7 @@
             top: 0;
             left: 0;
             opacity:100;
-            background-image: url('current/ane.jpg');
+            background-image: url('current/r001-028.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -201,111 +201,115 @@
     </style>
 </head>
     
-<body onLoad="datetime('date');">
+<body>
       
-  
-        <div id="bottomPanel" class="bottom-panel">
+    <!-- ID corrigé : 'bottom-panel' (avec tiret) -->
+    <div id="bottom-panel" class="bottom-panel">
 
-            <div class="hero-container">  <img src="current/ane.jpg"> </div>
+        <div class="hero-container">
+            <img src="current/r001-028.jpg" alt="Daily Image">
+        </div>
 
-                               <h1>
-
-                                   
-                        <p style="font-size:17px">  <span id="display-date" style="font-size:17px"> </span></p> 
-                                   
-                                   <p id="datetime" style="font-size:17px"> </p>    
-                                   
-                                   <p id="display-date" style="font-size:17px"></p>
-
-                                
-                <div class="audio fadeInUp-animation">
-        <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-            <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac">
-            Your browser does not support the audio element.
-current/Une bête de chair - Fröde Bjørnstad01.mp3" type="audio/mpeg
+        <!-- Titre simple -->
+        <h1>Les Barques</h1>
         
-        </audio>
-     </div>
+        <!-- La date n'est plus affichée ici, mais dans la blockquote ci-dessous -->
+        
+        <div class="audio fadeInUp-animation">
+            <audio id="audioPlayer" autoplay controls controlsList="nodownload">
+                <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
                     
-                <blockquote>
-                    Journal : <br>
-                    Explorer plutôt une dialectique de l’arche, de l’αρχή - archè, et de la حرق - harqa , littéralement la brûlure, terme désignant un incendie intérieur qui conduit à l&#39;émigration par la mer. Et l’archè, le commencement, ce que cherchaient à comprendre les premières physiques théoriques, proposer un système de règles fondamentales régissant les comportements de la matière... Après une vie entière à rechercher l’αρχή, la fin d’Empédocle (italiote -hellène né sur le sol sicilien, élève de Thalès) aurait été une حرق, rapportée par Diogène Laërce (et bien plus tard par Hölderlin) un suicide par le feu dans le cratère du volcan Etna - au pied duquel se trouve le sanctuaire des naufragés de Trecastagni, celles et ceux qui furent tourmentés par les eaux du canal de Klibia, entre l’actuelle Tunisie et la Sicile.
-                </blockquote>
+        <blockquote>
+            <!-- La date sera injectée ici par le script -->
+            Journal : <span id="datetime" style="font-weight:bold; margin-left:5px;"></span> <br>
+            Documento/έγγραφο - scrivere, inscrire
+        </blockquote>
 
-<p style="font-size: 16px;"> 
-               <br> ---  <br><br>
+        <p style="font-size: 16px;"> 
+            <br> --- <br><br>
 
-             
-Fra. 
-10 ans d'expérience sonore collective au long du chemin,
-Un flux audio continu, une photographie et une entrée de journal publiées chaque matin,
-sélectionnées au hasard dans une archive fluide comme la mémoire.
-Une arche d'étrangeté divisée en une multitude d'embarcations chancelantes.  <br><br>
-Ita.
-10 anni di esperienza sonora collettiva lungo il cammino,
-Un flusso audio continuo, una fotografia e una pagina di diario pubblicate ogni mattina,
-selezionate a caso da un archivio fluido come la memoria.
-Un'arca di stranezza divisa in una moltitudine di imbarcazioni traballanti.  <br><br>
-Por.
-10 anos de experiência sonora coletiva ao longo do caminho,
-Um fluxo de áudio contínuo, uma fotografia e uma entrada de diário publicadas todas as manhãs,
-selecionadas ao acaso de um arquivo fluido como a memória.
-Uma arca de estranheza dividida numa multidão de embarcações vacilantes. <br><br>
-Ελλ.
-10 χρόνια συλλογικής ηχητικής εμπειρίας κατά μήκος του δρόμου,
-Pοή συνεχούς ήχου, μια φωτογραφία και μια καταχώριση ημερολογίου που δημοσιεύονται κάθε πρωί,
-επιλεγμένα τυχαία από ένα αρχείο ρευστό σαν τη μνήμη.
-Μια κιβωτός αλλοκοτότητας χωρισμένη σε ένα πλήθος από κλονιζόμενες βάρκες. <br><br>
-عر.
-١٠ سنوات من التجربة الصوتية الجماعية على طول الطريق،
-تدفق صوتي مستمر، وصورة فوتوغرافية، ومدخلة في مذكرات تُنشر كل صباح،
-مختارة عشوائيًا من أرشيف مرن كالأرشيف السائل للذاكرة.
-فلُكٌ من الغرابة مقسّم إلى مجموعة من القوارب المتأرجحة.  <br><br>
-Piem.
-10 àn d'esperiensa sonor-a colativa arlongh ël camin,
-Un fluss àudio continuo, una fotografìa e una vos ëd giornal publicà tüt i matin,
-selesionà a cas da n'archivio fluìd tame la memòria.
-N'arca ëd straniesa dividùa ant un moltitudin d'imbarcassion trabolante. <br><br>
-Eng.
-10 years of collective sound experience along the way,
-A continuous audio stream, a photograph, and a journal entry published every morning,
-randomly selected from an archive as fluid as memory.
-An ark of strangeness divided into a multitude of faltering craft.
-                <br><br>
-
-                ---  <br><br>
-
-                Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br><br>
-
-                Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Coro feminino da Dona Joaquina, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Oficina Rua do Relógio Alcaçovas, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić... <br> <br>
-
-                     <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> <b><cite> <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ=="> Contact | Newsletter</a> </b></cite> - contact[at]lesbarques.org </p>  </h1> 
-            <br><br> </span>
-
-                <!-- MULTILINGUAL PWA INSTALLATION BANNER (No Emojis) -->
-<div id="pwa-install-banner" style="display:none; background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:12px; margin:20px auto; max-width:400px; text-align:center; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; box-shadow:0 4px 15px rgba(0,0,0,0.1); color:#333; direction: ltr;">
-    
-    <h3 id="pwa-title" style="margin-top:0; font-size:19px; color:#222;">Install our App</h3>
-    <p id="pwa-desc" style="font-size:15px; color:#555; margin-bottom:20px; line-height:1.4;">
-        For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.
-    </p>
-    
-    <!-- Dynamic Instructions -->
-    <div id="pwa-instructions" style="text-align:left; font-size:14px; background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #eee; color:#444;">
-        <!-- Text injected by script -->
-    </div>
-
-    <button id="pwa-close-btn" onclick="document.getElementById('pwa-install-banner').style.display='none'" style="background:#222; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px; font-weight:500; transition:background 0.2s;">
-        Close
-    </button>
-</div>
+            Fra. 
+            10 ans d'expérience sonore collective au long du chemin,
+            Un flux audio continu, une photographie et une entrée de journal publiées chaque matin,
+            sélectionnées au hasard dans une archive fluide comme la mémoire.
+            Une arche d'étrangeté divisée en une multitude d'embarcations chancelantes.  <br><br>
             
+            Ita.
+            10 anni di esperienza sonora collettiva lungo il cammino,
+            Un flusso audio continuo, una fotografia e una pagina di diario pubblicate ogni mattina,
+            selezionate a caso da un archivio fluido come la memoria.
+            Un'arca di stranezza divisa in una moltitudine di imbarcazioni traballanti.  <br><br>
+            
+            Por.
+            10 anos de experiência sonora coletiva ao longo do caminho,
+            Um fluxo de áudio contínuo, uma fotografia e uma entrada de diário publicadas todas as manhãs,
+            selecionadas ao acaso de um arquivo fluido como a memória.
+            Uma arca de estranheza dividida numa multidão de embarcações vacilantes. <br><br>
+            
+            Ελλ.
+            10 χρόνια συλλογικής ηχητικής εμπειρίας κατά μήκος του δρόμου,
+            Pοή συνεχούς ήχου, μια φωτογραφία και μια καταχώριση ημερολογίου που δημοσιεύονται κάθε πρωί,
+            επιλεγμένα τυχαία από ένα αρχείο ρευστό σαν τη μνήμη.
+            Μια κιβωτός αλλοκοτότητας χωρισμένη σε ένα πλήθος από κλονιζόμενες βάρκες. <br><br>
+            
+            عر.
+            ١٠ سنوات من التجربة الصوتية الجماعية على طول الطريق،
+            تدفق صوتي مستمر، وصورة فوتوغرافية، ومدخلة في مذكرات تُنشر كل صباح،
+            مختارة عشوائيًا من أرشيف مرن كالأرشيف السائل للذاكرة.
+            فلُكٌ من الغرابة مقسّم إلى مجموعة من القوارب المتأرجحة.  <br><br>
+            
+            Piem.
+            10 àn d'esperiensa sonor-a colativa arlongh ël camin,
+            Un fluss àudio continuo, una fotografìa e una vos ëd giornal publicà tüt i matin,
+            selesionà a cas da n'archivio fluìd tame la memòria.
+            N'arca ëd straniesa dividùa ant un moltitudin d'imbarcassion trabolante. <br><br>
+            
+            Eng.
+            10 years of collective sound experience along the way,
+            A continuous audio stream, a photograph, and a journal entry published every morning,
+            randomly selected from an archive as fluid as memory.
+            An ark of strangeness divided into a multitude of faltering craft.
+            
+            <br><br>
+            --- <br><br>
+
+            Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br><br>
+
+            Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Coro feminino da Dona Joaquina, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Oficina Rua do Relógio Alcaçovas, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić... <br> <br>
+
+            <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> 
+                <b><cite> 
+                    <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ=="> 
+                        Contact | Newsletter
+                    </a> 
+                </b></cite> - contact[at]lesbarques.org 
+            </span>
+        </p>
+
+        <!-- MULTILINGUAL PWA INSTALLATION BANNER -->
+        <div id="pwa-install-banner" style="display:none; background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:12px; margin:20px auto; max-width:400px; text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; box-shadow:0 4px 15px rgba(0,0,0,0.1); color:#333; direction: ltr;">
+            
+            <h3 id="pwa-title" style="margin-top:0; font-size:19px; color:#222;">Install our App</h3>
+            <p id="pwa-desc" style="font-size:15px; color:#555; margin-bottom:20px; line-height:1.4;">
+                For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.
+            </p>
+            
+            <div id="pwa-instructions" style="text-align:left; font-size:14px; background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #eee; color:#444;">
+                <!-- Text injected by script -->
             </div>
 
-        <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
-          
-  </div>
+            <button id="pwa-close-btn" onclick="document.getElementById('pwa-install-banner').style.display='none'" style="background:#222; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px; font-weight:500; transition:background 0.2s;">
+                Close
+            </button>
+        </div>
+            
+    </div>
 
+    <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
+  
      
     <script>
 
