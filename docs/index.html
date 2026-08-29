@@ -24,7 +24,7 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/00530022.jpg');
+            background-image: url('current/p1010211.jpg');
             background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
@@ -50,26 +50,30 @@
             animation: fadeIn 2s ease-in-out forwards;
         }
 
-        /* 2. PANNEAU DE CONTENU (Sur le fond répété) */
+              /* 2. PANNEAU DE CONTENU */
         .bottom-panel {
             position: relative;
-            width: 95%;
-            /* Fond semi-transparent pour lire le texte sur l'image de fond */
-            background: rgba(0, 0, 0, 0.85); 
-            padding: 40px 0 60px 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Fond global du panneau */
+            padding: 50px 0 70px 0;
             box-sizing: border-box;
             animation: fadeIn 1.5s ease-in-out;
             z-index: 20;
+            display: flex;
+            justify-content: center; /* Centre le contenu horizontalement */
         }
 
         .content-wrapper {
             width: 90%;
             max-width: 800px;
             margin: 0 auto;
-            /* On retire le fond noir du wrapper pour laisser voir le fond de page, 
-               ou on met un fond très léger si nécessaire. Ici, transparent pour l'effet demandé. */
-            background-color: transparent; 
-            padding: 30px;
+            /* Fond sombre pour rendre les bords arrondis visibles */
+            background-color: rgba(0, 0, 0, 0.85); 
+            padding: 40px;
+            /* Bords arrondis */
+            border-radius: 15px; 
+            /* Ombre portée pour détacher le panneau du fond */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
         h1 {
@@ -139,84 +143,74 @@
         .pointer a { color: #ddd; text-decoration: none; font-weight: bold; border-bottom: 1px dotted #999; }
         .pointer a:hover { color: #fff; border-bottom: 1px solid #fff; }
 
-        /* --- BANNIÈRE PWA ÉPURÉE (Sans cadre, alignée à droite) --- */
+        /        /* --- BANNIÈRE PWA (Centrée) --- */
         #pwa-install-banner {
             display: none;
-            background: transparent; /* Pas de fond */
-            border: none; /* Pas de cadre */
-            padding: 10px 0;
-            margin: 30px 0 0 0; /* Marge en haut */
+            background: transparent;
+            border: none;
+            padding: 20px 0 0 0;
+            margin: 0 auto; /* Centré */
             text-align: center;
             font-family: 'Garamond', serif;
             color: #ccc;
             direction: ltr;
             box-shadow: none;
+            max-width: 500px;
+            width: 100%;
         }
 
-        #pwa-title {
-            display: none;
-        }
+        #pwa-title { display: none; }
 
         #pwa-desc {
             font-size: 14px;
             color: #aaa;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             line-height: 1.2;
-            font-style: italic;
-            text-align: center;
+            font-style: normal;
+            display: block;
         }
 
         #pwa-instructions {
             text-align: center;
             font-size: 13px;
-            background: transparent; /* Pas de fond */
-            padding: 5px 0;
+            background: transparent;
+            padding: 4px 0;
             border: none;
             color: #bbb;
             line-height: 1.2;
             display: block;
         }
 
-        #pwa-instructions strong {
-            color: #ddd;   
-            text-align: center;
-        }
+        #pwa-instructions strong { color: #ddd; }
 
         #pwa-close-btn {
             background: transparent;
             color: #888;
             border: none;
-            padding: 5px 10px;
+            padding: 4px 10px;
             cursor: pointer;
             font-size: 12px;
             font-family: 'Garamond', serif;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: underline;
-            margin-top: 5px;
-            float: center; /* Bouton à droite aussi */
+            margin-top: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        #pwa-close-btn:hover {
-            color: #fff;
-        }
-
-        /* Clearfix pour le bouton float */
-        #pwa-install-banner::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+        #pwa-close-btn:hover { color: #fff; }
 
         /* Responsive */
         @media (max-width: 768px) {
             .toggle-button-circle { right: 15px; bottom: 20px; font-size: 50px; }
-            .content-wrapper { width: 95%; padding: 20px 10px; }
+            .content-wrapper { width: 92%; padding: 25px 15px; border-radius: 10px; }
             blockquote { margin-left: 15px; margin-right: 15px; }
             h1 { font-size: 14px; }
-            #pwa-install-banner { text-align: right; }
-            #pwa-close-btn { float: none; display: block; margin: 5px auto 0; text-align: center; }
+            #pwa-install-banner { width: 90%; }
         }
+        
     </style>
 </head>
     
@@ -224,7 +218,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/00530022.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/p1010211.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -242,7 +236,7 @@
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
-                    Pratique du ramas, σύμπλεγμα, mélange de choses laissées-là, apparemment isolées les unes des autres, ramasser par terre ce qui est négligé, ce que personne ne fréquente plus. Sur l’amas, le préfixe augmentatif -ra pour l’isolement, récolte d’une chose seule ajoutée au ramas, ramassée avec les autres qui lui sont dissemblables, une chose de la masse. يلمس μάζα - massa, yalmas, en arabe &#34;masse&#34; est de palper, sentir. Des fragments se touchent et font corps. Pratique de l’amalgame, secours du premier sens d’amalgamer : rechercher des équations de mélange, chercher des conditions dans lesquelles pourront être réunis des objets que la théorie n’avait pas su mêler - αμαλγάμα amalgama - issu de moulagma ملغمة μαλάγμα &#34;émollient&#34; pour le médicament fluide, l’adoucissant que les grecs ramenaient de Cyrène. Fusion douce, mélange par le mou, par le fragile, fonte amoureuse d’éléments singuliers, union confuse. Le ramas se ramasse sur lui-même, de l’intérieur, les éléments orphelins du ramas se reconnaissent et font corps. Le monde des choses fragiles, palpables, réelles, nous a été abandonné, et nous l’aimons. Tandis que les humains sont en quête de transcendance, nous nous contentons des poubelles de la réalité, nous ramassons les choses fragiles, l’or dans les poubelles du monde. On peut se plaire à penser que l’or des alchimistes n’était pas une matière à produire, mais un acte auquel se dévouer, celui de mettre à l’épreuve les uns des autres les ferments les plus étrangers, délaissés, et les observer bruire ensemble, l’or n’est que cela.
+                    Documento/έγγραφο - scrivere, inscrire
                 </blockquote>
 
                 <!-- Textes Complets -->
