@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="multi">
 <head>
@@ -11,69 +10,65 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInOut { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 
-        /* Reset & Base */
-        html, body {
+        /* Base styles */
+        body {
             margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: Garamond, serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centre verticalement le contenu sur l'image */
             color: white;
+            font-family: Garamond, serif;
             background-color: #000;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Image de fond en plein écran (Fixe) */
-        .hero-container {
+        /* Background Image (Fixe et Plein Écran) */
+        body:before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-        }
-        .hero-container img {
-            width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
+            background-image: url('current/img_1996.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
             animation: fadeIn 5s ease-in-out;
         }
 
-        /* Conteneur principal (Le panneau) */
+        /* Conteneur Principal */
         .bottom-panel {
             position: relative;
             width: 100%;
-            min-height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 100vh; /* Décale le contenu pour qu'il commence APRÈS l'image */
-            box-sizing: border-box;
+            max-width: 900px;
+            margin: 20px;
             animation: fadeIn 2s ease-in-out;
+            z-index: 10;
         }
 
-        /* Bloc de contenu */
-        h1 {
-            width: 90%;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 8px;
+        /* Le Panneau de texte (H1) */
+        h1 { 
+            position: relative;
+            width: auto;
+            background-color: rgba(0, 0, 0, 0.75); /* Fond sombre pour lisibilité */
+            backdrop-filter: blur(4px); /* Effet de flou artistique */
+            padding: 2vh 20px;
+            font-family: "Garamond", serif;
             font-weight: lighter;
             font-size: 16px;
             text-align: justify;
-            margin-bottom: 50px;
+            text-justify: inter-word;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
             line-height: 1.6;
         }
 
         p, blockquote {
             font-size: 15px;
-            text-align: justify;
-            text-justify: inter-word;
             margin: 10px 0;
         }
 
@@ -84,45 +79,51 @@
         }
         audio {
             width: 100%;
-            opacity: 0.9;
-            background-color: rgba(255, 255, 255, 0.2);
+            opacity: 0.95;
+            background-color: rgba(255, 255, 255, 0.15);
             border-radius: 5px;
+            filter: invert(1); /* Rend les contrôles clairs */
         }
 
-        /* Bouton toggle */
+        /* Bouton Toggle */
         .toggle-button-circle {
+            font-size: 70px;
+            border: none;
+            text-align: center;
             position: fixed;
             right: 25px;
             bottom: 40px;
-            font-size: 60px;
-            background: none;
-            border: none;
+            height: 35px;
+            width: 35px;
+            background-color: rgba(0, 0, 0, 0);
             color: white;
+            animation: fadeInOut 3s infinite;
             cursor: pointer;
             z-index: 100;
-            animation: fadeInOut 3s infinite;
+            text-shadow: 0 0 10px black;
         }
 
         .pointer { cursor: pointer; }
-        .pointer a { color: white; text-decoration: none; font-weight: bold; }
+        .pointer a { color: #eee; text-decoration: none; font-weight: bold; border-bottom: 1px dotted #ccc; }
+        .pointer a:hover { color: #fff; border-bottom: 1px solid #fff; }
+
+        /* Animations classes */
+        .fadeInUp-animation { animation: fadeInUp 7s; }
+        .fadeInOut-animation { animation: fadeInOut 3s infinite; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .toggle-button-circle { right: 15px; bottom: 20px; font-size: 50px; }
-            h1 { width: 95%; padding: 15px; font-size: 14px; }
-            .bottom-panel { padding-top: 100vh; }
+            .toggle-button-circle { right: 15px; bottom: 15px; font-size: 50px; }
+            h1 { padding: 15px; font-size: 14px; }
+            body { align-items: flex-start; /* Sur mobile, on commence en haut si le contenu est long */ }
+            .bottom-panel { margin: 10px; }
         }
     </style>
 </head>
     
 <body>
 
-    <!-- 1. L'IMAGE DE FOND (Plein écran) -->
-    <div class="hero-container">
-        <img src="current/0143.jpg" alt="Daily Image">
-    </div>
-
-    <!-- 2. LE PANNEAU DE CONTENU (Apparaît SOUS l'image) -->
+    <!-- PANNEAU DE CONTENU (Centré sur l'image de fond) -->
     <div id="bottom-panel" class="bottom-panel">
         
         <h1>
@@ -137,7 +138,7 @@
             <!-- Journal avec DATE -->
             <blockquote>
                 Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;">Chargement...</span> <br>
-                Le temps travaille ses matériaux. Nous les humains, le découpons en cycles communs, en événements, en gestes, en phénomènes, en objets, pour concevoir le réel dans lequel nous sommes compris ensembles. Nous découpons le temps bien davantage que nous ne le façonnons, et nous façonnons moins les cycles, les gestes, les objets, que nous ne les délimitons pour les étudier séparément. En écrivant la fable des séparations nécessaire au discernement spécifiquement humain de notre cerveau, en élaborant un découpage instrumental, un bornage qui nous est propre, les humains façonnent des frontières de temps et d’étendue pour pouvoir penser, mais le temps et l’étendue façonnent les humains qui les pensent.
+                Documenter celles et ceux dont la création d’un monde à pour conséquence de favoriser la diversité, que l’on croit favorable à-priori à la symbiose de toute vie. Laisser éventuellement croître des fictions tant que ces fictions sont génératrices de diversité, tant qu’elles viennent questionner des systèmes clos et offrir des barques aux croyances, plutôt que des arches.  Nous façonnons sans relâches des mondes singuliers pour justifier nos vies, si ces mondes induisent la diversité et la joie, alors la question de leur vérité mérite peut-être d’être suspendue un instant. Mais il nous faudrait aussi user de la science pour regarder la diversité du monde réel, hors de nous, et d’un niveau supérieur, nous devrions user de la science dans nos innombrables petits artisanats de barques, pour qu’elle ne soit pas laissée aux seuls ingénieurs des arches.
             </blockquote>
 
             <!-- Textes Complets -->
@@ -216,73 +217,59 @@
     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
 
     <script>
-        // --- 1. GESTION DE LA DATE (Exécuté immédiatement) ---
+        // --- 1. GESTION DE LA DATE (Immédiate) ---
         (function setImmediateDate() {
             const now = new Date();
             const dateStr = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + now.getDate();
             const el = document.getElementById('datetime');
             if (el) {
                 el.textContent = dateStr;
-                console.log("Date injectée : " + dateStr);
-            } else {
-                console.error("Erreur: Élément 'datetime' introuvable au chargement.");
             }
         })();
 
-        // --- 2. INITIALISATION AU CHARGEMENT DU DOM ---
+        // --- 2. AUDIO ---
         document.addEventListener('DOMContentLoaded', function() {
-            // Audio
             const audioControl = document.getElementById('audioPlayer');
             if (audioControl) {
-                audioControl.addEventListener('play', () => console.log('Lecture en cours'));
+                audioControl.addEventListener('play', () => console.log('Lecture'));
                 audioControl.addEventListener('pause', () => console.log('Pause'));
             }
         });
 
-        // --- 3. BANNIÈRE PWA (Logique sécurisée) ---
+        // --- 3. PWA BANNER ---
         (function initPWA() {
             const banner = document.getElementById('pwa-install-banner');
-            if (!banner) { console.error("Bannière PWA introuvable"); return; }
-
+            if (!banner) return;
             const titleEl = document.getElementById('pwa-title');
             const descEl = document.getElementById('pwa-desc');
             const instructions = document.getElementById('pwa-instructions');
             const closeBtn = document.getElementById('pwa-close-btn');
-
-            if (!titleEl || !descEl || !instructions || !closeBtn) {
-                console.error("Éléments PWA manquants");
-                return;
-            }
+            if (!titleEl || !instructions) return;
 
             const translations = {
-                'en': { title: "Install our App", desc: "For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.", ios: "<strong>On iPhone/iPad:</strong><br>1. Tap <strong>Share</strong> (box with arrow).<br>2. Scroll and tap <strong>'Add to Home Screen'</strong>.<br>3. Tap <strong>Add</strong>.", android: "<strong>On Android:</strong><br>1. Tap the <strong>three dots</strong> menu.<br>2. Select <strong>'Add to Home screen'</strong>.<br>3. Tap <strong>Add</strong>.", close: "Close", rtl: false },
-                'fr': { title: "Installez l'application", desc: "Pour un accès rapide, ajoutez <strong>Les Barques</strong> à votre écran d'accueil.", ios: "<strong>Sur iPhone/iPad :</strong><br>1. Appuyez sur <strong>Partager</strong>.<br>2. Choisissez <strong>'Sur l'écran d'accueil'</strong>.<br>3. Validez.", android: "<strong>Sur Android :</strong><br>1. Appuyez sur les <strong>3 points</strong>.<br>2. Choisissez <strong>'Ajouter à l'écran d'accueil'</strong>.<br>3. Validez.", close: "Fermer", rtl: false },
-                'de': { title: "App installieren", desc: "Fügen Sie <strong>Les Barques</strong> Ihrem Startbildschirm hinzu.", ios: "<strong>Auf iPhone/iPad:</strong><br>1. Tippen Sie auf <strong>Teilen</strong>.<br>2. Wählen Sie <strong>'Zum Home-Bildschirm'</strong>.<br>3. Tippen Sie auf <strong>Hinzufügen</strong>.", android: "<strong>Auf Android:</strong><br>1. Tippen Sie auf die <strong>drei Punkte</strong>.<br>2. Wählen Sie <strong>'Zum Startbildschirm hinzufügen'</strong>.", close: "Schließen", rtl: false },
-                'es': { title: "Instalar aplicación", desc: "Añada <strong>Les Barques</strong> a su pantalla de inicio.", ios: "<strong>En iPhone/iPad:</strong><br>1. Toque <strong>Compartir</strong>.<br>2. Elija <strong>'Añadir a inicio'</strong>.", android: "<strong>En Android:</strong><br>1. Toque los <strong>tres puntos</strong>.<br>2. Seleccione <strong>'Añadir a inicio'</strong>.", close: "Cerrar", rtl: false },
-                'it': { title: "Installa app", desc: "Aggiungi <strong>Les Barques</strong> alla tua schermata home.", ios: "<strong>Su iPhone/iPad:</strong><br>1. Tocca <strong>Condividi</strong>.<br>2. Scegli <strong>'Aggiungi a home'</strong>.", android: "<strong>Su Android:</strong><br>1. Tocca i <strong>tre puntini</strong>.<br>2. Seleziona <strong>'Aggiungi a home'</strong>.", close: "Chiudi", rtl: false },
-                'pt': { title: "Instalar App", desc: "Adicione <strong>Les Barques</strong> à sua tela inicial.", ios: "<strong>No iPhone/iPad:</strong><br>1. Toque em <strong>Compartilhar</strong>.<br>2. Escolha <strong>'Adicionar à Tela de Início'</strong>.", android: "<strong>No Android:</strong><br>1. Toque nos <strong>três pontos</strong>.<br>2. Selecione <strong>'Adicionar à tela inicial'</strong>.", close: "Fechar", rtl: false },
-                'el': { title: "Εγκατάσταση Εφαρμογής", desc: "Προσθέστε το <strong>Les Barques</strong> στην αρχική οθόνη.", ios: "<strong>Σε iPhone/iPad:</strong><br>1. Πατήστε <strong>Κοινοποίηση</strong>.<br>2. Επιλέξτε <strong>'Προσθήκη στην Αρχική'</strong>.", android: "<strong>Σε Android:</strong><br>1. Πατήστε τις <strong>τρεις τελείες</strong>.<br>2. Επιλέξτε <strong>'Προσθήκη στην αρχική'</strong>.", close: "Κλείσιμο", rtl: false },
-                'ar': { title: "تثبيت التطبيق", desc: "أضف <strong>Les Barques</strong> إلى شاشتك الرئيسية.", ios: "<strong>على iPhone/iPad:</strong><br>1. اضغط على <strong>مشاركة</strong>.<br>2. اختر <strong>'إضافة إلى الشاشة الرئيسية'</strong>.", android: "<strong>على Android:</strong><br>1. اضغط على <strong>النقاط الثلاث</strong>.<br>2. اختر <strong>'إضافة إلى الشاشة الرئيسية'</strong>.", close: "إغلاق", rtl: true }
+                'en': { title: "Install our App", desc: "Add <strong>Les Barques</strong> to your home screen.", ios: "<strong>iPhone:</strong> Share > Add to Home Screen.", android: "<strong>Android:</strong> Menu > Add to Home screen.", close: "Close", rtl: false },
+                'fr': { title: "Installez l'application", desc: "Ajoutez <strong>Les Barques</strong> à l'écran d'accueil.", ios: "<strong>iPhone :</strong> Partager > Sur l'écran d'accueil.", android: "<strong>Android :</strong> Menu > Ajouter à l'écran d'accueil.", close: "Fermer", rtl: false },
+                'de': { title: "App installieren", desc: "Fügen Sie <strong>Les Barques</strong> dem Startbildschirm hinzu.", ios: "<strong>iPhone:</strong> Teilen > Zum Home-Bildschirm.", android: "<strong>Android:</strong> Menü > Zum Startbildschirm.", close: "Schließen", rtl: false },
+                'es': { title: "Instalar app", desc: "Añada <strong>Les Barques</strong> a su inicio.", ios: "<strong>iPhone:</strong> Compartir > Añadir a inicio.", android: "<strong>Android:</strong> Menú > Añadir a inicio.", close: "Cerrar", rtl: false },
+                'it': { title: "Installa app", desc: "Aggiungi <strong>Les Barques</strong> alla home.", ios: "<strong>iPhone:</strong> Condividi > Aggiungi a home.", android: "<strong>Android:</strong> Menu > Aggiungi a home.", close: "Chiudi", rtl: false },
+                'pt': { title: "Instalar App", desc: "Adicione <strong>Les Barques</strong> à tela inicial.", ios: "<strong>iPhone:</strong> Compartilhar > Adicionar à tela de início.", android: "<strong>Android:</strong> Menu > Adicionar à tela de início.", close: "Fechar", rtl: false },
+                'el': { title: "Εγκατάσταση", desc: "Προσθέστε το <strong>Les Barques</strong> στην αρχική.", ios: "<strong>iPhone:</strong> Κοινοποίηση > Προσθήκη στην αρχική.", android: "<strong>Android:</strong> Μενού > Προσθήκη στην αρχική.", close: "Κλείσιμο", rtl: false },
+                'ar': { title: "تثبيت التطبيق", desc: "أضف <strong>Les Barques</strong> للشاشة الرئيسية.", ios: "<strong>iPhone:</strong> مشاركة > إضافة للشاشة الرئيسية.", android: "<strong>Android:</strong> قائمة > إضافة للشاشة الرئيسية.", close: "إغلاق", rtl: true }
             };
 
             const userLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
             const t = translations[userLang] || translations['en'];
-
             const ua = navigator.userAgent.toLowerCase();
             const isIOS = /iphone|ipad|ipod/.test(ua);
             const isAndroid = /android/.test(ua);
             const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+            
+            // Mettre à FALSE pour la production (ne s'affiche que sur mobile)
+            // Mettre à TRUE pour tester l'affichage sur PC
+            const forceDisplay = true; 
 
-            // DEBUG: Décommentez la ligne suivante pour FORCER l'affichage sur PC pour tester
-            // const forceDisplay = true; 
-            const forceDisplay = false; 
+            if (!forceDisplay && (isStandalone || (!isIOS && !isAndroid))) return;
 
-            if (!forceDisplay && (isStandalone || (!isIOS && !isAndroid))) {
-                console.log("PWA: Non affiché (Déjà installé ou non mobile)");
-                return;
-            }
-
-            // Configuration RTL pour l'arabe
             if (t.rtl) {
                 banner.style.direction = 'rtl';
                 instructions.style.textAlign = 'right';
@@ -296,9 +283,7 @@
             descEl.innerHTML = t.desc;
             closeBtn.innerText = t.close;
             instructions.innerHTML = isIOS ? t.ios : t.android;
-
             banner.style.display = 'block';
-            console.log("PWA: Bannière affichée pour " + (isIOS ? "iOS" : "Android"));
         })();
     </script>
 </body>
