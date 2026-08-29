@@ -25,7 +25,7 @@
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
             background-image: url('current/{{ image }}');
-            background-size: 110% 110%; /* Un peu plus grand que l'écran */
+            background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
             background-attachment: scroll; /* Défile avec la page */
@@ -83,22 +83,25 @@
             color: #fff;
         }
 
-        p, blockquote, .audio {
+                /* Styles de base pour le texte */
+        p, .audio {
             font-size: 15px;
             line-height: 1.35;
             margin-top: 12px;
             margin-bottom: 12px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* Ombre pour lisibilité sur l'image */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
-        /* Effet "Citation" pour le Journal (Sans la barre verticale) */
+        /* Journal : Pas d'italique, interligne plus serré */
         blockquote {
             margin-left: 40px;
             margin-right: 40px;
-            font-style: italic;
-            /* border-left supprimé */
+            font-style: normal;
+            line-height: 1.20;
             padding-left: 0;
             color: #eee;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         /* Audio */
@@ -140,7 +143,7 @@
             border: none; /* Pas de cadre */
             padding: 10px 0;
             margin: 30px 0 0 0; /* Marge en haut */
-            text-align: right; /* Aligné à droite */
+            text-align: center; /* Aligné à droite */
             font-family: 'Garamond', serif;
             color: #ccc;
             direction: ltr;
@@ -155,19 +158,19 @@
             font-size: 14px;
             color: #aaa;
             margin-bottom: 8px;
-            line-height: 1.3;
+            line-height: 1.2;
             font-style: italic;
             display: inline-block; /* Pour que le texte suive l'alignement */
         }
 
         #pwa-instructions {
-            text-align: right;
+            text-align: center;
             font-size: 13px;
             background: transparent; /* Pas de fond */
             padding: 5px 0;
             border: none;
             color: #bbb;
-            line-height: 1.4;
+            line-height: 1.2;
             display: block;
         }
 
@@ -187,7 +190,7 @@
             letter-spacing: 1px;
             text-decoration: underline;
             margin-top: 5px;
-            float: right; /* Bouton à droite aussi */
+            float: center; /* Bouton à droite aussi */
         }
 
         #pwa-close-btn:hover {
