@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Configuration spécifique pour iOS (iPhone/iPad) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Radio Les Barques">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Titre de la page -->
+    <title>Radio Les Barques - Plein Écran</title>
+
+    <!-- On lie le manifeste global (optionnel, mais bon pour la cohérence) -->
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        body, html {
+            margin: 0; padding: 0; height: 100%; overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            /* Votre image de fond kDrive */
+            background-image: url('https://kdrive.infomaniak.com/app/share/1276760/c9deb189-28bb-4010-9571-1bb6391244dc');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Un peu plus sombre pour le contraste */
+            z-index: 1;
+        }
+        #playBtn {
+            position: relative; z-index: 2;
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.5);
+            background-color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+            display: flex; justify-content: center; align-items: center;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #playBtn:active { transform: scale(0.90); background-color: #fff; }
+        #playBtn:hover { background-color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.8); }
+        
+        /* Icônes CSS */
+        .icon-play {
+            width: 0; height: 0;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            border-left: 30px solid #333;
+            margin-left: 6px;
+        }
+        .icon-pause {
+            display: flex; gap: 8px;
+        }
+        .icon-pause::before, .icon-pause::after {
+            content: ''; width: 10px; height: 30px;
+            background-color: #333; border-radius: 2px;
+        }
+        .hidden { display: none; }
+
+        /* Petit lien retour discret en bas */
+        .back-link {
+            position: absolute; bottom: 20px; z-index: 2;
+            color: rgba(255,255,255,0.8); text-decoration: none;
+            font-size: 14px; background: rgba(0,0,0,0.5);
+            padding: 8px 15px; border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <button id="playBtn" aria-label="Lecture">
+        <span class="icon-play" id="iconPlay"></span>
+        <span class="icon-pause hidden" id="iconPause"></span>
+    </button>
+
+    <!-- Lien retour vers l'accueil -->
+    <a href="index.html" class="back-link">← Retour au site</a>
+
+    <audio id="audioStream" preload="none">
+        <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('audioStream');
+        const btn = document.getElementById('playBtn');
+        const iconPlay = document.getElementById('iconPlay');
+        const iconPause = document.getElementById('iconPause');
+        let isPlaying = false;
+
+        btn.addEventListener('click', () => {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    iconPlay.classList.add('hidden');
+                    iconPause.classList.remove('hidden');
+                }).catch(e => {
+                    console.error(e);
+                    alert("Le flux n'a pas pu être lancé. Vérifiez votre connexion.");
+                });
+            } else {
+                audio.pause();
+                isPlaying = false;
+                iconPlay.classList.remove('hidden');
+                iconPause.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
