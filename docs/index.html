@@ -24,7 +24,7 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/img_1751.jpg');
+            background-image: url('current/00530022.jpg');
             background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
@@ -53,7 +53,7 @@
         /* 2. PANNEAU DE CONTENU (Sur le fond répété) */
         .bottom-panel {
             position: relative;
-            width: 100%;
+            width: 95%;
             /* Fond semi-transparent pour lire le texte sur l'image de fond */
             background: rgba(0, 0, 0, 0.85); 
             padding: 40px 0 60px 0;
@@ -80,7 +80,7 @@
             margin-right: 10px;
             text-align: justify;
             text-justify: inter-word;
-            line-height: 1.3;
+            line-height: 1.2;
             margin: 0;
             color: #fff;
         }
@@ -96,6 +96,7 @@
 
         /* Journal : Pas d'italique, interligne plus serré */
         blockquote {
+            font-size: 14px;
             margin-left: 40px;
             margin-right: 40px;
             font-style: normal;
@@ -162,7 +163,7 @@
             margin-bottom: 8px;
             line-height: 1.2;
             font-style: italic;
-            display: inline-block; /* Pour que le texte suive l'alignement */
+            text-align: center;
         }
 
         #pwa-instructions {
@@ -223,7 +224,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/img_1751.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/00530022.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -240,12 +241,12 @@
 
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
-                    Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;">Chargement...</span> <br>
-                    La mancanza non è un punto di partenza, non è un «agente verso» la realtà (Έρως - un «eros»), una modalità della realtà, il suo compimento - πραγματικότητα θα τελειώσει σε έλλειψη - La realtà termina in ellisse. La mancanza non va colmata, ma pensata, praticata, favorita. Favorire una mancanza che non mira all&#39;accumulo ma che ci porta al nostro fine.
+                    Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
+                    Pratique du ramas, σύμπλεγμα, mélange de choses laissées-là, apparemment isolées les unes des autres, ramasser par terre ce qui est négligé, ce que personne ne fréquente plus. Sur l’amas, le préfixe augmentatif -ra pour l’isolement, récolte d’une chose seule ajoutée au ramas, ramassée avec les autres qui lui sont dissemblables, une chose de la masse. يلمس μάζα - massa, yalmas, en arabe &#34;masse&#34; est de palper, sentir. Des fragments se touchent et font corps. Pratique de l’amalgame, secours du premier sens d’amalgamer : rechercher des équations de mélange, chercher des conditions dans lesquelles pourront être réunis des objets que la théorie n’avait pas su mêler - αμαλγάμα amalgama - issu de moulagma ملغمة μαλάγμα &#34;émollient&#34; pour le médicament fluide, l’adoucissant que les grecs ramenaient de Cyrène. Fusion douce, mélange par le mou, par le fragile, fonte amoureuse d’éléments singuliers, union confuse. Le ramas se ramasse sur lui-même, de l’intérieur, les éléments orphelins du ramas se reconnaissent et font corps. Le monde des choses fragiles, palpables, réelles, nous a été abandonné, et nous l’aimons. Tandis que les humains sont en quête de transcendance, nous nous contentons des poubelles de la réalité, nous ramassons les choses fragiles, l’or dans les poubelles du monde. On peut se plaire à penser que l’or des alchimistes n’était pas une matière à produire, mais un acte auquel se dévouer, celui de mettre à l’épreuve les uns des autres les ferments les plus étrangers, délaissés, et les observer bruire ensemble, l’or n’est que cela.
                 </blockquote>
 
                 <!-- Textes Complets -->
-                <p style="font-size: 16px;"> 
+                <p style="font-size: 15px;"> 
                     <br> --- <br><br>
 
                     Fra. 
@@ -308,7 +309,7 @@
                 <div id="pwa-install-banner">
                     <p id="pwa-desc">For quick access, add <strong>Les Barques</strong> to your home screen.</p>
                     <div id="pwa-instructions"></div>
-                    <button id="pwa-close-btn">Close</button>
+                    <button id="pwa-close-btn"></button>
                 </div>
 
             </h1>
