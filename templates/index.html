@@ -12,8 +12,8 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInOut {
@@ -22,34 +22,17 @@
             100% { opacity: 0; }
         }
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-
         /* Base styles */
-       body {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-image: url('current/{{ image }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Optionnel : garde l'image fixe lors du défilement */
+        body {
             margin: 0;
-            min-height: 100vh; /* Assure que le corps prend au moins toute la hauteur de l'écran */
-            background-repeat: no-repeat;
-            margin: 0;
+            min-height: 100vh;
             display: flex;
-            opacity:100;
             justify-content: center;
             align-items: center;
             color: white;
             font-family: Garamond, serif;
-          
-       }
+            background-color: #000; /* Fallback */
+        }
 
         /* Background with fade in effect */
         body:before {
@@ -57,14 +40,11 @@
             position: fixed;
             top: 0;
             left: 0;
-            opacity:100;
+            width: 100%;
+            height: 100%;
             background-image: url('current/{{ image }}');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Optionnel : garde l'image fixe lors du défilement */
-            margin: 0;
-            min-height: 100vh; /* Assure que le corps prend au moins toute la hauteur de l'écran */
             background-repeat: no-repeat;
             z-index: -1;
             animation: fadeIn 5s ease-in-out;
@@ -81,78 +61,65 @@
             text-align: justify;
             text-justify: inter-word;
             width: 80%;
-         
-           
+            margin: 10px auto;
         }
 
-        img {
+        .hero-container {
             width: 100%;
-            height: 100dvh;
+            height: 100vh;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
-
-          .hero-container {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .hero-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+        .hero-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         /* Audio player */
-        .audio-container {
-            position: relative;
-               
+        .audio {
+            width: 80%;
+            margin: 10px auto;
         }
 
         audio {
-            opacity: 9.9;
-            background-color: rgba(0, 0, 0, 0);
+            width: 100%;
+            opacity: 0.9;
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
             border-radius: 5px;
-                 
         }
 
-        .audio-filename {
-            font-size: 0;
-            height: 0;
-            margin: 0;
-            padding: 0;
-        }
-
-        
         /* Bottom information panel */
         .bottom-panel {
-            position: static;
+            position: relative;
             width: auto;
-            height:auto;
-            transition: height 1s ease;
+            max-width: 800px;
+            margin-top: 0; /* Sera calculé par le JS si nécessaire */
+            transition: margin-top 1s ease;
             animation: fadeIn 2s ease-in-out;
-            transition: height 1s ease;           
-                               }
+            z-index: 10;
+        }
       
- h1 { 
-  position:static;
-  width:auto;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding-top: 1vh;
-  padding-left: 15px;
-  padding-right: 10px;
-  padding-bottom: 2vh;
-  font-family: "Garamond";
-  font-weight:lighter;
-  font-size: 15px;
-  text-align: justify;
-  text-justify: inter-word;
-  scroll-behavior:smooth;
-        
-           }
+        h1 { 
+            position: relative;
+            width: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2vh 15px;
+            font-family: "Garamond", serif;
+            font-weight: lighter;
+            font-size: 15px;
+            text-align: justify;
+            text-justify: inter-word;
+            border-radius: 8px;
+        }
 
-                        /* Toggle button */
+        /* Toggle button */
         .toggle-button-circle {
             font-size: 70px;
             border: none;
@@ -165,22 +132,21 @@
             background-color: rgba(0, 0, 0, 0);
             color: white;
             animation: fadeInOut 3s infinite;
+            cursor: pointer;
+            z-index: 100;
         }
-        .pointer {
-          cursor: pointer;
-         }
         
-       }
+        .pointer {
+            cursor: pointer;
+        }
 
-.close {
-  color: white;
-  float: right;
-  font-size: 50px;
-  font-weight: bold;
-  animation: fadeInOut 3s infinite;
-}
-         
-
+        .close {
+            color: white;
+            float: right;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
         /* Animation classes */
         .fadeInUp-animation {
@@ -193,9 +159,12 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .toggle-button {
+            .toggle-button-circle {
                 right: 10px;
                 bottom: 10px;
+            }
+            p, blockquote, .audio {
+                width: 90%;
             }
         }
     </style>
@@ -203,324 +172,250 @@
     
 <body>
       
-    <!-- ID corrigé : 'bottom-panel' (avec tiret) -->
+    <!-- Conteneur Principal (ID corrigé : bottom-panel) -->
     <div id="bottom-panel" class="bottom-panel">
 
+        <!-- Image de fond (décorative, car le CSS gère aussi body:before) -->
         <div class="hero-container">
             <img src="current/{{ image }}" alt="Daily Image">
         </div>
 
-        <!-- Titre simple -->
-        <h1>Les Barques</h1>
-        
-        <!-- La date n'est plus affichée ici, mais dans la blockquote ci-dessous -->
-        
-        <div class="audio fadeInUp-animation">
-            <audio id="audioPlayer" autoplay controls controlsList="nodownload">
-                <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-                    
-        <blockquote>
-            <!-- La date sera injectée ici par le script -->
-            Journal : <span id="datetime" style="font-weight:bold; margin-left:5px;"></span> <br>
-            {{ text }}
-        </blockquote>
-
-        <p style="font-size: 16px;"> 
-            <br> --- <br><br>
-
-            Fra. 
-            10 ans d'expérience sonore collective au long du chemin,
-            Un flux audio continu, une photographie et une entrée de journal publiées chaque matin,
-            sélectionnées au hasard dans une archive fluide comme la mémoire.
-            Une arche d'étrangeté divisée en une multitude d'embarcations chancelantes.  <br><br>
-            
-            Ita.
-            10 anni di esperienza sonora collettiva lungo il cammino,
-            Un flusso audio continuo, una fotografia e una pagina di diario pubblicate ogni mattina,
-            selezionate a caso da un archivio fluido come la memoria.
-            Un'arca di stranezza divisa in una moltitudine di imbarcazioni traballanti.  <br><br>
-            
-            Por.
-            10 anos de experiência sonora coletiva ao longo do caminho,
-            Um fluxo de áudio contínuo, uma fotografia e uma entrada de diário publicadas todas as manhãs,
-            selecionadas ao acaso de um arquivo fluido como a memória.
-            Uma arca de estranheza dividida numa multidão de embarcações vacilantes. <br><br>
-            
-            Ελλ.
-            10 χρόνια συλλογικής ηχητικής εμπειρίας κατά μήκος του δρόμου,
-            Pοή συνεχούς ήχου, μια φωτογραφία και μια καταχώριση ημερολογίου που δημοσιεύονται κάθε πρωί,
-            επιλεγμένα τυχαία από ένα αρχείο ρευστό σαν τη μνήμη.
-            Μια κιβωτός αλλοκοτότητας χωρισμένη σε ένα πλήθος από κλονιζόμενες βάρκες. <br><br>
-            
-            عر.
-            ١٠ سنوات من التجربة الصوتية الجماعية على طول الطريق،
-            تدفق صوتي مستمر، وصورة فوتوغرافية، ومدخلة في مذكرات تُنشر كل صباح،
-            مختارة عشوائيًا من أرشيف مرن كالأرشيف السائل للذاكرة.
-            فلُكٌ من الغرابة مقسّم إلى مجموعة من القوارب المتأرجحة.  <br><br>
-            
-            Piem.
-            10 àn d'esperiensa sonor-a colativa arlongh ël camin,
-            Un fluss àudio continuo, una fotografìa e una vos ëd giornal publicà tüt i matin,
-            selesionà a cas da n'archivio fluìd tame la memòria.
-            N'arca ëd straniesa dividùa ant un moltitudin d'imbarcassion trabolante. <br><br>
-            
-            Eng.
-            10 years of collective sound experience along the way,
-            A continuous audio stream, a photograph, and a journal entry published every morning,
-            randomly selected from an archive as fluid as memory.
-            An ark of strangeness divided into a multitude of faltering craft.
-            
-            <br><br>
-            --- <br><br>
-
-            Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br><br>
-
-            Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Coro feminino da Dona Joaquina, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Oficina Rua do Relógio Alcaçovas, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić... <br> <br>
-
-            <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> 
-                <b><cite> 
-                    <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ=="> 
-                        Contact | Newsletter
-                    </a> 
-                </b></cite> - contact[at]lesbarques.org 
-            </span>
-        </p>
-
-        <!-- MULTILINGUAL PWA INSTALLATION BANNER -->
-        <div id="pwa-install-banner" style="display:none; background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:12px; margin:20px auto; max-width:400px; text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; box-shadow:0 4px 15px rgba(0,0,0,0.1); color:#333; direction: ltr;">
-            
-            <h3 id="pwa-title" style="margin-top:0; font-size:19px; color:#222;">Install our App</h3>
-            <p id="pwa-desc" style="font-size:15px; color:#555; margin-bottom:20px; line-height:1.4;">
-                For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.
-            </p>
-            
-            <div id="pwa-instructions" style="text-align:left; font-size:14px; background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #eee; color:#444;">
-                <!-- Text injected by script -->
+        <!-- Panneau de contenu -->
+        <h1>
+            <!-- Audio -->
+            <div class="audio fadeInUp-animation">
+                <audio id="audioPlayer" autoplay controls controlsList="nodownload">
+                    <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
+                    
+            <!-- Journal avec Date intégrée -->
+            <blockquote>
+                Journal : <span id="datetime" style="font-weight:bold; margin-left:5px; color:#ddd;"></span> <br>
+                {{ text }}
+            </blockquote>
 
-            <button id="pwa-close-btn" onclick="document.getElementById('pwa-install-banner').style.display='none'" style="background:#222; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px; font-weight:500; transition:background 0.2s;">
-                Close
-            </button>
-        </div>
+            <!-- Textes multilingues -->
+            <p style="font-size: 16px;"> 
+                <br> --- <br><br>
+
+                Fra. 
+                10 ans d'expérience sonore collective au long du chemin,
+                Un flux audio continu, une photographie et une entrée de journal publiées chaque matin,
+                sélectionnées au hasard dans une archive fluide comme la mémoire.
+                Une arche d'étrangeté divisée en une multitude d'embarcations chancelantes.  <br><br>
+                
+                Ita.
+                10 anni di esperienza sonora collettiva lungo il cammino,
+                Un flusso audio continuo, una fotografia e una pagina di diario pubblicate ogni mattina,
+                selezionate a caso da un archivio fluido come la memoria.
+                Un'arca di stranezza divisa in una moltitudine di imbarcazioni traballanti.  <br><br>
+                
+                Por.
+                10 anos de experiência sonora coletiva ao longo do caminho,
+                Um fluxo de áudio contínuo, uma fotografia e uma entrada de diário publicadas todas as manhãs,
+                selecionadas ao acaso de um arquivo fluido como a memória.
+                Uma arca de estranheza dividida numa multidão de embarcações vacilantes. <br><br>
+                
+                Ελλ.
+                10 χρόνια συλλογικής ηχητικής εμπειρίας κατά μήκος του δρόμου,
+                Pοή συνεχούς ήχου, μια φωτογραφία και μια καταχώριση ημερολογίου που δημοσιεύονται κάθε πρωί,
+                επιλεγμένα τυχαία από ένα αρχείο ρευστό σαν τη μνήμη.
+                Μια κιβωτός αλλοκοτότητας χωρισμένη σε ένα πλήθος από κλονιζόμενες βάρκες. <br><br>
+                
+                عر.
+                ١٠ سنوات من التجربة الصوتية الجماعية على طول الطريق،
+                تدفق صوتي مستمر، وصورة فوتوغرافية، ومدخلة في مذكرات تُنشر كل صباح،
+                مختارة عشوائيًا من أرشيف مرن كالأرشيف السائل للذاكرة.
+                فلُكٌ من الغرابة مقسّم إلى مجموعة من القوارب المتأرجحة.  <br><br>
+                
+                Piem.
+                10 àn d'esperiensa sonor-a colativa arlongh ël camin,
+                Un fluss àudio continuo, una fotografìa e una vos ëd giornal publicà tüt i matin,
+                selesionà a cas da n'archivio fluìd tame la memòria.
+                N'arca ëd straniesa dividùa ant un moltitudin d'imbarcassion trabolante. <br><br>
+                
+                Eng.
+                10 years of collective sound experience along the way,
+                A continuous audio stream, a photograph, and a journal entry published every morning,
+                randomly selected from an archive as fluid as memory.
+                An ark of strangeness divided into a multitude of faltering craft.
+                
+                <br><br>
+                --- <br><br>
+
+                Les Barques, Le Barche, The Barques, τις βάρκες , القوارب  <br><br>
+
+                Abou Ali, Aicha Mansouri, Ali Dehan, Alia Dhahri, Ammar, Anna Maria Civico, Anna Rosetti, Antoine Loyer, Arafat Sadallah, Arthur Chambri, Aydın Çıracıoğlu, Brahim Bouslahi, Mohamed Znaidi, Rai Uno, Chafik Dammak, Chamseddine Zitouni, Chiara Vigo, Claudia Gianotta, Coro feminino da Dona Joaquina, Cristina Vetrone, Davide Russo, Dori Rosetti, Economat Redeyef, El Haj, Emmanuelle Nizou, Fanny George, Frode Bjornstad, Gaml, Giaccomo Parmeggiani, Giovanna Turco, Giuseppe Campa, Gruppo Città di Trapani, Guillaume Maupin, Hadra Tamerza, Haythem Ben Bousaha, Haythem Zakaria, Jean-François Favreau, Jeanne Marti, Joske Malbeek, Laid Bouoni, Léo Rump, Lise Barkas, Loto Retina, Loup Uberto, Lucas Ravinale, Luigi de Santis, Lukas De Clerck, Manuel Pueyo, Maria Rita Piga, Mario Gabola, Marwan Akrouti, Massoud Mansouri, Maxime Lacôme, Mondine di Bentivoglio, Nabina Gelezi, Nathalie Guida, Nicola Rosetti, Noemi, Oficina Rua do Relógio Alcaçovas, Okacha Ben Salah, Paola Magurano, Pietro Romito, Rabia Ezzedini, Radio Hito, Raïuno, Rhili Mohamed, Rochdy Machouch, Rosaria Cista, Saad Tabbabi, Salah Oucheti, Salah Tabbabi, Salvatore Urso, Scusciati, Simon Rummel, Soledad Zarka, Tahar Ezzedini, Tenore di Oliena, Vicenzo Lipari, Violeta Lopez Lopez, Yagoutha Belgacem, Yasmina Znaidi, Zaouia de Redeyef, Jure Miloš, Zdravko Vuksan, Iko Matković, Branko Sucur, Ivan Karoglan (Cibić), Sonja Busić, Tona Busić, Vesna Rebić, Zlata Rebić... <br> <br>
+
+                <span id="toggleButtonnewsletter" class="pointer fadeInOut-animation"> 
+                    <b><cite> 
+                        <a href="https://webform.statslive.info/ow/eyJpdiI6IldGOGlLMUlEcGo2Y1wvN3BjSFdNeUlKazFOTUh3SXdTWEgrTW54ODA4MGlzPSIsIm1hYyI6IjI3NmFkNDQyNzQxMDk2MWE0ZWI1OTBmNjA1OTEyODY0YWY4NGUyZTNhNmZmMTFlNjAzYWY1OTk3NDBlY2M1N2UiLCJ2YWx1ZSI6Ikc2eVJyWmRWeGsxbVc5eVwvS1ZKRDlnUXFrcDlcL0c2Mks4aDVPMTUxa0tnbz0ifQ==" style="color:white; text-decoration:none;">
+                            Contact | Newsletter
+                        </a> 
+                    </b></cite> - contact[at]lesbarques.org 
+                </span>
+            </p>
+
+            <!-- MULTILINGUAL PWA INSTALLATION BANNER -->
+            <div id="pwa-install-banner" style="display:none; background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:12px; margin:20px auto; max-width:400px; text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; box-shadow:0 4px 15px rgba(0,0,0,0.1); color:#333; direction: ltr;">
+                
+                <h3 id="pwa-title" style="margin-top:0; font-size:19px; color:#222;">Install our App</h3>
+                <p id="pwa-desc" style="font-size:15px; color:#555; margin-bottom:20px; line-height:1.4;">
+                    For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.
+                </p>
+                
+                <div id="pwa-instructions" style="text-align:left; font-size:14px; background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #eee; color:#444;">
+                    <!-- Text injected by script -->
+                </div>
+
+                <button id="pwa-close-btn" onclick="document.getElementById('pwa-install-banner').style.display='none'" style="background:#222; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-size:14px; font-weight:500; transition:background 0.2s;">
+                    Close
+                </button>
+            </div>
             
+        </h1>
     </div>
 
     <button id="togglebuttoncircle" class="toggle-button-circle fadeInOut-animation"> ▼ </button>
   
-     
     <script>
-
-        function getCurrentDate() {
-    let date;
-    let dateTime;
-  
-    date = new Date;
-    dateTime = date.toISOString().split("T")[0];
-
-    document.querySelector("#display-date").textContent =  dateTime;
-}
-
-getCurrentDate();
-        
-
-      document.addEventListener('DOMContentLoaded', function datetime(id) {
-            var now = new Date();
+        // 1. Gestion de la Date
+        document.addEventListener('DOMContentLoaded', function() {
             var nowDate = new Date(); 
-            var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
-            var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = date;
-
-        // Modals
-var modal = document.getElementById("modal");
-var modal2 = document.getElementById("newsletter")
-var btn2 = document.getElementById("toggleButtonnewsletter");
-var span = document.getElementsByClassName("close pointer")[0];
-var span2 = document.getElementsByClassName("closepointernewsletter")[0];
-      // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-  modal.style.animation="fadeIn 1s ease-in-out";
-  }
-btn2.onclick = function() {
-  modal2.style.display = "block";
-  modal2.style.animation="fadeIn 1s ease-in-out";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-   }
-span2.onclick = function() {
-  modal2.style.display = "none";
- } 
-// When the user clicks on the modal, close it
-modal.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-        
-           var audioControl = document.getElementById('audioPlayer');
-                   
-                         }
-            });
-
-            // Audio controls functionality
-            audioControl.addEventListener('play', function() {
-                // You can add behaviors when audio plays
-            });
-
-            audioControl.addEventListener('pause', function() {
-                // You can add behaviors when audio pauses
-            });
-
-    
-
-  window.addEventListener('load', () => {
-    // 1. Get the background image URL from the body element
-    const bodyStyle = window.getComputedStyle(document.body);
-    const bgUrlMatch = bodyStyle.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
-
-    if (bgUrlMatch && bgUrlMatch[1]) {
-      // 2. Preload the image in memory to extract its real pixel dimensions
-      const img = new Image();
-      img.src = bgUrlMatch;
-      
-      img.onload = () => {
-        // 3. Calculate rendered height based on current body height
-        const bodyHeight = document.body.clientHeight;
-        const scaleFactor = bodyHeight / img.naturalHeight;
-        const renderedHeight = img.naturalHeight * scaleFactor;
-
-        // 4. Apply calculated height as top margin
-        document.getElementById('bottom-panel').style.marginTop = `${renderedHeight}px`;
-        document.getElementById('h1').style.marginTop = `${renderedHeight}px`;
-      };
-    }
-
-      
-      });
-
-       (function() {
-        // --- Translations Database ---
-        const translations = {
-            'en': {
-                title: "Install our App",
-                desc: "For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.",
-                ios: "<strong>On iPhone or iPad:</strong><br><br>1. Tap the <strong>Share</strong> button at the bottom of Safari.<br>2. Scroll down and tap <strong>'Add to Home Screen'</strong>.<br>3. Tap <strong>Add</strong> in the top right corner.",
-                android: "<strong>On Android:</strong><br><br>1. Tap the <strong>three dots</strong> menu in the top-right corner of Chrome.<br>2. Select <strong>'Add to Home screen'</strong> or 'Install app'.<br>3. Tap <strong>Add</strong> to confirm.",
-                close: "Close",
-                rtl: false
-            },
-            'fr': {
-                title: "Installez l'application",
-                desc: "Pour un accès rapide et une écoute continue, ajoutez <strong>Les Barques</strong> à votre écran d'accueil.",
-                ios: "<strong>Sur iPhone / iPad :</strong><br><br>1. Appuyez sur le bouton <strong>Partager</strong> en bas de Safari.<br>2. Faites défiler et choisissez <strong>'Sur l'écran d'accueil'</strong>.<br>3. Validez en haut à droite.",
-                android: "<strong>Sur Android :</strong><br><br>1. Appuyez sur les <strong>3 points</strong> en haut à droite de Chrome.<br>2. Choisissez <strong>'Ajouter à l'écran d'accueil'</strong> ou 'Installer l'application'.<br>3. Validez l'installation.",
-                close: "Fermer",
-                rtl: false
-            },
-            'de': {
-                title: "App installieren",
-                desc: "Für schnellen Zugriff und unterbrechungsfreies Hören fügen Sie <strong>Les Barques</strong> Ihrem Startbildschirm hinzu.",
-                ios: "<strong>Auf dem iPhone oder iPad:</strong><br><br>1. Tippen Sie auf die <strong>Teilen</strong>-Schaltfläche unten in Safari.<br>2. Scrollen Sie nach unten und tippen Sie auf <strong>'Zum Home-Bildschirm'</strong>.<br>3. Tippen Sie oben rechts auf <strong>Hinzufügen</strong>.",
-                android: "<strong>Auf Android:</strong><br><br>1. Tippen Sie auf das Menü mit den <strong>drei Punkten</strong> oben rechts in Chrome.<br>2. Wählen Sie <strong>'Zum Startbildschirm hinzufügen'</strong> oder 'App installieren'.<br>3. Bestätigen Sie mit <strong>Hinzufügen</strong>.",
-                close: "Schließen",
-                rtl: false
-            },
-            'es': {
-                title: "Instalar la aplicación",
-                desc: "Para un acceso rápido y una escucha ininterrumpida, añada <strong>Les Barques</strong> a su pantalla de inicio.",
-                ios: "<strong>En iPhone o iPad:</strong><br><br>1. Toque el botón <strong>Compartir</strong> en la parte inferior de Safari.<br>2. Desplácese hacia abajo y toque <strong>'Añadir a la pantalla de inicio'</strong>.<br>3. Toque <strong>Añadir</strong> en la esquina superior derecha.",
-                android: "<strong>En Android:</strong><br><br>1. Toque el menú de los <strong>tres puntos</strong> en la esquina superior derecha de Chrome.<br>2. Seleccione <strong>'Añadir a la pantalla de inicio'</strong> o 'Instalar aplicación'.<br>3. Toque <strong>Añadir</strong> para confirmar.",
-                close: "Cerrar",
-                rtl: false
-            },
-            'it': {
-                title: "Installa l'app",
-                desc: "Per un accesso rapido e un ascolto ininterrotto, aggiungi <strong>Les Barques</strong> alla tua schermata home.",
-                ios: "<strong>Su iPhone o iPad:</strong><br><br>1. Tocca il pulsante <strong>Condividi</strong> in basso in Safari.<br>2. Scorri verso il basso e tocca <strong>'Aggiungi alla schermata home'</strong>.<br>3. Tocca <strong>Aggiungi</strong> in alto a destra.",
-                android: "<strong>Su Android:</strong><br><br>1. Tocca il menu dei <strong>tre puntini</strong> nell'angolo in alto a destra di Chrome.<br>2. Seleziona <strong>'Aggiungi alla schermata home'</strong> o 'Installa app'.<br>3. Tocca <strong>Aggiungi</strong> per confermare.",
-                close: "Chiudi",
-                rtl: false
-            },
-            'pt': {
-                title: "Instalar o Aplicativo",
-                desc: "Para acesso rápido e escuta ininterrupta, adicione <strong>Les Barques</strong> à sua tela inicial.",
-                ios: "<strong>No iPhone ou iPad:</strong><br><br>1. Toque no botão <strong>Compartilhar</strong> na parte inferior do Safari.<br>2. Role para baixo e toque em <strong>'Adicionar à Tela de Início'</strong>.<br>3. Toque em <strong>Adicionar</strong> no canto superior direito.",
-                android: "<strong>No Android:</strong><br><br>1. Toque no menu de <strong>três pontos</strong> no canto superior direito do Chrome.<br>2. Selecione <strong>'Adicionar à tela inicial'</strong> ou 'Instalar aplicativo'.<br>3. Toque em <strong>Adicionar</strong> para confirmar.",
-                close: "Fechar",
-                rtl: false
-            },
-            'el': {
-                title: "Εγκατάσταση Εφαρμογής",
-                desc: "Για γρήγορη πρόσβαση και αδιάλειπτη ακρόαση, προσθέστε το <strong>Les Barques</strong> στην αρχική σας οθόνη.",
-                ios: "<strong>Σε iPhone ή iPad:</strong><br><br>1. Πατήστε το κουμπί <strong>Κοινοποίηση</strong> στο κάτω μέρος του Safari.<br>2. Κυλήστε προς τα κάτω και πατήστε <strong>'Προσθήκη στην Αρχική οθόνη'</strong>.<br>3. Πατήστε <strong>Προσθήκη</strong> στην πάνω δεξιά γωνία.",
-                android: "<strong>Σε Android:</strong><br><br>1. Πατήστε το μενού με τις <strong>τρεις τελείες</strong> στην πάνω δεξιά γωνία του Chrome.<br>2. Επιλέξτε <strong>'Προσθήκη στην αρχική οθόνη'</strong> ή 'Εγκατάσταση εφαρμογής'.<br>3. Πατήστε <strong>Προσθήκη</strong> για επιβεβαίωση.",
-                close: "Κλείσιμο",
-                rtl: false
-            },
-            'ar': {
-                title: "تثبيت التطبيق",
-                desc: "للوصول السريع والاستماع دون انقطاع، أضف <strong>Les Barques</strong> إلى شاشتك الرئيسية.",
-                ios: "<strong>على iPhone أو iPad:</strong><br><br>1. اضغط على زر <strong>مشاركة</strong> في أسفل Safari.<br>2. مرر لأسفل واضغط على <strong>'إضافة إلى الشاشة الرئيسية'</strong>.<br>3. اضغط على <strong>إضافة</strong> في الزاوية العلوية اليمنى.",
-                android: "<strong>على Android:</strong><br><br>1. اضغط على قائمة <strong>النقاط الثلاث</strong> في الزاوية العلوية اليمنى من Chrome.<br>2. اختر <strong>'إضافة إلى الشاشة الرئيسية'</strong> أو 'تثبيت التطبيق'.<br>3. اضغط على <strong>إضافة</strong> للتأكيد.",
-                close: "إغلاق",
-                rtl: true
+            var dateStr = nowDate.getFullYear() + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getDate(); 
+            
+            var datetimeElement = document.getElementById("datetime");
+            if (datetimeElement) {
+                datetimeElement.innerHTML = dateStr;
             }
-        };
 
-        // --- Logic ---
-        const banner = document.getElementById('pwa-install-banner');
-        const titleEl = document.getElementById('pwa-title');
-        const descEl = document.getElementById('pwa-desc');
-        const instructions = document.getElementById('pwa-instructions');
-        const closeBtn = document.getElementById('pwa-close-btn');
+            // 2. Gestion Audio (Sécurisée)
+            var audioControl = document.getElementById('audioPlayer');
+            if (audioControl) {
+                audioControl.addEventListener('play', function() { console.log('Playing'); });
+                audioControl.addEventListener('pause', function() { console.log('Paused'); });
+            }
+        });
 
-        // Detect language
-        const userLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
-        
-        // Fallback to English if language not supported
-        const lang = translations[userLang] ? userLang : 'en';
-        const t = translations[lang];
+        // 3. Calcul de marge (Optionnel, basé sur votre logique précédente)
+        window.addEventListener('load', () => {
+            const bodyStyle = window.getComputedStyle(document.body);
+            const bgUrlMatch = bodyStyle.backgroundImage.match(/url$$["']?(.*?)["']?$$/);
 
-        // Detect Device
-        const ua = navigator.userAgent.toLowerCase();
-        const isIOS = /iphone|ipad|ipod/.test(ua);
-        const isAndroid = /android/.test(ua);
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+            if (bgUrlMatch && bgUrlMatch[1]) {
+                const img = new Image();
+                img.src = bgUrlMatch[1];
+                
+                img.onload = () => {
+                    const bodyHeight = document.body.clientHeight;
+                    if (img.naturalHeight !== 0) {
+                        const scaleFactor = bodyHeight / img.naturalHeight;
+                        const renderedHeight = img.naturalHeight * scaleFactor;
+                        // Appliquer la marge si nécessaire, ou laisser le CSS gérer le centrage
+                        // document.getElementById('bottom-panel').style.marginTop = `${renderedHeight}px`;
+                    }
+                };
+            }
+        });
 
-        // Do not show if already installed
-        if (isStandalone) return;
+        // 4. Bannière PWA Multilingue
+        (function() {
+            const banner = document.getElementById('pwa-install-banner');
+            if (!banner) return;
 
-        // Handle RTL for Arabic
-        if (t.rtl) {
-            banner.style.direction = 'rtl';
-            instructions.style.textAlign = 'right';
-            instructions.style.fontFamily = "'Tahoma', 'Arial', sans-serif";
-        } else {
-            banner.style.direction = 'ltr';
-            instructions.style.textAlign = 'left';
-            instructions.style.fontFamily = "inherit";
-        }
+            const titleEl = document.getElementById('pwa-title');
+            const descEl = document.getElementById('pwa-desc');
+            const instructions = document.getElementById('pwa-instructions');
+            const closeBtn = document.getElementById('pwa-close-btn');
 
-        // Apply Text
-        titleEl.innerHTML = t.title;
-        descEl.innerHTML = t.desc;
-        closeBtn.innerText = t.close;
+            if (!titleEl || !descEl || !instructions || !closeBtn) return;
 
-        if (isIOS) {
-            instructions.innerHTML = t.ios;
-            banner.style.display = 'block';
-        } else if (isAndroid) {
-            instructions.innerHTML = t.android;
-            banner.style.display = 'block';
-        }
-    })();
+            const translations = {
+                'en': {
+                    title: "Install our App",
+                    desc: "For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.",
+                    ios: "<strong>On iPhone or iPad:</strong><br><br>1. Tap the <strong>Share</strong> button at the bottom of Safari.<br>2. Scroll down and tap <strong>'Add to Home Screen'</strong>.<br>3. Tap <strong>Add</strong> in the top right corner.",
+                    android: "<strong>On Android:</strong><br><br>1. Tap the <strong>three dots</strong> menu in the top-right corner of Chrome.<br>2. Select <strong>'Add to Home screen'</strong> or 'Install app'.<br>3. Tap <strong>Add</strong> to confirm.",
+                    close: "Close",
+                    rtl: false
+                },
+                'fr': {
+                    title: "Installez l'application",
+                    desc: "Pour un accès rapide et une écoute continue, ajoutez <strong>Les Barques</strong> à votre écran d'accueil.",
+                    ios: "<strong>Sur iPhone / iPad :</strong><br><br>1. Appuyez sur le bouton <strong>Partager</strong> en bas de Safari.<br>2. Faites défiler et choisissez <strong>'Sur l'écran d'accueil'</strong>.<br>3. Validez en haut à droite.",
+                    android: "<strong>Sur Android :</strong><br><br>1. Appuyez sur les <strong>3 points</strong> en haut à droite de Chrome.<br>2. Choisissez <strong>'Ajouter à l'écran d'accueil'</strong> ou 'Installer l'application'.<br>3. Validez l'installation.",
+                    close: "Fermer",
+                    rtl: false
+                },
+                'de': {
+                    title: "App installieren",
+                    desc: "Für schnellen Zugriff und unterbrechungsfreies Hören fügen Sie <strong>Les Barques</strong> Ihrem Startbildschirm hinzu.",
+                    ios: "<strong>Auf dem iPhone oder iPad:</strong><br><br>1. Tippen Sie auf die <strong>Teilen</strong>-Schaltfläche unten in Safari.<br>2. Scrollen Sie nach unten und tippen Sie auf <strong>'Zum Home-Bildschirm'</strong>.<br>3. Tippen Sie oben rechts auf <strong>Hinzufügen</strong>.",
+                    android: "<strong>Auf Android:</strong><br><br>1. Tippen Sie auf das Menü mit den <strong>drei Punkten</strong> oben rechts in Chrome.<br>2. Wählen Sie <strong>'Zum Startbildschirm hinzufügen'</strong> oder 'App installieren'.<br>3. Bestätigen Sie mit <strong>Hinzufügen</strong>.",
+                    close: "Schließen",
+                    rtl: false
+                },
+                'es': {
+                    title: "Instalar la aplicación",
+                    desc: "Para un acceso rápido y una escucha ininterrumpida, añada <strong>Les Barques</strong> a su pantalla de inicio.",
+                    ios: "<strong>En iPhone o iPad:</strong><br><br>1. Toque el botón <strong>Compartir</strong> en la parte inferior de Safari.<br>2. Desplácese hacia abajo y toque <strong>'Añadir a la pantalla de inicio'</strong>.<br>3. Toque <strong>Añadir</strong> en la esquina superior derecha.",
+                    android: "<strong>En Android:</strong><br><br>1. Toque el menú de los <strong>tres puntos</strong> en la esquina superior derecha de Chrome.<br>2. Seleccione <strong>'Añadir a la pantalla de inicio'</strong> o 'Instalar aplicación'.<br>3. Toque <strong>Añadir</strong> para confirmar.",
+                    close: "Cerrar",
+                    rtl: false
+                },
+                'it': {
+                    title: "Installa l'app",
+                    desc: "Per un accesso rapido e un ascolto ininterrotto, aggiungi <strong>Les Barques</strong> alla tua schermata home.",
+                    ios: "<strong>Su iPhone o iPad:</strong><br><br>1. Tocca il pulsante <strong>Condividi</strong> in basso in Safari.<br>2. Scorri verso il basso e tocca <strong>'Aggiungi alla schermata home'</strong>.<br>3. Tocca <strong>Aggiungi</strong> in alto a destra.",
+                    android: "<strong>Su Android:</strong><br><br>1. Tocca il menu dei <strong>tre puntini</strong> nell'angolo in alto a destra di Chrome.<br>2. Seleziona <strong>'Aggiungi alla schermata home'</strong> o 'Installa app'.<br>3. Tocca <strong>Aggiungi</strong> per confermare.",
+                    close: "Chiudi",
+                    rtl: false
+                },
+                'pt': {
+                    title: "Instalar o Aplicativo",
+                    desc: "Para acesso rápido e escuta ininterrupta, adicione <strong>Les Barques</strong> à sua tela inicial.",
+                    ios: "<strong>No iPhone ou iPad:</strong><br><br>1. Toque no botão <strong>Compartilhar</strong> na parte inferior do Safari.<br>2. Role para baixo e toque em <strong>'Adicionar à Tela de Início'</strong>.<br>3. Toque em <strong>Adicionar</strong> no canto superior direito.",
+                    android: "<strong>No Android:</strong><br><br>1. Toque no menu de <strong>três pontos</strong> no canto superior direito do Chrome.<br>2. Selecione <strong>'Adicionar à tela inicial'</strong> ou 'Instalar aplicativo'.<br>3. Toque em <strong>Adicionar</strong> para confirmar.",
+                    close: "Fechar",
+                    rtl: false
+                },
+                'el': {
+                    title: "Εγκατάσταση Εφαρμογής",
+                    desc: "Για γρήγορη πρόσβαση και αδιάλειπτη ακρόαση, προσθέστε το <strong>Les Barques</strong> στην αρχική σας οθόνη.",
+                    ios: "<strong>Σε iPhone ή iPad:</strong><br><br>1. Πατήστε το κουμπί <strong>Κοινοποίηση</strong> στο κάτω μέρος του Safari.<br>2. Κυλήστε προς τα κάτω και πατήστε <strong>'Προσθήκη στην Αρχική οθόνη'</strong>.<br>3. Πατήστε <strong>Προσθήκη</strong> στην πάνω δεξιά γωνία.",
+                    android: "<strong>Σε Android:</strong><br><br>1. Πατήστε το μενού με τις <strong>τρεις τελείες</strong> στην πάνω δεξιά γωνία του Chrome.<br>2. Επιλέξτε <strong>'Προσθήκη στην αρχική οθόνη'</strong> ή 'Εγκατάσταση εφαρμογής'.<br>3. Πατήστε <strong>Προσθήκη</strong> για επιβεβαίωση.",
+                    close: "Κλείσιμο",
+                    rtl: false
+                },
+                'ar': {
+                    title: "تثبيت التطبيق",
+                    desc: "للوصول السريع والاستماع دون انقطاع، أضف <strong>Les Barques</strong> إلى شاشتك الرئيسية.",
+                    ios: "<strong>على iPhone أو iPad:</strong><br><br>1. اضغط على زر <strong>مشاركة</strong> في أسفل Safari.<br>2. مرر لأسفل واضغط على <strong>'إضافة إلى الشاشة الرئيسية'</strong>.<br>3. اضغط على <strong>إضافة</strong> في الزاوية العلوية اليمنى.",
+                    android: "<strong>على Android:</strong><br><br>1. اضغط على قائمة <strong>النقاط الثلاث</strong> في الزاوية العلوية اليمنى من Chrome.<br>2. اختر <strong>'إضافة إلى الشاشة الرئيسية'</strong> أو 'تثبيت التطبيق'.<br>3. اضغط على <strong>إضافة</strong> للتأكيد.",
+                    close: "إغلاق",
+                    rtl: true
+                }
+            };
 
-      
-    </script>
-</body>
-</html>
+            const userLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
+            const lang = translations[userLang] ? userLang : 'en';
+            const t = translations[lang];
+
+            const ua = navigator.userAgent.toLowerCase();
+            const isIOS = /iphone|ipad|ipod/.test(ua);
+            const isAndroid = /android/.test(ua);
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+            if (isStandalone || (!isIOS && !isAndroid)) return;
+
+            if (t.rtl) {
+                banner.style.direction = 'rtl';
+                instructions.style.textAlign = 'right';
+                instructions.style.fontFamily = "'Tahoma', 'Arial', sans-serif";
+            } else {
+                banner.style.direction = 'ltr';
+                instructions.style.textAlign = 'left';
+                instructions.style.fontFamily = "inherit";
+            }
