@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>Les Barques Radio</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
+    <style>
+        /* ... (Même CSS que précédemment) ... */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+        body {
+            background-image: url('https://kdrive.infomaniak.com/app/share/1276760/c9deb189-28bb-4010-9571-1bb6391244dc');
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1; }
+        #playBtn {
+            position: relative; z-index: 2; width: 80px; height: 80px; border-radius: 50%; border: none;
+            background-color: rgba(255, 255, 255, 0.9); cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: transform 0.2s;
+            display: flex; justify-content: center; align-items: center;
+        }
+        #playBtn:active { transform: scale(0.95); }
+        .icon-play { width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #333; margin-left: 5px; }
+        .icon-pause { display: flex; gap: 6px; }
+        .icon-pause::before, .icon-pause::after { content: ''; width: 8px; height: 25px; background-color: #333; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <button id="playBtn"><span class="icon-play" id="iconPlay"></span><span class="icon-pause hidden" id="iconPause"></span></button>
+    <audio id="audioStream" preload="none"><source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac"></audio>
+    <script>
+        const audio = document.getElementById('audioStream');
+        const btn = document.getElementById('playBtn');
+        const iconPlay = document.getElementById('iconPlay');
+        const iconPause = document.getElementById('iconPause');
+        let isPlaying = false;
+        btn.addEventListener('click', () => {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true; iconPlay.classList.add('hidden'); iconPause.classList.remove('hidden');
+                }).catch(e => alert("Erreur de lecture"));
+            } else {
+                audio.pause(); isPlaying = false; iconPlay.classList.remove('hidden'); iconPause.classList.add('hidden');
+            }
+        });
+        // Enregistrement du Service Worker pour le mode hors-ligne (optionnel mais recommandé pour PWA)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
