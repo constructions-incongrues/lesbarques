@@ -21,13 +21,25 @@
             overflow-x: hidden;
         }
 
-        /* 1. IMAGE DE FOND (Plein écran, fixe) */
+        /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
+        body {
+            /* L'image de fond est appliquée au body pour couvrir tout le scroll */
+            background-image: url('current/10040021.jpg');
+            background-size: 110% 110%; /* Un peu plus grand que l'écran */
+            background-position: center top;
+            background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
+            background-attachment: scroll; /* Défile avec la page */
+        }
+
+        /* Zone "Hero" (Le haut de page, image fixe parfaite) */
         .hero-container {
             position: relative;
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            background-color: #000;
+            /* Cette zone masque le fond défilant en haut pour afficher l'image parfaite fixe */
+            background-color: #000; 
+            z-index: 10;
         }
         .hero-container img {
             width: 100%;
@@ -38,24 +50,26 @@
             animation: fadeIn 2s ease-in-out forwards;
         }
 
-        /* 2. PANNEAU DE CONTENU (Sous l'image) */
+        /* 2. PANNEAU DE CONTENU (Sur le fond répété) */
         .bottom-panel {
             position: relative;
             width: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            /* Fond semi-transparent pour lire le texte sur l'image de fond */
+            background: rgba(0, 0, 0, 0.85); 
             padding: 40px 0 60px 0;
             box-sizing: border-box;
             animation: fadeIn 1.5s ease-in-out;
+            z-index: 20;
         }
 
         .content-wrapper {
             width: 90%;
             max-width: 800px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.6);
+            /* On retire le fond noir du wrapper pour laisser voir le fond de page, 
+               ou on met un fond très léger si nécessaire. Ici, transparent pour l'effet demandé. */
+            background-color: transparent; 
             padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
         }
 
         h1 {
@@ -66,6 +80,7 @@
             text-justify: inter-word;
             line-height: 1.4;
             margin: 0;
+            color: #fff;
         }
 
         p, blockquote, .audio {
@@ -73,15 +88,16 @@
             line-height: 1.35;
             margin-top: 12px;
             margin-bottom: 12px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* Ombre pour lisibilité sur l'image */
         }
 
-        /* Effet "Citation" pour le Journal */
+        /* Effet "Citation" pour le Journal (Sans la barre verticale) */
         blockquote {
             margin-left: 40px;
             margin-right: 40px;
             font-style: italic;
-            border-left: 2px solid rgba(255,255,255,0.3);
-            padding-left: 15px;
+            /* border-left supprimé */
+            padding-left: 0;
             color: #eee;
         }
 
@@ -117,93 +133,94 @@
         .pointer a { color: #ddd; text-decoration: none; font-weight: bold; border-bottom: 1px dotted #999; }
         .pointer a:hover { color: #fff; border-bottom: 1px solid #fff; }
 
-        /* --- BANNIÈRE PWA SOBERE & INTÉGRÉE --- */
+        /* --- BANNIÈRE PWA ÉPURÉE (Sans cadre, alignée à droite) --- */
         #pwa-install-banner {
-            display: none; /* Caché par défaut, activé par JS */
-            background: rgba(50, 50, 50, 0.95); /* Gris foncé semi-transparent */
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 25px;
-            border-radius: 4px;
-            margin: 40px auto;
-            max-width: 450px;
-            text-align: center;
-            font-family: 'Garamond', serif; /* Même police que le site */
-            color: #e0e0e0; /* Texte gris clair/blanc cassé */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            display: none;
+            background: transparent; /* Pas de fond */
+            border: none; /* Pas de cadre */
+            padding: 10px 0;
+            margin: 30px 0 0 0; /* Marge en haut */
+            text-align: right; /* Aligné à droite */
+            font-family: 'Garamond', serif;
+            color: #ccc;
             direction: ltr;
+            box-shadow: none;
         }
 
         #pwa-title {
-            margin-top: 0;
-            font-size: 18px;
-            color: #fff;
-            font-weight: normal;
-            letter-spacing: 0.5px;
+            display: none; /* Titre supprimé comme demandé */
         }
 
         #pwa-desc {
-            font-size: 15px;
-            color: #ccc;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 8px;
+            line-height: 1.3;
             font-style: italic;
+            display: inline-block; /* Pour que le texte suive l'alignement */
         }
 
         #pwa-instructions {
-            text-align: left;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.3); /* Fond légèrement plus sombre */
-            padding: 15px;
-            border-radius: 2px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
-            line-height: 1.5;
+            text-align: right;
+            font-size: 13px;
+            background: transparent; /* Pas de fond */
+            padding: 5px 0;
+            border: none;
+            color: #bbb;
+            line-height: 1.4;
+            display: block;
         }
 
         #pwa-instructions strong {
-            color: #fff;
+            color: #ddd;
         }
 
         #pwa-close-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 25px;
-            border-radius: 2px;
+            background: transparent;
+            color: #888;
+            border: none;
+            padding: 5px 10px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
             font-family: 'Garamond', serif;
-            font-weight: normal;
-            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-decoration: underline;
+            margin-top: 5px;
+            float: right; /* Bouton à droite aussi */
         }
 
         #pwa-close-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: #fff;
+            color: #fff;
+        }
+
+        /* Clearfix pour le bouton float */
+        #pwa-install-banner::after {
+            content: "";
+            display: table;
+            clear: both;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .toggle-button-circle { right: 15px; bottom: 20px; font-size: 50px; }
-            .content-wrapper { width: 95%; padding: 20px 15px; }
+            .content-wrapper { width: 95%; padding: 20px 10px; }
             blockquote { margin-left: 15px; margin-right: 15px; }
             h1 { font-size: 14px; }
-            #pwa-install-banner { margin: 30px auto; padding: 20px; }
+            #pwa-install-banner { text-align: right; }
+            #pwa-close-btn { float: none; display: block; margin: 5px auto 0; text-align: center; }
         }
     </style>
 </head>
     
 <body>
 
-    <!-- 1. L'IMAGE (Plein écran) -->
+    <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/p1010050.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/10040021.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
-    <!-- 2. LE PANNEAU (Sous l'image) -->
+    <!-- 2. LE PANNEAU (Sur le fond répété) -->
     <div id="bottom-panel" class="bottom-panel">
         <div class="content-wrapper">
             <h1>
@@ -215,10 +232,10 @@
                     </audio>
                 </div>
 
-                <!-- Journal (Style Citation) -->
+                <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;">Chargement...</span> <br>
-                    αρχή - archè, l&#39;inizio, commencement
+                    Les barques n’archivent pas un grand récit, mais l’étonnante est inquiétante singularité d’une innombrable somme de récits particuliers. Parmi ces récits, certains peuvent se méprendre parfois sur eux-mêmes en se vivant comme des absolus, les barques les laisseront prendre l’eau un peu plus que les autres pour qu’ils en viennent à s’interroger sur leur fragilité, il faudra également inscrire dans nos mémoires cette eau qui entre dans leurs barques. Mettre sur les barques des petits monde dans la relativité de leur sens et voir ce qui relit absolument ces relativités: un sentiment de manque? La fragilité de notre entente du monde? Comme il n’y a que des sens relatif pour la vie, ou du moins aucun sens métaphysique, il ne faudra créer aucun sens absolu, aucune idole, aucune arche.
                 </blockquote>
 
                 <!-- Textes Complets -->
@@ -281,10 +298,9 @@
                     </span>
                 </p>
 
-                <!-- BANNIÈRE PWA (Style Sobre) -->
+                <!-- BANNIÈRE PWA (Épurée, sans cadre, alignée à droite) -->
                 <div id="pwa-install-banner">
-                    <h3 id="pwa-title">Install our App</h3>
-                    <p id="pwa-desc">For quick access and uninterrupted listening, add <strong>Les Barques</strong> to your home screen.</p>
+                    <p id="pwa-desc">For quick access, add <strong>Les Barques</strong> to your home screen.</p>
                     <div id="pwa-instructions"></div>
                     <button id="pwa-close-btn">Close</button>
                 </div>
@@ -320,14 +336,14 @@
             
             const tId = (lang) => {
                 const db = {
-                    'en': { t: "Install our App", d: "For quick access, add <strong>Les Barques</strong> to your home screen.", i: "<strong>iPhone:</strong> Tap <strong>Share</strong> > Scroll to <strong>Add to Home Screen</strong>.", a: "<strong>Android:</strong> Tap the <strong>three dots</strong> > <strong>Add to Home screen</strong>.", c: "Close", r: false },
-                    'fr': { t: "Installez l'application", d: "Pour un accès rapide, ajoutez <strong>Les Barques</strong> à votre écran d'accueil.", i: "<strong>iPhone :</strong> Appuyez sur <strong>Partager</strong> > <strong>Sur l'écran d'accueil</strong>.", a: "<strong>Android :</strong> Appuyez sur les <strong>3 points</strong> > <strong>Ajouter à l'écran d'accueil</strong>.", c: "Fermer", r: false },
-                    'de': { t: "App installieren", d: "Fügen Sie <strong>Les Barques</strong> Ihrem Startbildschirm hinzu.", i: "<strong>iPhone:</strong> Tippen Sie auf <strong>Teilen</strong> > <strong>Zum Home-Bildschirm</strong>.", a: "<strong>Android:</strong> Tippen Sie auf die <strong>drei Punkte</strong> > <strong>Zum Startbildschirm</strong>.", c: "Schließen", r: false },
-                    'es': { t: "Instalar aplicación", d: "Añada <strong>Les Barques</strong> a su pantalla de inicio.", i: "<strong>iPhone:</strong> Toque <strong>Compartir</strong> > <strong>Añadir a inicio</strong>.", a: "<strong>Android:</strong> Toque los <strong>tres puntos</strong> > <strong>Añadir a inicio</strong>.", c: "Cerrar", r: false },
-                    'it': { t: "Installa app", d: "Aggiungi <strong>Les Barques</strong> alla tua schermata home.", i: "<strong>iPhone:</strong> Tocca <strong>Condividi</strong> > <strong>Aggiungi a home</strong>.", a: "<strong>Android:</strong> Tocca i <strong>tre puntini</strong> > <strong>Aggiungi a home</strong>.", c: "Chiudi", r: false },
-                    'pt': { t: "Instalar App", d: "Adicione <strong>Les Barques</strong> à sua tela inicial.", i: "<strong>iPhone:</strong> Toque em <strong>Compartilhar</strong> > <strong>Adicionar à Tela de Início</strong>.", a: "<strong>Android:</strong> Toque nos <strong>três pontos</strong> > <strong>Adicionar à tela inicial</strong>.", c: "Fechar", r: false },
-                    'el': { t: "Εγκατάσταση", d: "Προσθέστε το <strong>Les Barques</strong> στην αρχική οθόνη.", i: "<strong>iPhone:</strong> Πατήστε <strong>Κοινοποίηση</strong> > <strong>Προσθήκη στην αρχική</strong>.", a: "<strong>Android:</strong> Πατήστε τις <strong>τρεις τελείες</strong> > <strong>Προσθήκη στην αρχική</strong>.", c: "Κλείσιμο", r: false },
-                    'ar': { t: "تثبيت التطبيق", d: "أضف <strong>Les Barques</strong> إلى شاشتك الرئيسية.", i: "<strong>iPhone:</strong> اضغط على <strong>مشاركة</strong> > <strong>إضافة للشاشة الرئيسية</strong>.", a: "<strong>Android:</strong> اضغط على <strong>النقاط الثلاث</strong> > <strong>إضافة للشاشة الرئيسية</strong>.", c: "إغلاق", r: true }
+                    'en': { d: "For quick access, add <strong>Les Barques</strong> to your home screen.", i: "<strong>iPhone:</strong> Share > Add to Home Screen.", a: "<strong>Android:</strong> Menu > Add to Home screen.", c: "Close", r: false },
+                    'fr': { d: "Pour un accès rapide, ajoutez <strong>Les Barques</strong> à l'écran d'accueil.", i: "<strong>iPhone :</strong> Partager > Sur l'écran d'accueil.", a: "<strong>Android :</strong> Menu > Ajouter à l'écran d'accueil.", c: "Fermer", r: false },
+                    'de': { d: "Fügen Sie <strong>Les Barques</strong> dem Startbildschirm hinzu.", i: "<strong>iPhone:</strong> Teilen > Zum Home-Bildschirm.", a: "<strong>Android:</strong> Menü > Zum Startbildschirm.", c: "Schließen", r: false },
+                    'es': { d: "Añada <strong>Les Barques</strong> a su inicio.", i: "<strong>iPhone:</strong> Compartir > Añadir a inicio.", a: "<strong>Android:</strong> Menú > Añadir a inicio.", c: "Cerrar", r: false },
+                    'it': { d: "Aggiungi <strong>Les Barques</strong> alla home.", i: "<strong>iPhone:</strong> Condividi > Aggiungi a home.", a: "<strong>Android:</strong> Menu > Aggiungi a home.", c: "Chiudi", r: false },
+                    'pt': { d: "Adicione <strong>Les Barques</strong> à tela inicial.", i: "<strong>iPhone:</strong> Compartilhar > Adicionar à tela de início.", a: "<strong>Android:</strong> Menu > Adicionar à tela de início.", c: "Fechar", r: false },
+                    'el': { d: "Προσθέστε το <strong>Les Barques</strong> στην αρχική.", i: "<strong>iPhone:</strong> Κοινοποίηση > Προσθήκη στην αρχική.", a: "<strong>Android:</strong> Μενού > Προσθήκη στην αρχική.", c: "Κλείσιμο", r: false },
+                    'ar': { d: "أضف <strong>Les Barques</strong> للشاشة الرئيسية.", i: "<strong>iPhone:</strong> مشاركة > إضافة للشاشة الرئيسية.", a: "<strong>Android:</strong> قائمة > إضافة للشاشة الرئيسية.", c: "إغلاق", r: true }
                 };
                 return db[lang] || db['en'];
             };
@@ -346,23 +362,24 @@
 
             const instructionsEl = document.getElementById('pwa-instructions');
             const closeBtn = document.getElementById('pwa-close-btn');
+            const descEl = document.getElementById('pwa-desc');
 
             if (t.r) { 
                 banner.style.direction = 'rtl'; 
-                instructionsEl.style.textAlign = 'right'; 
+                instructionsEl.style.textAlign = 'right';
+                descEl.style.textAlign = 'right';
                 instructionsEl.style.fontFamily = "'Tahoma', 'Garamond', serif";
             } else { 
                 banner.style.direction = 'ltr'; 
-                instructionsEl.style.textAlign = 'left'; 
+                instructionsEl.style.textAlign = 'right'; // Toujours aligné à droite
+                descEl.style.textAlign = 'right';
                 instructionsEl.style.fontFamily = "'Garamond', serif";
             }
 
-            document.getElementById('pwa-title').innerHTML = t.t;
-            document.getElementById('pwa-desc').innerHTML = t.d;
+            descEl.innerHTML = t.d;
             closeBtn.innerText = t.c;
             instructionsEl.innerHTML = isIOS ? t.i : t.a;
             
-            // Gestion du clic bouton
             closeBtn.onclick = function() {
                 banner.style.display = 'none';
             };
