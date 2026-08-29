@@ -308,99 +308,136 @@ An ark of strangeness divided into a multitude of faltering craft.
 
      
     <script>
-
-        function getCurrentDate() {
-    let date;
-    let dateTime;
-  
-    date = new Date;
-    dateTime = date.toISOString().split("T")[0];
-
-    document.querySelector("#display-date").textContent =  dateTime;
-}
-
-getCurrentDate();
-        
-
-      document.addEventListener('DOMContentLoaded', function datetime(id) {
-            var now = new Date();
-            var nowDate = new Date(); 
-            var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
-            var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = date;
-
-        // Modals
-var modal = document.getElementById("modal");
-var modal2 = document.getElementById("newsletter")
-var btn2 = document.getElementById("toggleButtonnewsletter");
-var span = document.getElementsByClassName("close pointer")[0];
-var span2 = document.getElementsByClassName("closepointernewsletter")[0];
-      // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-  modal.style.animation="fadeIn 1s ease-in-out";
-  }
-btn2.onclick = function() {
-  modal2.style.display = "block";
-  modal2.style.animation="fadeIn 1s ease-in-out";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-   }
-span2.onclick = function() {
-  modal2.style.display = "none";
- } 
-// When the user clicks on the modal, close it
-modal.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-        
-           var audioControl = document.getElementById('audioPlayer');
-                   
-                         }
-            });
-
-            // Audio controls functionality
-            audioControl.addEventListener('play', function() {
-                // You can add behaviors when audio plays
-            });
-
-            audioControl.addEventListener('pause', function() {
-                // You can add behaviors when audio pauses
-            });
-
-    
-
-  window.addEventListener('load', () => {
-    // 1. Get the background image URL from the body element
-    const bodyStyle = window.getComputedStyle(document.body);
-    const bgUrlMatch = bodyStyle.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
-
-    if (bgUrlMatch && bgUrlMatch[1]) {
-      // 2. Preload the image in memory to extract its real pixel dimensions
-      const img = new Image();
-      img.src = bgUrlMatch;
-      
-      img.onload = () => {
-        // 3. Calculate rendered height based on current body height
-        const bodyHeight = document.body.clientHeight;
-        const scaleFactor = bodyHeight / img.naturalHeight;
-        const renderedHeight = img.naturalHeight * scaleFactor;
-
-        // 4. Apply calculated height as top margin
-        document.getElementById('bottom-panel').style.marginTop = `${renderedHeight}px`;
-        document.getElementById('h1').style.marginTop = `${renderedHeight}px`;
-      };
+    // 1. Fonction Date (Indépendante)
+    function getCurrentDate() {
+        const date = new Date();
+        const dateTime = date.toISOString().split("T")[0];
+        const displayElement = document.querySelector("#display-date");
+        if (displayElement) {
+            displayElement.textContent = dateTime;
+        }
     }
+    getCurrentDate();
 
-      
-      });
+    // 2. Initialisation au chargement du DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- Gestion de la Date ---
+        var now = new Date();
+        var nowDate = new Date(); 
+        var date = nowDate.getFullYear() + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getDate(); 
+        var datetimeElement = document.getElementById("datetime");
+        if (datetimeElement) {
+            datetimeElement.innerHTML = date;
+        }
 
-       (function() {
-        // --- Translations Database ---
+        // --- Gestion des Modales (Sécurisée) ---
+        var modal = document.getElementById("modal");
+        var modal2 = document.getElementById("newsletter");
+        var btn = document.getElementById("toggleButton"); // Vérifiez que cet ID existe dans votre HTML
+        var btn2 = document.getElementById("toggleButtonnewsletter");
+        
+        // On récupère les boutons de fermeture (gestion de plusieurs classes possibles)
+        var spans = document.getElementsByClassName("close");
+        var span = spans.length > 0 ? spans[0] : null;
+        
+        var spans2 = document.getElementsByClassName("closepointernewsletter");
+        var span2 = spans2.length > 0 ? spans2[0] : null;
+
+        // Ouverture Modale 1 (Seulement si btn existe)
+        if (btn && modal) {
+            btn.onclick = function() {
+                modal.style.display = "block";
+                modal.style.animation = "fadeIn 1s ease-in-out";
+            };
+        }
+
+        // Ouverture Modale 2
+        if (btn2 && modal2) {
+            btn2.onclick = function() {
+                modal2.style.display = "block";
+                modal2.style.animation = "fadeIn 1s ease-in-out";
+            };
+        }
+
+        // Fermeture Modale 1
+        if (span && modal) {
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+            modal.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        }
+
+        // Fermeture Modale 2
+        if (span2 && modal2) {
+            span2.onclick = function() {
+                modal2.style.display = "none";
+            };
+            // Ajout du clic dehors pour la modale 2 si nécessaire
+            modal2.onclick = function(event) {
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
+                }
+            };
+        }
+
+        // --- Gestion Audio (Définie ici pour être accessible) ---
+        var audioControl = document.getElementById('audioPlayer');
+        if (audioControl) {
+            audioControl.addEventListener('play', function() {
+                console.log('Audio playing');
+            });
+            audioControl.addEventListener('pause', function() {
+                console.log('Audio paused');
+            });
+        }
+    });
+
+    // 3. Gestion du Background et Marges (Window Load)
+    window.addEventListener('load', () => {
+        const bodyStyle = window.getComputedStyle(document.body);
+        // Correction de la regex pour extraire l'URL proprement
+        const bgImage = bodyStyle.backgroundImage;
+        const bgUrlMatch = bgImage.match(/url\(["']?(.*?)["']?\)/);
+
+        if (bgUrlMatch && bgUrlMatch[1]) {
+            const img = new Image();
+            img.src = bgUrlMatch[1]; // Utilisation du groupe de capture correct
+            
+            img.onload = () => {
+                const bodyHeight = document.body.clientHeight;
+                // Éviter la division par zéro
+                if (img.naturalHeight !== 0) {
+                    const scaleFactor = bodyHeight / img.naturalHeight;
+                    const renderedHeight = img.naturalHeight * scaleFactor;
+
+                    const bottomPanel = document.getElementById('bottom-panel');
+                    const h1 = document.getElementById('h1');
+                    
+                    if (bottomPanel) bottomPanel.style.marginTop = `${renderedHeight}px`;
+                    if (h1) h1.style.marginTop = `${renderedHeight}px`;
+                }
+            };
+        }
+    });
+
+    // 4. Bannière PWA Multilingue (Fonctionne indépendamment)
+    (function() {
+        // Vérification de sécurité : si les éléments n'existent pas, on arrête sans erreur
+        const banner = document.getElementById('pwa-install-banner');
+        if (!banner) return; 
+
+        const titleEl = document.getElementById('pwa-title');
+        const descEl = document.getElementById('pwa-desc');
+        const instructions = document.getElementById('pwa-instructions');
+        const closeBtn = document.getElementById('pwa-close-btn');
+
+        if (!titleEl || !descEl || !instructions || !closeBtn) return;
+
         const translations = {
             'en': {
                 title: "Install our App",
@@ -468,17 +505,8 @@ modal.onclick = function(event) {
             }
         };
 
-        // --- Logic ---
-        const banner = document.getElementById('pwa-install-banner');
-        const titleEl = document.getElementById('pwa-title');
-        const descEl = document.getElementById('pwa-desc');
-        const instructions = document.getElementById('pwa-instructions');
-        const closeBtn = document.getElementById('pwa-close-btn');
-
         // Detect language
         const userLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
-        
-        // Fallback to English if language not supported
         const lang = translations[userLang] ? userLang : 'en';
         const t = translations[lang];
 
@@ -486,10 +514,14 @@ modal.onclick = function(event) {
         const ua = navigator.userAgent.toLowerCase();
         const isIOS = /iphone|ipad|ipod/.test(ua);
         const isAndroid = /android/.test(ua);
+        
+        // Check if already installed
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
-        // Do not show if already installed
-        if (isStandalone) return;
+        // Do not show if already installed or not mobile
+        if (isStandalone || (!isIOS && !isAndroid)) {
+            return;
+        }
 
         // Handle RTL for Arabic
         if (t.rtl) {
@@ -515,8 +547,7 @@ modal.onclick = function(event) {
             banner.style.display = 'block';
         }
     })();
-
-      
-    </script>
+</script>
+    
 </body>
 </html>
