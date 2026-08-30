@@ -24,7 +24,7 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/p1010113.jpg');
+            background-image: url('current/0032_30a.jpg');
             background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
@@ -68,6 +68,7 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+            padding: 5px 5px 5px 5px;
             /* Fond sombre pour rendre les bords arrondis visibles */
             background-color: rgba(0, 0, 0, 0.85); 
             opacity:90%;
@@ -186,6 +187,7 @@
 
         #pwa-close-btn {
             background: transparent;
+            display:none;
             color: #888;
             border: none;
             padding: 4px 10px;
@@ -219,7 +221,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/p1010113.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/0032_30a.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -237,7 +239,7 @@
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
-                    « L’acte de parole » Chez Austin : il s’agit moins de définir les conditions de vérité du langage que ces conditions de félicité. Hors de la science, dans le discours ordinaire, l’objet de l’énoncé n’est pas de connaître la réalité mais d’y répondre, d’y accomplir quelque chose (une promesse, un serment, un juron, d’y reconnaître autrui…). Le chanté s’unît aux fonctions illocutoires de la langue, mais il constitue peut-être moins l’accomplissement de l’acte de parole qu’un accompagnement bienveillant de celui-ci. Ainsi le chanté « juste » n’a de justesse que celle d’une correspondance entre la forme du chanté et sa fonction dans les vies qu’il traverse.
+                    Les barques n’archivent pas un grand récit, mais l’étonnante est inquiétante singularité d’une innombrable somme de récits particuliers. Parmi ces récits, certains peuvent se méprendre parfois sur eux-mêmes en se vivant comme des absolus, les barques les laisseront prendre l’eau un peu plus que les autres pour qu’ils en viennent à s’interroger sur leur fragilité, il faudra également inscrire dans nos mémoires cette eau qui entre dans leurs barques. Mettre sur les barques des petits monde dans la relativité de leur sens et voir ce qui relit absolument ces relativités: un sentiment de manque? La fragilité de notre entente du monde? Comme il n’y a que des sens relatif pour la vie, ou du moins aucun sens métaphysique, il ne faudra créer aucun sens absolu, aucune idole, aucune arche.
                 </blockquote>
 
                 <!-- Textes Complets -->
@@ -304,6 +306,7 @@
                 <div id="pwa-install-banner">
                     <p id="pwa-desc">For quick access, add <strong>Les Barques</strong> to your home screen.</p>
                     <div id="pwa-instructions"></div>
+                   <button id="pwa-close-btn"></button>
                 </div>
 
             </h1>
