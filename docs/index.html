@@ -24,7 +24,7 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/0126.jpg');
+            background-image: url('current/img_1995.jpg');
             background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
@@ -146,18 +146,49 @@
             margin-bottom: 15px;
         }
 
-        /* Audio */
+/* Audio */
         .audio {
             width: 100%;
             margin: 20px 0;
+            text-align: center;
         }
+        
         audio {
             width: 90%;
-            opacity:100%;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 2px;
-            filter: invert(1);
+            height: 45px; /* Hauteur fixe pour uniformité */
+            
+            /* 1. FOND GRIS CLAIR OPAQUE */
+            background-color: #d3d3d3; /* Gris clair (LightGray) */
+            background: #d3d3d3;
+            opacity: 1 !important; /* Force l'opacité totale */
+            
+            /* 2. CONTRÔLES NOIRS */
+            /* La plupart des navigateurs affichent des contrôles noirs par défaut sur fond clair.
+               On s'assure qu'aucun filtre n'inverse les couleurs. */
+            filter: none !important; 
+            color: #000000; /* Force la couleur du texte/icônes en noir si supporté */
+            
+            /* 3. STYLE ET BORDURES */
+            border-radius: 4px;
+            border: 1px solid #aaaaaa; /* Bordure gris moyen */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Force l'opacité et la couleur pour Chrome/Safari/Edge */
+        audio::-webkit-media-controls-panel {
+            background-color: #d3d3d3 !important;
+            opacity: 1 !important;
+            filter: none !important;
+        }
+
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: #000000 !important; /* Texte noir */
+            text-shadow: none !important;
+        }
+        
+        audio::-webkit-media-controls-play-button {
+            filter: none !important;
         }
 
         /* Bouton Toggle */
@@ -255,7 +286,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/0126.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/img_1995.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -263,17 +294,17 @@
         <div class="content-wrapper">
             <h1>
                 <!-- Audio -->
-                <div class="audio fadeInUp-animation">
-                    <audio id="audioPlayer" autoplay controls controlsList="nodownload" opacity="100%" align="center">
-                        <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
+         <div class="audio fadeInUp-animation">
+    <audio id="audioPlayer" autoplay controls controlsList="nodownload">
+        <source src="https://lesbarques.ice.infomaniak.ch/lesbarques-autodj-128.aac" type="audio/aac">
+        Your browser does not support the audio element.
+    </audio>
+</div>
 
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
-                    Pratica del &#34;Ramas&#34;, la &#34;Ramassa&#34;, πρακτική του συσσωμάτωμα, miscuglio di cose lasciate lì, apparentemente isolate le une dalle altre. Raccogliere da terra ciò che è trascurato, ciò che nessuno frequenta più. Sul cumulo, sulla Ramassa, il prefisso aumentativo -ra per l&#39;isolamento, raccolta di una sola cosa aggiunta al ramas, raccolta con le altre dissimili, una cosa della massa. يلمس μάζα - massa, yalmas, in arabo “massa” è palpare, sentire. I frammenti si toccano e formano un corpo unico. Pratica dell&#39;amalgama, uso del primo significato di amalgamare: ricercare equazioni di miscelazione, ossimori, condizioni in cui possano essere riuniti oggetti che la teoria non aveva saputo mescolare - αμαλγάμα amalgama - derivato da moulagma ملغمة μαλάγμα “emolliente” per il medicamento fluido, l&#39;ammorbidente che i greci portavano da Cirene. Fusione dolce, miscelazione attraverso il morbido, il fragile, fusione amorosa di elementi singolari, unione confusa. La Ramassa si raccoglie su se stesso, dall&#39;interno, gli elementi orfani si riconoscono e formano un corpo unico. Il mondo delle cose fragili, palpabili, reali, ci è stato abbandonato e noi lo amiamo. Mentre gli umani ricercano la trascendenza, noi ci accontentiamo dei rifiuti della realtà, raccogliamo le cose fragili, l&#39;oro nei rifiuti del mondo. Ci piace pensare che l&#39;oro degli alchimisti non fosse una materia da produrre, ma un atto a cui dedicarsi, quello di mettere alla prova gli uni gli altri i fermenti più lontani, abbandonati, e guardarli fare altre cose insieme, quello era oro.
+                    Cultura secundum imaginationem - la culture comme expérience de pensée - la cultura come esperienza di pensiero
                 </blockquote>
 
                 <!-- Textes Complets -->
