@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription à la Newsletter</title>
+    <style>
+        body {
+            font-family: 'Liberation Sans', Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .newsletter-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px; /* Largeur maximale pour une bonne lisibilité */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .iframe-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            /* Ajustez la hauteur selon le contenu du formulaire */
+            height: 600px; 
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="newsletter-container">
+        
+        
+        <div class="iframe-wrapper">
+            <!-- Intégration du formulaire externe -->
+            <iframe 
+                src="https://webform.statslive.info/ow/eyJpdiI6Ilwvb3Z6elJXRFlFVXZLRGwzUjdZMmYyeDZlK3h3cFJlbGVrZ0UwXC9rZGhaOD0iLCJtYWMiOiI3ZDUyZWNkM2JmMjllZjk0ZTE0N2U3Y2VlNmMzZjdkMTc4N2JkNTYwYmE5OGNkMGEyYjA4ZmY1OGEwZDY0NDI3IiwidmFsdWUiOiJLUU5qUTU5XC9ON0VsaTRDbU9OWWVKeGdWMGVnZnNLRkhJYkgzbXNvUEhrOD0ifQ==" 
+                title="Formulaire d'inscription Newsletter"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
