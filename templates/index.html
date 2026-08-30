@@ -41,6 +41,22 @@
             background-color: #000; 
             z-index: 10;
         }
+
+              / /* Effet de fondu vers le noir en bas de l'image */
+        .hero-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%; /* Le fondu se fait sur les 30% du bas de l'écran */
+            background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+            z-index: 1;
+            pointer-events: none;
+            
+        }
+
+            
         .hero-container img {
             width: 100%;
             height: 100%;
@@ -56,7 +72,7 @@
             width: 100%;
             background: rgba(0, 0, 0, 0.75); /* Fond global du panneau */
             opacity:92%;
-            padding: 5px 5px 5px 5px;
+            padding: 0px 5px 5px 5px;
             box-sizing: border-box;
             animation: fadeIn 1.5s ease-in-out;
             z-index: 20;
@@ -64,7 +80,23 @@
             justify-content: center; /* Centre le contenu horizontalement */
         }
 
+        /* NOUVEAU : Voile noir en HAUT du panneau pour la fusion */
+        .bottom-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px; /* Hauteur du fondu de raccordement (à ajuster) */
+            /* Dégradé : Noir opaque (en haut) vers Transparent (en bas) */
+            background: linear-gradient(to bottom, #000000 0%, transparent 100%);
+            z-index: -1; /* Derrière le texte, mais devant l'image de fond du body */
+            pointer-events: none;
+        }
+
         .content-wrapper {
+            position: relative; /* Important pour que le contenu soit au-dessus des voiles */
+            z-index: 2;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
@@ -78,7 +110,7 @@
             /* Ombre portée pour détacher le panneau du fond */
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
-
+            
         h1 {
             font-family: "Garamond", serif;
             font-weight: lighter;
