@@ -24,7 +24,7 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/img_1995.jpg');
+            background-image: url('current/whatsapp-image-2023-11-05-a-12.55.28_ce58779b.jpg');
             background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
@@ -151,44 +151,41 @@
             width: 100%;
             margin: 20px 0;
             text-align: center;
+            
         }
-        
         audio {
             width: 90%;
-            height: 45px; /* Hauteur fixe pour uniformité */
+            height: 45px;
             
-            /* 1. FOND GRIS CLAIR OPAQUE */
-            background-color: #d3d3d3; /* Gris clair (LightGray) */
-            background: #d3d3d3;
-            opacity: 1 !important; /* Force l'opacité totale */
+            /* 1. SANS FOND (Transparent) */
+            background-color: transparent !important;
+            background: transparent !important;
             
-            /* 2. CONTRÔLES NOIRS */
-            /* La plupart des navigateurs affichent des contrôles noirs par défaut sur fond clair.
-               On s'assure qu'aucun filtre n'inverse les couleurs. */
-            filter: none !important; 
-            color: #000000; /* Force la couleur du texte/icônes en noir si supporté */
-            
-            /* 3. STYLE ET BORDURES */
-            border-radius: 4px;
-            border: 1px solid #aaaaaa; /* Bordure gris moyen */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        /* Force l'opacité et la couleur pour Chrome/Safari/Edge */
-        audio::-webkit-media-controls-panel {
-            background-color: #d3d3d3 !important;
+            /* 2. OPAQUE (Les contrôles ne doivent pas être fantômes) */
             opacity: 1 !important;
-            filter: none !important;
+            
+            /* 3. ASTUCE DE LISIBILITÉ */
+            /* Ajoute un léger flou derrière le lecteur pour détacher les contrôles de l'image de fond */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+        }       /* Force l'opacité des contrôles internes (Chrome/Safari) */
+        audio::-webkit-media-controls-panel {
+            background-color: transparent !important;
+            opacity: 1 !important;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         audio::-webkit-media-controls-current-time-display,
         audio::-webkit-media-controls-time-remaining-display {
             color: #000000 !important; /* Texte noir */
+            font-weight: bold;
             text-shadow: none !important;
         }
         
         audio::-webkit-media-controls-play-button {
-            filter: none !important;
+             filter: none !important;
         }
 
         /* Bouton Toggle */
@@ -286,7 +283,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/img_1995.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/whatsapp-image-2023-11-05-a-12.55.28_ce58779b.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -304,7 +301,7 @@
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
-                    Cultura secundum imaginationem - la culture comme expérience de pensée - la cultura come esperienza di pensiero
+                    Pratique du ramas, σύμπλεγμα, mélange de choses laissées-là, apparemment isolées les unes des autres, ramasser par terre ce qui est négligé, ce que personne ne fréquente plus. Sur l’amas, le préfixe augmentatif -ra pour l’isolement, récolte d’une chose seule ajoutée au ramas, ramassée avec les autres qui lui sont dissemblables, une chose de la masse. يلمس μάζα - massa, yalmas, en arabe &#34;masse&#34; est de palper, sentir. Des fragments se touchent et font corps. Pratique de l’amalgame, secours du premier sens d’amalgamer : rechercher des équations de mélange, chercher des conditions dans lesquelles pourront être réunis des objets que la théorie n’avait pas su mêler - αμαλγάμα amalgama - issu de moulagma ملغمة μαλάγμα &#34;émollient&#34; pour le médicament fluide, l’adoucissant que les grecs ramenaient de Cyrène. Fusion douce, mélange par le mou, par le fragile, fonte amoureuse d’éléments singuliers, union confuse. Le ramas se ramasse sur lui-même, de l’intérieur, les éléments orphelins du ramas se reconnaissent et font corps. Le monde des choses fragiles, palpables, réelles, nous a été abandonné, et nous l’aimons. Tandis que les humains sont en quête de transcendance, nous nous contentons des poubelles de la réalité, nous ramassons les choses fragiles, l’or dans les poubelles du monde. On peut se plaire à penser que l’or des alchimistes n’était pas une matière à produire, mais un acte auquel se dévouer, celui de mettre à l’épreuve les uns des autres les ferments les plus étrangers, délaissés, et les observer bruire ensemble, l’or n’est que cela.
                 </blockquote>
 
                 <!-- Textes Complets -->
