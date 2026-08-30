@@ -3,21 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription à la Newsletter</title>
+    <title>Newsletter - Les Barques</title>
     <style>
-
+        body {
+            font-family: 'Liberation Sans', Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-container {
+            background-color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        /* Conteneur spécifique pour le script afin d'isoler son impact */
+        .script-wrapper {
+            width: 100%;
+            min-height: 300px; /* Réserve de l'espace pour le formulaire */
+            margin-bottom: 25px; /* Espace garanti entre le formulaire et le texte */
+            position: relative;
+        }
+        .description-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            text-align: center;
+            /* Force l'affichage du texte même si le script modifie le DOM autour */
+            display: block; 
+            opacity: 1; 
+        }
+        .description-text i {
+            font-style: italic;
+            color: #666;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Conteneur pour le formulaire généré par le script -->
-    <div id="container-formulaire" style="margin-bottom: 20px;">
-        <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6IklZSTJQUUppeTQyUzUwMkFQeTFlODU1OHVScit0amlodVJaNk9zbnRSWms9IiwibWFjIjoiMmEwZDg3Y2VjNTA0Y2ViOTk5YzcwMzEwZWVlNWVkNzI2NjFmZWJhMzMwMGM4ZTZkYTg0MzNlZThkZjk1ZTMxMyIsInZhbHVlIjoib05MSzV4SFNMeld5eGFpMjMrSmgrbk52M2tjd2hGVXJJUGFYdGR3UEM3VT0ifQ=="></script>
-    </div>
+    <div class="main-container">
+        
+        <!-- Zone 1 : Le Script (isolé dans sa propre div) -->
+        <div class="script-wrapper">
+            <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6IklZSTJQUUppeTQyUzUwMkFQeTFlODU1OHVScit0amlodVJaNk9zbnRSWms9IiwibWFjIjoiMmEwZDg3Y2VjNTA0Y2ViOTk5YzcwMzEwZWVlNWVkNzI2NjFmZWJhMzMwMGM4ZTZkYTg0MzNlZThkZjk1ZTMxMyIsInZhbHVlIjoib05MSzV4SFNMeld5eGFpMjMrSmgrbk52M2tjd2hGVXJJUGFYdGR3UEM3VT0ifQ=="></script>
+        </div>
 
-    <!-- Conteneur pour votre texte, placé clairement après le script -->
-    <div id="texte-description" style="font-family: sans-serif; color: #333; line-height: 1.5;">
-        <span>Les Barques is a <i>fugi-terranean</i> series of recordings, photographs and writings by l. uberto</span>
+        <!-- Zone 2 : Votre texte (clairement séparé) -->
+        <div class="description-text">
+            <span>Les Barques is a <i>fugi-terranean</i> series of recordings, photographs and writings by l. uberto</span>
+        </div>
+
     </div>
 
 </body>
