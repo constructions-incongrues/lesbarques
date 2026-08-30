@@ -24,7 +24,7 @@
         /* 1. IMAGE DE FOND GLOBALE (Se répète derrière tout le contenu) */
         body {
             /* L'image de fond est appliquée au body pour couvrir tout le scroll */
-            background-image: url('current/r001-001.jpg');
+            background-image: url('current/0070.jpg');
             background-size: cover; /* Un peu plus grand que l'écran */
             background-position: center top;
             background-repeat: no-repeat; /* Ou 'repeat' si vous voulez vraiment un motif, mais pour une photo, no-repeat avec taille ajustée est mieux */
@@ -40,10 +40,9 @@
             /* Cette zone masque le fond défilant en haut pour afficher l'image parfaite fixe */
             background-color: #000; 
             z-index: 10;
-
-            
         }
-              /* Effet de fondu vers le noir en bas de l'image */
+
+              / /* Effet de fondu vers le noir en bas de l'image */
         .hero-container::after {
             content: '';
             position: absolute;
@@ -73,7 +72,7 @@
             width: 100%;
             background: rgba(0, 0, 0, 0.75); /* Fond global du panneau */
             opacity:92%;
-            padding: 5px 5px 5px 5px;
+            padding: 0px 5px 5px 5px;
             box-sizing: border-box;
             animation: fadeIn 1.5s ease-in-out;
             z-index: 20;
@@ -88,7 +87,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 250px; /* Hauteur du fondu de raccordement (à ajuster) */
+            height: 150px; /* Hauteur du fondu de raccordement (à ajuster) */
             /* Dégradé : Noir opaque (en haut) vers Transparent (en bas) */
             background: linear-gradient(to bottom, #000000 0%, transparent 100%);
             z-index: -1; /* Derrière le texte, mais devant l'image de fond du body */
@@ -112,7 +111,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
             
-
         h1 {
             font-family: "Garamond", serif;
             font-weight: lighter;
@@ -257,7 +255,7 @@
 
     <!-- 1. ZONE HERO (Image parfaite fixe en haut) -->
     <div class="hero-container">
-        <img src="current/r001-001.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
+        <img src="current/0070.jpg" alt="Daily Image" onerror="this.style.opacity=0;">
     </div>
 
     <!-- 2. LE PANNEAU (Sur le fond répété) -->
@@ -275,7 +273,7 @@
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
-                    La mancanza non è un punto di partenza, non è un «agente verso» la realtà (Έρως - un «eros»), una modalità della realtà, il suo compimento - πραγματικότητα θα τελειώσει σε έλλειψη - La realtà termina in ellisse. La mancanza non va colmata, ma pensata, praticata, favorita. Favorire una mancanza che non mira all&#39;accumulo ma che ci porta al nostro fine.
+                    On a représenté l’Arche comme un navire, c’est plutôt un coffre - Arca - la caisse qui contient, l’abri. Un conteneur ballotté par les eaux.  η αρχή - L’archè, le commencement. Le coffre d&#39;Epiméthée - on y mélange les espèces connues, chaque nouvelle variation est une émanation des multiples précédentes.
                 </blockquote>
 
                 <!-- Textes Complets -->
