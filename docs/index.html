@@ -40,6 +40,8 @@
             /* Cette zone masque le fond défilant en haut pour afficher l'image parfaite fixe */
             background-color: #000; 
             z-index: 10;
+             -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         }
         .hero-container img {
             width: 100%;
