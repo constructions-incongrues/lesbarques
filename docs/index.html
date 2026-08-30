@@ -40,9 +40,22 @@
             /* Cette zone masque le fond défilant en haut pour afficher l'image parfaite fixe */
             background-color: #000; 
             z-index: 10;
-             -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+
+              /* Effet de fondu vers le noir en bas de l'image */
+        .hero-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%; /* Le fondu se fait sur les 30% du bas de l'écran */
+            background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+            z-index: 1;
+            pointer-events: none;
+            
         }
+
+            
         .hero-container img {
             width: 100%;
             height: 100%;
@@ -58,7 +71,7 @@
             width: 100%;
             background: rgba(0, 0, 0, 0.75); /* Fond global du panneau */
             opacity:92%;
-            padding: 5px 5px 5px 5px;
+            padding: 0px 5px 5px 5px;
             box-sizing: border-box;
             animation: fadeIn 1.5s ease-in-out;
             z-index: 20;
