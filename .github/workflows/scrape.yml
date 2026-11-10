@@ -11,6 +11,10 @@ permissions:
 jobs:
   run-scrape:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        # bash -e -o pipefail : un rclone en échec ne doit plus être avalé par `| tee`
+        shell: bash
 
     steps:
     - name: Checkout repository
@@ -48,6 +52,10 @@ jobs:
     - name: Update manifest
       run: |
         jq -s "{ timestamp: \"$(date +"%Y-%m-%d_%H-%M-%S")\", images: .[0] | map(.Path), texts: .[1].texts, audios: .[2] | map(.Path) }" docs/images.json docs/texts.json docs/audios.json | tee docs/manifest.json
+
+    - name: Refuse an empty manifest
+      run: |
+        jq -e '(.images | length > 0) and (.audios | length > 0) and (.texts | length > 0)' docs/manifest.json
 
     - name: Commit and push changes
       run: |
