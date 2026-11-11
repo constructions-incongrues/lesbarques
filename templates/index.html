@@ -301,7 +301,7 @@
                 <!-- Journal (Sans barre verticale) -->
                 <blockquote>
                     Journal : <span id="datetime" style="font-weight:bold; color:#fff; text-decoration: underline;"> </span> <br>
-                    {{ text }}
+                    {{ text|safe }}{# texts.py échappe tout sauf <em> et <br> #}
                 </blockquote>
 
                 <!-- Textes Complets -->
